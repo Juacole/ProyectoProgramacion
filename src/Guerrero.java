@@ -1,26 +1,68 @@
 import java.util.Random;
 
+/**
+ * Representa una subclase de {@link Personaje} especializada en el combate fisico.
+ * El Guerrero tiene la capacidad de entrar en un estado de furia lo que duplica
+ * temporalmente su ataque, pero tambien incrementa el daño recibido al defenderse.
+ *
+ * @author Joaquin Puchuri Tunjar
+ * @version 1.0
+ */
 public class Guerrero extends Personaje{
     private boolean furia;
 
+    /**
+     * Constructor por defecto que inicializa un Guerrero con los valores predeterminados
+     * de la superclase {@link Personaje} y con el estado de furia desactivado.
+     */
     public Guerrero(){
         super();
         this.furia = false;
     }
 
+    /**
+     * Constructor por parametros que permite inicializar el Guerrero con un nombre y raza
+     * especificos, heredando el resto de estadisticas de la superclase {@link Personaje}.
+     *
+     * @param nombre de tipo String que define el nombre del guerrero.
+     * @param raza de tipo String que define la raza del guerrero.
+     */
     public Guerrero(String nombre, String raza) {
         super(nombre, raza);
         this.furia = false;
     }
 
+    /**
+     * Devuelve el estado de furia del Guerrero.
+     *
+     * @return furia de tipo boolean, true si la furia esta activada, false en caso contrario.
+     */
     public boolean getFuria() {
         return furia;
     }
 
+    /**
+     * Establece el estado de furia del Guerrero.
+     *
+     * @param furia de tipo boolean, true para activar la furia, false para desactivarla.
+     */
     public void setFuria(boolean furia) {
         this.furia = furia;
     }
 
+    /**
+     * Incrementa el nivel del Guerrero y mejora sus estadisticas segun sus ventajas
+     * y penalizaciones especificas. La probabilidad de mejorar cada estadistica
+     * varia segun lo siguiente:
+     *
+     * <ul>
+     *   <li>Ataque: 80% de probabilidad de mejora, incrementando el doble del nivel.</li>
+     *   <li>Armadura: 75% de probabilidad de mejora, incrementando segun el nivel.</li>
+     *   <li>Velocidad: 50% de probabilidad de mejora, incrementando segun el nivel.</li>
+     *   <li>Vida: 75% de probabilidad de mejora, incrementando en un 10%.</li>
+     *   <li>Resistencia Magica: 50% de probabilidad de mejora, incrementando la mitad del nivel.</li>
+     * </ul>
+     */
     public void subirNivel(){
         this.setNivel(getNivel() +1);
         Random random = new Random();
@@ -42,6 +84,13 @@ public class Guerrero extends Personaje{
         }
     }
 
+    /**
+     * Realiza un ataque y devuelve los puntos de ataque del Guerrero.
+     * Si el Guerrero no esta en estado de furia, su ataque es normal.
+     * Si esta en estado de furia, su ataque se duplica.
+     *
+     * @return puntos de ataque del Guerrero en base a su estado de furia.
+     */
     public double Luchar(){
         if(!this.furia){
             return getPuntos_ataque() *2;
@@ -49,6 +98,14 @@ public class Guerrero extends Personaje{
         return getPuntos_ataque();
     }
 
+    /**
+     * Permite al Guerrero defenderse de un ataque, reduciendo su vida o resistencia
+     * segun el tipo de ataque recibido. Si la furia esta activa, el Guerrero recibe
+     * el doble de daño.
+     *
+     * @param tipoAtaque de tipo int, 1 para ataque fisico, 2 para ataque magico.
+     * @param objetivo de tipo String, el nombre del personaje que se defiende.
+     */
     public void defender(int tipoAtaque, String objetivo){
         switch (tipoAtaque){
             case 1:
@@ -71,6 +128,12 @@ public class Guerrero extends Personaje{
         }
     }
 
+    /**
+     * Devuelve una representacion en cadena del Guerrero, incluyendo sus estadisticas
+     * y el estado de furia.
+     *
+     * @return cadena de texto con la informacion del Guerrero.
+     */
     public String toString() {
         return super.toString() + "\nEstado de la furia: " + getFuria();
     }

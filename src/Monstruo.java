@@ -1,19 +1,64 @@
-public class Monstruo extends Personaje{
 
-    public Monstruo(){
+/**
+ * La clase Monstruo es una subclase de {@link Personaje} que representa a un monstruo,
+ * un tipo de Personaje enemigo cuya estadísticas varían en función de su raza (tipo de monstruo).
+ * Los monstruos tienen diferentes ventajas y desventajas según su tipo (Bestia, No-muerto o Gigante).
+ *
+ * @author Joaquin Puchuri Tunjar
+ * @version 1.0
+ */
+public class Monstruo extends Personaje {
+
+    /**
+     * Constructor por defecto que inicializa un nuevo Monstruo con la raza "bestia".
+     * Utiliza el constructor de la superclase {@link Personaje}.
+     */
+    public Monstruo() {
         super();
         setRaza("bestia");
     }
 
-    public Monstruo(String nombre, String raza){
-        super(nombre,raza);
+    /**
+     * Constructor que inicializa un nuevo Monstruo con el nombre y la raza especificados.
+     * Utiliza el constructor de la superclase {@link Personaje}.
+     *
+     * @param nombre el nombre del Monstruo.
+     * @param raza   la raza del Monstruo.
+     */
+    public Monstruo(String nombre, String raza) {
+        super(nombre, raza);
         setRaza();
     }
 
-    public String getNombre(){
-        return super.getNombre();
-    }
-
+    /**
+     * Método que establece las estadísticas del Monstruo según su raza. Dependiendo
+     * de la raza del Monstruo (Bestia, No-muerto o Gigante), las estadísticas se
+     * ajustan. Las razas y sus estadísticas son las siguientes:
+     * <ol>
+     *   <li>Bestia:
+     *       <ul>
+     *           <li>El doble de su nivel en ataque y velocidad.</li>
+     *           <li>La misma cantidad de puntos de vida que su nivel.</li>
+     *           <li>La mitad de su nivel en armadura y resistencia mágica.</li>
+     *       </ul>
+     *   </li>
+     *   <li>No-muerto:
+     *       <ul>
+     *           <li>Cuatro veces su nivel en resistencia mágica.</li>
+     *           <li>El mismo valor de su nivel en ataque.</li>
+     *           <li>La mitad de su nivel en vida y armadura.</li>
+     *           <li>Un cuarto de su nivel en velocidad.</li>
+     *       </ul>
+     *   </li>
+     *   <li>Gigante:
+     *       <ul>
+     *           <li>Cuatro veces su nivel en vida y ataque.</li>
+     *           <li>La misma cantidad de su nivel en armadura.</li>
+     *           <li>Un cuarto de su nivel en velocidad y resistencia mágica.</li>
+     *       </ul>
+     *   </li>
+     * </ol>
+     */
     public void setRaza(){
         switch (getRaza().toLowerCase().replace(" ","")){
             case "bestia":
@@ -48,6 +93,11 @@ public class Monstruo extends Personaje{
         }
     }
 
+    /**
+     * Devuelve una representacion en cadena del estado actual Mosntruo.
+     *
+     * @return una cadena de texto que representa al Monstruo.
+     */
     public String toString(){
         return super.toString();
     }

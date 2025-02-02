@@ -1,5 +1,30 @@
+
+/**
+ * La clase COmbate representa un combate entre dos personajes. Este combate se resuelve
+ * mediante un enfrentamiento en el que los dos personajes infligen daño por turnos hasta que uno de ellos
+ * tenga sus puntos de vida reducidos a cero, momento en el que se considera derrotado. El combate se basa
+ * en las siguientes reglas:
+ * <ul>
+ *   <li>Los personajes se infligen daño por turnos, y cada uno ataca dependiendo de su velocidad.</li>
+ *   <li>El personaje con mayor velocidad ataca primero. Si un personaje tiene el doble de velocidad que el otro, ataca dos veces consecutivas.</li>
+ *   <li>Los ataques se calculan usando el método luchar de cada personaje.</li>
+ *   <li>El primer personaje en reducir los puntos de vida del oponente a cero es declarado vencedor.</li>
+ *   <li>Se imprime un registro detallado de cada turno del combate.</li>
+ * </ul>
+ *
+ * @author Joaquin Puchuri Tunjar
+ * @version 1.0
+ */
 public final class Combate {
 
+    /**
+     * Inicia el combate entre dos personajes, y los personajes se atacarán según
+     * su velocidad, y el combate continuará hasta que uno de los personajes tenga
+     * cero puntos de vida.
+     *
+     * @param pepe1 el primer personaje que participa en el combate.
+     * @param pepe2 el segundo personaje que participa en el combate.
+     */
     public static void iniciarCombate(Personaje pepe1, Personaje pepe2) {
         if (pepe1.getPuntos_vida() > 0 && pepe2.getPuntos_vida() > 0) {
             System.out.println("\nEn un mundo donde solo los más fuertes sobreviven...");

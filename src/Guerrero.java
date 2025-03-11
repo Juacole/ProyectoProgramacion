@@ -6,7 +6,7 @@ import java.util.Random;
  * temporalmente su ataque, pero tambien incrementa el daño recibido al defenderse.
  *
  * @author Joaquin Puchuri Tunjar
- * @version 1.0
+ * @version 1.0.1
  */
 public class Guerrero extends Personaje{
     private boolean furia;
@@ -91,7 +91,7 @@ public class Guerrero extends Personaje{
      *
      * @return puntos de ataque del Guerrero en base a su estado de furia.
      */
-    public double Luchar(){
+    public int Luchar(){
         if(!this.furia){
             return getPuntos_ataque() *2;
         }
@@ -110,16 +110,16 @@ public class Guerrero extends Personaje{
         switch (tipoAtaque){
             case 1:
                 if(furia == true){
-                    setPuntos_vida(getPuntos_vida() - (getPuntos_armadura() - luchar()));
+                    setPuntos_vida((int) (getPuntos_vida() - (getPuntos_armadura() - luchar())));
                 } else{
-                    setPuntos_vida(getPuntos_vida() - (getPuntos_armadura() - luchar()));
+                    setPuntos_vida((int) (getPuntos_vida() - (getPuntos_armadura() - luchar())));
                 }
                 break;
             case 2:
                 if(furia == true){
-                    setResistencia_magica(getPuntos_vida() - (getResistencia_magica() - luchar()));
+                    setResistencia_magica((int) (getPuntos_vida() - (getResistencia_magica() - luchar())));
                 } else{
-                    setResistencia_magica(getPuntos_vida() - (getResistencia_magica() - luchar()));
+                    setResistencia_magica((int) (getPuntos_vida() - (getResistencia_magica() - luchar())));
                 }
                 break;
             default:

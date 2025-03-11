@@ -4,19 +4,19 @@
  * nuevos comportamientos y cambios en sus estadisticas basicas de acuerdo a su categoria.
  *
  * @author Joaquin Puchuri Tunjar
- * @version 1.0
+ * @version 1.0.1
  * */
 import java.util.Random;
 
 public abstract class Personaje {
     private String nombre;
     private String raza;
-    private double nivel;
-    private double puntos_vida;
-    private double puntos_ataque;
-    private double puntos_velocidad;
-    private double puntos_armadura;
-    private double resistencia_magica;
+    private int nivel;
+    private int puntos_vida;
+    private int puntos_ataque;
+    private int puntos_velocidad;
+    private int puntos_armadura;
+    private int resistencia_magica;
     private boolean estado;
 
     /**
@@ -76,7 +76,7 @@ public abstract class Personaje {
      *
      * @return sitio_web de tipo double.
      * */
-    public double getNivel() {
+    public int getNivel() {
         return nivel;
     }
 
@@ -85,7 +85,7 @@ public abstract class Personaje {
      *
      * @return puntos_vida de tipo double.
      * */
-    public double getPuntos_vida() {
+    public int getPuntos_vida() {
         return puntos_vida;
     }
 
@@ -94,7 +94,7 @@ public abstract class Personaje {
      *
      * @return puntos_ataque de tipo double.
      * */
-    public double getPuntos_ataque() {
+    public int getPuntos_ataque() {
         return puntos_ataque;
     }
 
@@ -103,7 +103,7 @@ public abstract class Personaje {
      *
      * @return puntos_velocidad de tipo double.
      * */
-    public double getPuntos_velocidad() {
+    public int getPuntos_velocidad() {
         return puntos_velocidad;
     }
 
@@ -112,7 +112,7 @@ public abstract class Personaje {
      *
      * @return puntos_armadura de tipo double.
      * */
-    public double getPuntos_armadura() {
+    public int getPuntos_armadura() {
         return puntos_armadura;
     }
 
@@ -121,7 +121,7 @@ public abstract class Personaje {
      *
      * @return resistencia_magica de tipo double.
      * */
-    public double getResistencia_magica() {
+    public int getResistencia_magica() {
         return resistencia_magica;
     }
 
@@ -131,11 +131,11 @@ public abstract class Personaje {
      *
      * @return estado de tipo boolean.
      * */
-    public boolean isEstado() {
+    public String isEstado() {
         if (this.estado == false){
-            return false;
+            return "muerto";
         }
-        return true;
+        return "vivo";
     }
 
     /**
@@ -152,7 +152,7 @@ public abstract class Personaje {
      *
      * @param nivel del personaje.
      */
-    public void setNivel(double nivel) {
+    public void setNivel(int nivel) {
         this.nivel = nivel;
     }
 
@@ -161,7 +161,7 @@ public abstract class Personaje {
      *
      * @param puntos_vida del personaje.
      */
-    public void setPuntos_vida(double puntos_vida) {
+    public void setPuntos_vida(int puntos_vida) {
         this.puntos_vida = puntos_vida;
     }
 
@@ -170,7 +170,7 @@ public abstract class Personaje {
      *
      * @param puntos_ataque del personaje.
      */
-    public void setPuntos_ataque(double puntos_ataque) {
+    public void setPuntos_ataque(int puntos_ataque) {
         this.puntos_ataque = puntos_ataque;
     }
 
@@ -179,7 +179,7 @@ public abstract class Personaje {
      *
      * @param puntos_velocidad del personaje.
      */
-    public void setPuntos_velocidad(double puntos_velocidad) {
+    public void setPuntos_velocidad(int puntos_velocidad) {
         this.puntos_velocidad = puntos_velocidad;
     }
 
@@ -188,7 +188,7 @@ public abstract class Personaje {
      *
      * @param resistencia_magica del personaje.
      */
-    public void setResistencia_magica(double resistencia_magica) {
+    public void setResistencia_magica(int resistencia_magica) {
         this.resistencia_magica = resistencia_magica;
     }
 
@@ -197,7 +197,7 @@ public abstract class Personaje {
      *
      * @param puntos_armadura del personaje.
      */
-    public void setPuntos_armadura(double puntos_armadura) {
+    public void setPuntos_armadura(int puntos_armadura) {
         this.puntos_armadura = puntos_armadura;
     }
 
@@ -268,7 +268,7 @@ public abstract class Personaje {
      *
      * @return puntos de ataque del personaje.
      */
-    public double luchar(){
+    public int luchar(){
         return getPuntos_ataque();
     }
 
@@ -300,14 +300,17 @@ public abstract class Personaje {
      * @return cadena de texto con el resumen del personaje.
      */
     public String toString(){
-        return "A continuacion se muestra un resumen del personaje actual."
-                + "\nNombre: " + getNombre()
-                + "\nRaza: " + getRaza()
-                + "\nNivel: " + getNivel()
-                + "\nPuntos de vida: " + getPuntos_vida()
-                + "\nPuntos de ataque: " + getPuntos_ataque()
-                + "\nPuntos de armadura: " + getPuntos_armadura()
-                + "\nPuntos de velocidad: " + getPuntos_velocidad()
-                + "\nResistencia magica: " + getResistencia_magica();
+        return "Ficha del " + getClass().getSimpleName() + " " + getNombre() + "."
+                + "\nNombre: " + getNombre() + "."
+                + "\nClase: " + getClass().getSimpleName() + "."
+                + "\nRaza: " + getRaza() + ".\n"
+                + "\nNivel: " + getNivel() + "."
+                + "\nVida: " + getPuntos_vida() + "."
+                + "\nAtaque: " + getPuntos_ataque() + "."
+                + "\nVelocidad: " + getPuntos_velocidad() + "."
+                + "\nArmadura: " + getPuntos_armadura() + "."
+                + "\nResistencia magica: " + getResistencia_magica() + ".\n"
+                + "\n"
+                + "Esta actualmente: " + isEstado() + ".";
     }
 }

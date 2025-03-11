@@ -1,16 +1,16 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
         Guerrero guerrero = new Guerrero("Thrall", "Orco");
         Mago mago = new Mago("Jaina", "Humano");
-
-        for (int i=0; i<15; i++){
-            mago.subirNivel();
-        }
-        for(int i=0; i<5; i++){
+        Cazador cazador = new Cazador("Cazador","Orco","rapaz");
+        /*for(int i = 0; i < 2; i++){
             guerrero.subirNivel();
         }
-        Combate.iniciarCombate(guerrero,mago);
+        for(int i = 0; i < 10; i++){
+            mago.subirNivel();
+        }*/
+        //Combate.iniciarCombate(guerrero,mago);
+        //System.out.println(cazador.toString());
+        System.out.println(guerrero.toString());
     }
 }

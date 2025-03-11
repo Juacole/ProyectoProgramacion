@@ -5,7 +5,7 @@
  * en su cantidad de fe, lo que afecta a su destreza y habilidades en combate.
  *
  * @author Joaquin Puchuri Tunjar
- * @version 1.0
+ * @version 1.0.1
  */
 public abstract class Creyente extends Personaje {
     public int fe;

@@ -5,7 +5,7 @@ import java.util.Random;
  * que comparte atributos y ayuda en el combate, sumando su poder de ataque al del Cazador.
  *
  * @author Joaquin Puchuri Tunjar
- * @version 1.0
+ * @version 1.0.1
  */
 public class Cazador extends Personaje{
 
@@ -48,7 +48,7 @@ public class Cazador extends Personaje{
      */
     public void subirNivel(){
         setNivel(getNivel() +1);
-        setPuntos_vida(getPuntos_vida()*1.1);
+        setPuntos_vida((int) (getPuntos_vida()*1.1));
 
         Random random = new Random();
         if(random.nextDouble() <= 0.5){
@@ -72,7 +72,7 @@ public class Cazador extends Personaje{
      *
      * @return el valor total del ataque del Cazador y su compañero animal.
      */
-    public double luchar(){
+    public int luchar(){
         return getPuntos_ataque() + mascota.getPuntos_ataque();
     }
 
@@ -83,7 +83,7 @@ public class Cazador extends Personaje{
      * @return cadena de texto con la información del Cazador y su mascota.
      */
     public String toString(){
-        return super.toString() + mascota.toString();
+        return super.toString() + "\n" + mascota.toString();
     }
 
     /**
@@ -102,6 +102,7 @@ public class Cazador extends Personaje{
          */
         public Mascota(){
             super();
+            setRaza();
         }
 
         /**
@@ -111,6 +112,7 @@ public class Cazador extends Personaje{
          */
         public Mascota(String raza){
             super("Compañero animal", raza);
+            setRaza();
         }
 
         /**
@@ -147,12 +149,13 @@ public class Cazador extends Personaje{
          * del Cazador.
          */
         private void Canido(){
+            setRaza("canido");
              setNivel(getNivel()+1);
-             setPuntos_vida(Cazador.this.getPuntos_vida()*1.1);
-             setPuntos_ataque(Cazador.this.getPuntos_ataque()*0.2);
-             setPuntos_armadura(Cazador.this.getPuntos_armadura()*0.2);
-             setPuntos_velocidad(Cazador.this.getPuntos_velocidad()*0.2);
-             setResistencia_magica(Cazador.this.getResistencia_magica()*0.2);
+             setPuntos_vida((int) (Cazador.this.getPuntos_vida()*1.1));
+             setPuntos_ataque((int) (Cazador.this.getPuntos_ataque()*0.2));
+             setPuntos_armadura((int) (Cazador.this.getPuntos_armadura()*0.2));
+             setPuntos_velocidad((int) (Cazador.this.getPuntos_velocidad()*0.2));
+             setResistencia_magica((int) (Cazador.this.getResistencia_magica()*0.2));
         }
 
         /**
@@ -160,12 +163,13 @@ public class Cazador extends Personaje{
          * velocidad, y 15% de los demás atributos del Cazador.
          */
         private void Felino(){
+            setRaza("felino");
             setNivel(getNivel()+1);
-            setPuntos_vida(Cazador.this.getPuntos_vida()*1.1);
-            setPuntos_ataque(Cazador.this.getPuntos_ataque()*0.3);
-            setPuntos_armadura(Cazador.this.getPuntos_armadura()*0.15);
-            setPuntos_velocidad(Cazador.this.getPuntos_velocidad()*0.3);
-            setResistencia_magica(Cazador.this.getResistencia_magica()*0.15);
+            setPuntos_vida((int) (Cazador.this.getPuntos_vida()*1.1));
+            setPuntos_ataque((int) (Cazador.this.getPuntos_ataque()*0.3));
+            setPuntos_armadura((int) (Cazador.this.getPuntos_armadura()*0.15));
+            setPuntos_velocidad((int) (Cazador.this.getPuntos_velocidad()*0.3));
+            setResistencia_magica((int) (Cazador.this.getResistencia_magica()*0.15));
         }
 
         /**
@@ -173,12 +177,13 @@ public class Cazador extends Personaje{
          * 25% de resistencia mágica, 15% de ataque, y 5% de vida y armadura.
          */
         private void Rapaz(){
+            setRaza("rapaz");
             setNivel(getNivel()+1);
-            setPuntos_vida(Cazador.this.getPuntos_vida()*0.5);
-            setPuntos_ataque(Cazador.this.getPuntos_ataque()*0.15);
-            setPuntos_armadura(Cazador.this.getPuntos_armadura()*0.5);
-            setPuntos_velocidad(Cazador.this.getPuntos_velocidad()*0.35);
-            setResistencia_magica(Cazador.this.getResistencia_magica()*0.25);
+            setPuntos_vida((int) (Cazador.this.getPuntos_vida()*0.5));
+            setPuntos_ataque((int) (Cazador.this.getPuntos_ataque()*0.15));
+            setPuntos_armadura((int) (Cazador.this.getPuntos_armadura()*0.5));
+            setPuntos_velocidad((int) (Cazador.this.getPuntos_velocidad()*0.35));
+            setResistencia_magica((int) (Cazador.this.getResistencia_magica()*0.25));
         }
 
         /**

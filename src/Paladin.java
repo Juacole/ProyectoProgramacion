@@ -6,7 +6,7 @@ import java.util.Random;
  * para realizar milagros, tiene ventajas en su armadura, vida, y ataque.
  *
  * @author Joaquin Puchuri Tunjar
- * @version 1.0
+ * @version 1.0.1
  */
 public class Paladin extends Creyente{
 
@@ -48,7 +48,7 @@ public class Paladin extends Creyente{
             setPuntos_armadura(getPuntos_armadura() + (getNivel()*2));
         }
         if(random.nextDouble() < 0.5){
-            setPuntos_vida(getPuntos_vida() + (1.1 + (1.1*0.05)));
+            setPuntos_vida((int) (getPuntos_vida() + (1.1 + (1.1*0.05))));
         }
         if(random.nextDouble() < 0.6){
             setPuntos_ataque(getPuntos_ataque() + getNivel());
@@ -77,7 +77,7 @@ public class Paladin extends Creyente{
 
             case 2:
                 System.out.println("¡BALUARTE DE FE!");
-                setPuntos_armadura(getPuntos_armadura() + (getFe()*0.3));
+                setPuntos_armadura((int) (getPuntos_armadura() + (getFe()*0.3)));
                 break;
 
             default:

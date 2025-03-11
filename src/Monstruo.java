@@ -5,7 +5,7 @@
  * Los monstruos tienen diferentes ventajas y desventajas según su tipo (Bestia, No-muerto o Gigante).
  *
  * @author Joaquin Puchuri Tunjar
- * @version 1.0
+ * @version 1.0.1
  */
 public class Monstruo extends Personaje {
 

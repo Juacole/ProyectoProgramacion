@@ -6,10 +6,10 @@ import java.util.Random;
  * y tiene diferentes probabilidades de mejora en sus estadisticas al subir de nivel.
  *
  * @author Joaquin Puchuri Tunjar
- * @version 1.0
+ * @version 1.0.1
  */
 public class Mago extends Personaje{
-    private double puntos_magia;
+    private int puntos_magia;
 
     /**
      * Constructor por defecto que inicializa un Mago con los valores
@@ -38,8 +38,8 @@ public class Mago extends Personaje{
      *
      * @return puntos_magia de tipo double.
      */
-    public double getPuntos_magia() {
-        return puntos_magia;
+    public int getPuntos_magia() {
+        return this.puntos_magia;
     }
 
     /**
@@ -47,8 +47,17 @@ public class Mago extends Personaje{
      *
      * @param puntos_magia de tipo double, nuevos puntos de magia del Mago.
      */
-    public void setPuntos_magia(double puntos_magia) {
+    public void setPuntos_magia(int puntos_magia) {
         this.puntos_magia = puntos_magia;
+    }
+
+    /**
+     * Realiza un ataque y devuelve los puntos de ataque del personaje.
+     *
+     * @return puntos de ataque del personaje.
+     */
+    public int luchar(){
+        return getPuntos_ataque();
     }
 
     /**
@@ -57,11 +66,11 @@ public class Mago extends Personaje{
      * @param hechizo de tipo int, determina el tipo de hechizo a utilizar.
      * @return cantidad de dano infligido de tipo double.
      */
-    public double luchar(int hechizo){
+    public int luchar(int hechizo){
         if(hechizo == 1)
-            return this.puntos_magia * 0.7;
+            return (int) (this.puntos_magia * 0.7);
         else if(hechizo == 3)
-            return this.puntos_magia * 0.3;
+            return (int) (this.puntos_magia * 0.3);
         else
             return this.puntos_magia;
     }
@@ -92,7 +101,7 @@ public class Mago extends Personaje{
             setPuntos_velocidad(getPuntos_velocidad() + getNivel());
         }
         if(random.nextDouble() < 0.35){
-            setPuntos_vida((getPuntos_vida() + (getPuntos_vida() * 0.5)));
+            setPuntos_vida((int) (getPuntos_vida() + (getPuntos_vida() * 0.5)));
         }
         if(random.nextDouble() < 0.8){
             setResistencia_magica(getResistencia_magica() + getNivel());
@@ -147,11 +156,11 @@ public class Mago extends Personaje{
      */
     public void apoyar(int hechizo, String objetivo){
         if(hechizo == 2){
-            setPuntos_armadura(getPuntos_magia()*0.5);
-            setResistencia_magica(getPuntos_magia()*0.5);
+            setPuntos_armadura((int) (getPuntos_magia()*0.5));
+            setResistencia_magica((int) (getPuntos_magia()*0.5));
         }
         if(hechizo == 4){
-            setPuntos_velocidad(getPuntos_magia()*2);
+            setPuntos_velocidad((int) (getPuntos_magia()*2));
         }
     }
 

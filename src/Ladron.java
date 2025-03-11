@@ -6,7 +6,7 @@ import java.util.Random;
  * en combate.
  *
  * @author Joaquin Puchuri Tunjar
- * @version 1.0
+ * @version 1.0.1
  */
 public class Ladron extends Personaje{
 
@@ -65,7 +65,7 @@ public class Ladron extends Personaje{
             setPuntos_velocidad(getPuntos_velocidad() *2);
         }
         if(random.nextDouble() < 0.40){
-            setPuntos_vida((getPuntos_vida() + (getPuntos_vida() * 1.1)));
+            setPuntos_vida((int) (getPuntos_vida() + (getPuntos_vida() * 1.1)));
         }
         if(random.nextDouble() < 0.40){
             setResistencia_magica(getResistencia_magica() + getNivel());

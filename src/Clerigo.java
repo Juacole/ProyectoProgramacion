@@ -7,7 +7,7 @@ import java.util.Random;
  * defensa son limitadas.
  *
  * @author Joaquin Puchuri Tunjar
- * @version 1.0
+ * @version 1.0.1
  */
 public class Clerigo extends Creyente{
 
@@ -45,10 +45,10 @@ public class Clerigo extends Creyente{
         Random random = new Random();
 
         if(random.nextDouble() < 0.8){
-            setFe(getFe() + ((int) getNivel()*2));
+            setFe(getFe() + (getNivel()*2));
         }
         if(random.nextDouble() < 0.8){
-            setResistencia_magica(getResistencia_magica() + ((int) getNivel()*2));
+            setResistencia_magica(getResistencia_magica() + (getNivel()*2));
         }
         if(random.nextDouble() < 0.2){
             setPuntos_vida(getPuntos_vida() + (getNivel()/2));
@@ -89,15 +89,24 @@ public class Clerigo extends Creyente{
     }
 
     /**
+     * Realiza un ataque y devuelve los puntos de ataque del personaje.
+     *
+     * @return puntos de ataque del personaje.
+     */
+    public int luchar(){
+        return getPuntos_ataque();
+    }
+
+    /**
      * Sobrecarga el método luchar para que el Clérigo pueda realizar un
      * ataque utilizando sus puntos de fe dependiendo del tipo de milagro.
      *
      * @param tipoMilagro el tipo de milagro que se va a realizar.
      * @return el valor del daño causado por el milagro, o los puntos de ataque.
      */
-    public double luchar(int tipoMilagro){
+    public int luchar(int tipoMilagro){
         if(tipoMilagro == 3)
-            return getFe() * 0.55;
+            return (int) (getFe() * 0.55);
         return getPuntos_ataque();
     }
 
@@ -110,13 +119,12 @@ public class Clerigo extends Creyente{
      */
     public void apoyar(int hechizo, String objetivo){
         if(hechizo == 1){
-            setPuntos_vida(getFe() * 0.7);
+            setPuntos_vida((int) (getFe() * 0.7));
         }
         if(hechizo == 2){
-            setPuntos_vida(getFe() * 0.7);
+            setPuntos_vida((int) (getFe() * 0.7));
         }
     }
-
 
     /**
      * Devuelve una representacion en cadena del estado actual del Clerigo.

@@ -6,7 +6,7 @@ import java.util.Random;
  * en combate.
  *
  * @author Joaquin Puchuri Tunjar
- * @version 1.0.1
+ * @version 1.1.1
  */
 public class Ladron extends Personaje{
 
@@ -27,6 +27,15 @@ public class Ladron extends Personaje{
      */
     public Ladron(String nombre, String raza) {
         super(nombre, raza);
+    }
+
+    /**
+     * Constructor de copia que permite inicializar un objeto a partir de otro ya existente.
+     *
+     * @param copia objeto de tipo Ladron.
+     */
+    public Ladron(Ladron copia){
+        super(copia);
     }
 
     /**

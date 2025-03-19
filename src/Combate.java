@@ -1,4 +1,3 @@
-
 /**
  * La clase COmbate representa un combate entre dos personajes. Este combate se resuelve
  * mediante un enfrentamiento en el que los dos personajes infligen daño por turnos hasta que uno de ellos

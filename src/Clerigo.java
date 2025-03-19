@@ -7,7 +7,7 @@ import java.util.Random;
  * defensa son limitadas.
  *
  * @author Joaquin Puchuri Tunjar
- * @version 1.0.1
+ * @version 1.1.1
  */
 public class Clerigo extends Creyente{
 
@@ -25,10 +25,18 @@ public class Clerigo extends Creyente{
      *
      * @param nombre el nombre del Clerigo.
      * @param raza la raza del Clerigo.
-     * @param fe los puntos de fe del Clerigo.
      */
-    public Clerigo(String nombre, String raza, int fe){
-        super(nombre,raza,fe);
+    public Clerigo(String nombre, String raza){
+        super(nombre,raza);
+    }
+
+    /**
+     * Constructor de copia que permite inicializar un objeto a partir de otro ya existente.
+     *
+     * @param copia objeto de tipo Clerigo.
+     */
+    public Clerigo(Clerigo copia){
+        super(copia);
     }
 
     /**

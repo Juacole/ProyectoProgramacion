@@ -5,7 +5,7 @@
  * en su cantidad de fe, lo que afecta a su destreza y habilidades en combate.
  *
  * @author Joaquin Puchuri Tunjar
- * @version 1.0.1
+ * @version 1.1.1
  */
 public abstract class Creyente extends Personaje {
     public int fe;
@@ -24,11 +24,20 @@ public abstract class Creyente extends Personaje {
      *
      * @param nombre de tipo String que define el nombre del Creyente.
      * @param raza de tipo String que define la raza del Creyente.
-     * @param fe de tipo int que define la cantidad de fe del Creyente.
      */
-    public Creyente(String nombre, String raza, int fe){
+    public Creyente(String nombre, String raza){
         super(nombre, raza);
-        this.fe = fe;
+        this.fe = 10;
+    }
+
+    /**
+     * Constructor de copia que permite inicializar un objeto a partir de otro ya existente.
+     *
+     * @param copia objeto de tipo Creyente.
+     */
+    public Creyente(Creyente copia){
+        super(copia);
+        this.fe = copia.fe;
     }
 
     /**

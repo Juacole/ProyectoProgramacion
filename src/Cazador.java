@@ -5,7 +5,7 @@ import java.util.Random;
  * que comparte atributos y ayuda en el combate, sumando su poder de ataque al del Cazador.
  *
  * @author Joaquin Puchuri Tunjar
- * @version 1.0.1
+ * @version 1.1.1
  */
 public class Cazador extends Personaje{
 
@@ -32,6 +32,15 @@ public class Cazador extends Personaje{
     public Cazador(String nombre, String raza, String razaAnimal){
         super(nombre,raza);
         this.mascota = new Mascota(razaAnimal);
+    }
+
+    /**
+     * Constructor de copia que permite inicializar un objeto a partir de otro ya existente.
+     *
+     * @param copia objeto de tipo Cazador.
+     */
+    public Cazador(Cazador copia){
+        super(copia);
     }
 
     /**
@@ -92,7 +101,7 @@ public class Cazador extends Personaje{
      * pero tiene sus propios valores ajustados según su raza.
      *
      * @author Joaquin Puchuri Tunjar
-     * @version 1.0
+     * @version 1.1
      */
     public class Mascota extends Personaje{
 
@@ -112,6 +121,16 @@ public class Cazador extends Personaje{
          */
         public Mascota(String raza){
             super("Compañero animal", raza);
+            setRaza();
+        }
+
+        /**
+         * Constructor de copia que permite inicializar un objeto a partir de otro ya existente.
+         *
+         * @param copia objeto de tipo Guerrero.
+         */
+        public Mascota(Mascota copia){
+            super(copia);
             setRaza();
         }
 

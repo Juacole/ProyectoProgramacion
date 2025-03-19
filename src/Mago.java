@@ -6,7 +6,7 @@ import java.util.Random;
  * y tiene diferentes probabilidades de mejora en sus estadisticas al subir de nivel.
  *
  * @author Joaquin Puchuri Tunjar
- * @version 1.0.1
+ * @version 1.1.1
  */
 public class Mago extends Personaje{
     private int puntos_magia;
@@ -31,6 +31,16 @@ public class Mago extends Personaje{
     public Mago(String nombre, String raza) {
         super(nombre, raza);
         setPuntos_magia(10);
+    }
+
+    /**
+     * Constructor de copia que permite inicializar un objeto a partir de otro ya existente.
+     *
+     * @param copia objeto de tipo Mago.
+     */
+    public Mago(Mago copia){
+        super();
+        this.puntos_magia = copia.puntos_magia;
     }
 
     /**

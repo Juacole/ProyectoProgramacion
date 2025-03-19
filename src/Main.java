@@ -3,14 +3,18 @@ public class Main {
         Guerrero guerrero = new Guerrero("Thrall", "Orco");
         Mago mago = new Mago("Jaina", "Humano");
         Cazador cazador = new Cazador("Cazador","Orco","rapaz");
-        /*for(int i = 0; i < 2; i++){
+        Paladin paladin = new Paladin("Pedro", "Venezolano");
+        Ladron ladron = new Ladron("Cristorata", "Chileno");
+        Monstruo monstruo = new Monstruo("Benito", "Bestia");
+        for(int i = 0; i < 20; i++){
             guerrero.subirNivel();
-        }
-        for(int i = 0; i < 10; i++){
             mago.subirNivel();
-        }*/
-        //Combate.iniciarCombate(guerrero,mago);
-        //System.out.println(cazador.toString());
-        System.out.println(guerrero.toString());
+            cazador.subirNivel();
+            paladin.subirNivel();
+            ladron.subirNivel();
+            monstruo.subirNivel();
+        }
+        Personaje[] personajes = {mago,guerrero,cazador,paladin,ladron,monstruo};
+        GameLogger.party(personajes);
     }
 }

@@ -5,7 +5,7 @@
  * Los monstruos tienen diferentes ventajas y desventajas según su tipo (Bestia, No-muerto o Gigante).
  *
  * @author Joaquin Puchuri Tunjar
- * @version 1.0.1
+ * @version 1.1.1
  */
 public class Monstruo extends Personaje {
 
@@ -28,6 +28,15 @@ public class Monstruo extends Personaje {
     public Monstruo(String nombre, String raza) {
         super(nombre, raza);
         setRaza();
+    }
+
+    /**
+     * Constructor de copia que permite inicializar un objeto a partir de otro ya existente.
+     *
+     * @param copia objeto de tipo Guerrero.
+     */
+    public Monstruo(Monstruo copia){
+        super(copia);
     }
 
     /**

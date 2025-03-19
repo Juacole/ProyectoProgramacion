@@ -6,7 +6,7 @@ import java.util.Random;
  * temporalmente su ataque, pero tambien incrementa el daño recibido al defenderse.
  *
  * @author Joaquin Puchuri Tunjar
- * @version 1.0.1
+ * @version 1.1.1
  */
 public class Guerrero extends Personaje{
     private boolean furia;
@@ -30,6 +30,16 @@ public class Guerrero extends Personaje{
     public Guerrero(String nombre, String raza) {
         super(nombre, raza);
         this.furia = false;
+    }
+
+    /**
+     * Constructor de copia que permite inicializar un objeto a partir de otro ya existente.
+     *
+     * @param copia objeto de tipo Guerrero.
+     */
+    public Guerrero(Guerrero copia){
+        super();
+        this.furia = copia.furia;
     }
 
     /**

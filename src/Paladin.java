@@ -6,7 +6,7 @@ import java.util.Random;
  * para realizar milagros, tiene ventajas en su armadura, vida, y ataque.
  *
  * @author Joaquin Puchuri Tunjar
- * @version 1.0.1
+ * @version 1.1.1
  */
 public class Paladin extends Creyente{
 
@@ -23,10 +23,18 @@ public class Paladin extends Creyente{
      *
      * @param nombre de tipo String que define el nombre del Paladin.
      * @param raza de tipo String que define la raza del Paladin.
-     * @param fe de tipo int que define la cantidad de fe del Paladin.
      */
-    public Paladin(String nombre, String raza, int fe) {
-        super(nombre, raza, fe);
+    public Paladin(String nombre, String raza) {
+        super(nombre, raza);
+    }
+
+    /**
+     * Constructor de copia que permite inicializar un objeto a partir de otro ya existente.
+     *
+     * @param copia objeto de tipo Paladin.
+     */
+    public Paladin(Paladin copia){
+        super(copia);
     }
 
     /**

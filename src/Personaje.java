@@ -4,7 +4,7 @@
  * nuevos comportamientos y cambios en sus estadisticas basicas de acuerdo a su categoria.
  *
  * @author Joaquin Puchuri Tunjar
- * @version 1.0.1
+ * @version 1.1.1
  * */
 import java.util.Random;
 
@@ -51,6 +51,23 @@ public abstract class Personaje {
         this.puntos_armadura=10;
         this.resistencia_magica=10;
         this.estado=true;
+    }
+
+    /**
+     * Constructor de copia que permite inicializar un objeto a partir de otro ya existente.
+     *
+     * @param copia objeto de tipo Personaje.
+     */
+    public Personaje(Personaje copia){
+        this.nombre=copia.nombre;
+        this.raza=copia.raza;
+        this.nivel=copia.nivel;
+        this.puntos_vida=copia.puntos_vida;
+        this.puntos_ataque=copia.puntos_ataque;
+        this.puntos_velocidad=copia.puntos_velocidad;
+        this.puntos_armadura=copia.puntos_armadura;
+        this.resistencia_magica=copia.resistencia_magica;
+        this.estado=copia.estado;
     }
 
     /**
@@ -131,10 +148,18 @@ public abstract class Personaje {
      *
      * @return estado de tipo boolean.
      * */
-    public String isEstado() {
-        if (this.estado == false){
+    public boolean isEstado() {
+        return this.estado;
+    }
+
+    /**
+     * Devuelve una cadena de texto en funcion del valor del atributo estado.
+     *
+     * @return vivo si estado es true, y muerto si estado es false.
+     */
+    public String vitalidad(){
+        if(this.estado == false)
             return "muerto";
-        }
         return "vivo";
     }
 
@@ -311,6 +336,6 @@ public abstract class Personaje {
                 + "\nArmadura: " + getPuntos_armadura() + "."
                 + "\nResistencia magica: " + getResistencia_magica() + ".\n"
                 + "\n"
-                + "Esta actualmente: " + isEstado() + ".";
+                + "Esta actualmente: " + vitalidad() + ".";
     }
 }

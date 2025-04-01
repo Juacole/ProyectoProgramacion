@@ -1,7 +1,23 @@
-import java.io.*;
+/**
+ * La clase ofrece metodos para crear y trabajar con ficheros, crear
+ * instancias a partir de objetos y modificar instancias a partir de
+ * ficheros.
+ *
+ * @author Joaquin Puchuri Tunjar
+ * @version 1.0
+ */
 
+import java.io.*;
 public class GameLogger {
 
+    /**
+     * Metodo para emitir fichas de un grupo de personajes en un fichero de texto.
+     *
+     * @param path de tipo String, recibe la ruta hacia el directorio donde se
+     * emitira la ficha.
+     * @param personaje de tipo Personje, sirve para guardar la ficha del personaje
+     * en funcion de su nombre.
+     */
     public static void fichaPersonaje(String path, Personaje personaje){
         try{
             FileWriter fw = new FileWriter(path + personaje.getNombre() + ".txt");
@@ -14,6 +30,15 @@ public class GameLogger {
         }
     }
 
+    /**
+     * Emite un fichero en funcion de varias fichas de personajes, ordenando
+     * la escritura de las fichas por estadística de velocidad y en caso de
+     * empate llama al metodo privado ordenarAlfabeticamente().
+     *
+     * @param lista un array de Personajes.
+     * @param path de tipo String, recibe la ruta hacia el directorio donde se
+     * emitira la ficha.
+     */
     public static void party(Personaje[] lista, String path){
         for(int i = 0; i < lista.length -1; i++){
             for(int j = 0; j < lista.length -i -1; j++){
@@ -43,6 +68,14 @@ public class GameLogger {
         }
     }
 
+
+    /**
+     * Actualiza el estado de un personaje leyendo sus atributos desde un fichero,
+     * asignando los atributos al personaje proporcionado.
+     *
+     * @param pj de tipo Personaje, el personaje cuyos atributos serán actualizados.
+     * @param path de tipo String, la ruta al fichero que contiene los atributos del personaje.
+     */
     public static void estadoPersonaje(Personaje pj, String path){
         try{
             File fichaLectura = new File(path);
@@ -69,6 +102,14 @@ public class GameLogger {
         }
     }
 
+
+    /**
+     * Verifica si un personaje con el nombre especificado existe en los registros del juego,
+     * buscando en todos los archivos proporcionados en el array de paths.
+     *
+     * @param paths array de String que contiene las rutas a los ficheros de personajes.
+     * @param nombrePersonaje de tipo String, el nombre del personaje a buscar.
+     */
     public static void existePersonaje(String[] paths, String nombrePersonaje){
         boolean noEncontrado = false;
         for(int i = 0; i < paths.length; i++){
@@ -85,6 +126,14 @@ public class GameLogger {
         }
     }
 
+
+    /**
+     * Cuenta cuántas veces aparece una clase específica en los registros del juego,
+     * buscado en todos los archivos proporcionados en el array de paths.
+     *
+     * @param paths array de String que contiene las rutas a los ficheros de personajes.
+     * @param nombreClass de tipo String, el nombre de la clase a buscar.
+     */
     public static void numClases(String[] paths, String nombreClass){
         int contador = 0;
         try{
@@ -114,6 +163,14 @@ public class GameLogger {
         }
     }
 
+    /**
+     * Crea un registro detallado de un combate entre dos personajes y lo guarda en un fichero.
+     * El registro incluye la narrativa del combate, los ataques realizados y el resultado final.
+     *
+     * @param path de tipo String, la ruta donde se guardará el registro del combate.
+     * @param pepe1 de tipo Personaje, el primer participante del combate.
+     * @param pepe2 de tipo Personaje, el segundo participante del combate.
+     */
     public static void registroCombate(String path, Personaje pepe1, Personaje pepe2){
         try{
             FileWriter fw = new FileWriter(path + pepe1.getNombre() + " vs " + pepe2.getNombre() + ".txt");
@@ -209,6 +266,14 @@ public class GameLogger {
         }
     }
 
+    /**
+     * Sube de nivel al personaje que haya ganado combates según los registros,
+     * buscando en los archivos de registro de combate especificado para determinar
+     * el ganador.
+     *
+     * @param personajes array de Personaje, los personajes que podrían subir de nivel.
+     * @param path de tipo String, la ruta al fichero de registro del combate.
+     */
     public static void ganadorCombate(Personaje[] personajes, String path){
         try {
             for (int i = 0; i < personajes.length; i++) {
@@ -232,6 +297,15 @@ public class GameLogger {
         }
     }
 
+
+    /**
+     * Ordena alfabéticamente dos personajes consecutivos en un array.
+     * Método auxiliar utilizado cuando hay empate en velocidad al ordenar en
+     * el metodo party.
+     *
+     * @param lista array de Personaje, la lista de personajes a ordenar.
+     * @param indice de tipo int, la posición del primer personaje a comparar.
+     */
     private static void ordenarAlfabeticamente(Personaje[] lista, int indice){
         if(lista[indice].getNombre().compareToIgnoreCase(lista[indice+1].getNombre()) > 0){
             Personaje aux = lista[indice];
@@ -240,7 +314,16 @@ public class GameLogger {
         }
     }
 
-    private static void asignarAtributos(String[] atributos,Personaje pj, String path){
+    /**
+     * Asigna los atributos leídos de un fichero a un personaje.
+     * Método auxiliar que actualiza todas las estadísticas del
+     * personaje según los valores del fichero.
+     *
+     * @param atributos array de String, los valores de los atributos leídos del fichero.
+     * @param pj de tipo Personaje, el personaje cuyos atributos serán actualizados.
+     * @param path de tipo String, la ruta al fichero (utilizada para casos especiales como Cazador).
+     */
+    private static void asignarAtributos(String[] atributos, Personaje pj, String path){
         if(!atributos[0].equals(pj.getNombre()) && atributos[0] != null){
             pj.setNombre(atributos[0]);
         }

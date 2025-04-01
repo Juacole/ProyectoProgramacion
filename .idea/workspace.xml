@@ -4,27 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d99749a-4dcc-4cce-9282-e84f5075eba0" name="Changes" comment="Primera version de la practica 5 de programacion, e incluye todas las clases requeridas para simular un juego de rol">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="9d99749a-4dcc-4cce-9282-e84f5075eba0" name="Changes" comment="Se sube la clase GameLogger documentada.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Cazador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cazador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Clerigo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Clerigo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Combate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Combate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Creyente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Creyente.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GameLogger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameLogger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Guerrero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Guerrero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Ladron.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ladron.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Mago.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Mago.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Monstruo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Monstruo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Paladin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Paladin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Personaje.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Personaje.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -35,6 +25,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="SET_USER_NAME_GLOBALLY" value="false" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -48,8 +39,14 @@
     &quot;accountId&quot;: &quot;379f16e1-4dec-45d0-a074-58db755034f4&quot;
   }
 }</component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
@@ -136,10 +133,22 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Primera version de la practica 5 de programacion, invluye todas las clases requeridas" />
     <MESSAGE value="Primera version de la practica 5 de programacion, e incluye todas las clases requeridas" />
-    <option name="LAST_COMMIT_MESSAGE" value="Primera version de la practica 5 de programacion, e incluye todas las clases requeridas" />
+    <MESSAGE value="Se sube la clase GameLogger documentada." />
+    <option name="LAST_COMMIT_MESSAGE" value="Se sube la clase GameLogger documentada." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

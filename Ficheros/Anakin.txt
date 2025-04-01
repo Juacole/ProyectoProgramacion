@@ -1,0 +1,14 @@
+Ficha del Guerrero Anakin.
+Nombre: Anakin.
+Clase: Guerrero.
+Raza: Humano.
+
+Nivel: 11.
+Vida: 18001.
+Ataque: 92.
+Velocidad: 43.
+Armadura: 58.
+Resistencia magica: 47.
+
+Esta actualmente: vivo.
+Furia: Inactiva

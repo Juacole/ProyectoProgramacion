@@ -40,6 +40,17 @@ public class Clerigo extends Creyente{
     }
 
     /**
+     * Al inicilizarse un personaje este recibira un path donde estara la ruta hacia un
+     * fichero donde estara la ficha del personaje y esta se imprimira por pantalla.
+     *
+     * @param path de tipo String que define la ruta del fichero del cual se inicializa
+     * un objeto.
+     */
+    public Clerigo(String path){
+        super(path);
+    }
+
+    /**
      * Aumenta el nivel del Clerigo y mejora sus estadisticas segun las probabilidades especificadas:
      *
      * <ul>
@@ -140,6 +151,6 @@ public class Clerigo extends Creyente{
      * @return una representación en formato de texto del estado del Clérigo.
      */
     public String toString(){
-        return super.toString() + "\nLos puntos de fe son: " + this.fe;
+        return super.toString();
     }
 }

@@ -1,4 +1,3 @@
-
 /**
  * La clase Monstruo es una subclase de {@link Personaje} que representa a un monstruo,
  * un tipo de Personaje enemigo cuya estadísticas varían en función de su raza (tipo de monstruo).
@@ -37,6 +36,17 @@ public class Monstruo extends Personaje {
      */
     public Monstruo(Monstruo copia){
         super(copia);
+    }
+
+    /**
+     * Al inicilizarse un personaje este recibira un path donde estara la ruta hacia un
+     * fichero donde estara la ficha del personaje y esta se imprimira por pantalla.
+     *
+     * @param path de tipo String que define la ruta del fichero del cual se inicializa
+     * un objeto.
+     */
+    public Monstruo(String path){
+        super(path);
     }
 
     /**
@@ -98,7 +108,13 @@ public class Monstruo extends Personaje {
                 System.out.println("Asegurese de eleiger una de las siguientes opciones: " +
                         "\n-Bestia" +
                         "\n-No muerto" +
-                        "\n-Gigante");
+                        "\n-Gigante" +
+                        "\nPor defecto se asiganara la raza de Bestia.");
+                setPuntos_ataque(getPuntos_vida()*2);
+                setPuntos_velocidad(getNivel()*2);
+                setPuntos_vida(getNivel());
+                setPuntos_armadura(getNivel()/2);
+                setResistencia_magica(getNivel()/2);
         }
     }
 

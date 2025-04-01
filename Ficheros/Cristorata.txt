@@ -1,0 +1,13 @@
+Ficha del Ladron Cristorata.
+Nombre: Cristorata.
+Clase: Ladron.
+Raza: Chileno.
+
+Nivel: 11.
+Vida: 8572.
+Ataque: 41.
+Velocidad: 10240.
+Armadura: 32.
+Resistencia magica: 23.
+
+Esta actualmente: vivo.

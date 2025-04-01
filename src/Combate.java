@@ -24,7 +24,7 @@ public final class Combate {
      * @param pepe1 el primer personaje que participa en el combate.
      * @param pepe2 el segundo personaje que participa en el combate.
      */
-    public static void iniciarCombate(Personaje pepe1, Personaje pepe2) {
+    public static void iniciarCombate(String path,Personaje pepe1, Personaje pepe2) {
         if (pepe1.getPuntos_vida() > 0 && pepe2.getPuntos_vida() > 0) {
             System.out.println("\nEn un mundo donde solo los más fuertes sobreviven...");
             System.out.println("Dos guerreros se encuentran en un campo de batalla marcado por antiguas luchas.");
@@ -75,12 +75,13 @@ public final class Combate {
             } while (pepe1.getPuntos_vida() > 0 && pepe2.getPuntos_vida() > 0);
 
             if (pepe1.getPuntos_vida() > 0) {
-                System.out.println(pepe1.getNombre() + " ha derrotado a " + pepe2.getNombre());
+                System.out.println("El ganador es " + pepe1.getNombre() + ", ha derrotado a " + pepe2.getNombre());
             } else {
-                System.out.println(pepe2.getNombre() + " ha derrotado a " + pepe1.getNombre());
+                System.out.println("El ganador es " + pepe2.getNombre() + ", ha derrotado a " + pepe1.getNombre());
             }
 
             System.out.println("El combate ha terminado. Solo el más fuerte queda en pie.");
+            GameLogger.registroCombate(path, pepe1, pepe2);
         }
     }
 }

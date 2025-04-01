@@ -1,0 +1,48 @@
+
+En un mundo donde solo los más fuertes sobreviven...
+Dos guerreros se encuentran en un campo de batalla marcado por antiguas luchas.
+Juanito, un valeroso Goblin, afila su arma mientras observa a su oponente.
+A unos pasos de distancia, Benito, un feroz Bestia, deja escapar una risa desafiante.
+El viento se detiene. La tensión es insoportable.
+¡Que comience el combate!
+
+Ficha del Clerigo Juanito.
+Nombre: Juanito.
+Clase: Clerigo.
+Raza: Goblin.
+
+Nivel: 6.
+Vida: 103.
+Ataque: 10.
+Velocidad: 10.
+Armadura: 11.
+Resistencia magica: 30.
+
+Esta actualmente: vivo.
+Fe: 38
+
+Ficha del Monstruo Benito.
+Nombre: Benito.
+Clase: Monstruo.
+Raza: Bestia.
+
+Nivel: 6.
+Vida: 33.
+Ataque: 210.
+Velocidad: 9.
+Armadura: 9.
+Resistencia magica: 13.
+
+Esta actualmente: vivo.
+
+Juanito es más rápido y ataca primero!
+---Juanito inflige un total de 10 puntos de ataque---
+Juanito golpea a Benito con precisión, pero Benito responde con un fuerte golpe.
+---Benito inflige un total de 210 puntos de ataque---
+
+Vida de Juanito: -107
+Vida de Benito: 23
+
+El ganador es Benito, ha derrotado a Juanito
+
+El combate ha terminado. Solo el más fuerte queda en pie.

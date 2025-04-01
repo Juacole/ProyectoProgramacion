@@ -6,9 +6,13 @@
  * @author Joaquin Puchuri Tunjar
  * @version 1.1.1
  * */
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Random;
 
-public abstract class Personaje {
+public abstract class Personaje{
     private String nombre;
     private String raza;
     private int nivel;
@@ -69,6 +73,52 @@ public abstract class Personaje {
         this.resistencia_magica=copia.resistencia_magica;
         this.estado=copia.estado;
     }
+
+    /**
+     * Al inicilizarse un personaje este recibira un path donde estara la ruta hacia un
+     * fichero donde estara la ficha del personaje y esta se imprimira por pantalla.
+     *
+     * @param path de tipo String que define la ruta del fichero del cual se inicializa
+     * un objeto.
+     */
+    public Personaje(String path){
+        try{
+            File fichaLectura = new File(path);
+            if(fichaLectura.canRead()){
+                FileReader fr = new FileReader(fichaLectura);
+                BufferedReader br = new BufferedReader(fr);
+                String linea;
+                int indice = 0;
+                String[] atributos = new String[9];
+                while((linea = br.readLine()) != null && indice < 9){
+                    String[] aux = linea.split(": ");
+                    if(aux.length > 1 && !linea.startsWith("Clase")){
+                        String valor_atributo = aux[1].replace(".","");
+                        atributos[indice] = valor_atributo;
+                        indice++;
+                    }
+                }
+                this.nombre = atributos[0];
+                this.raza = atributos[1];
+                this.nivel = Integer.parseInt(atributos[2]);
+                this.puntos_vida = Integer.parseInt(atributos[3]);
+                this.puntos_ataque = Integer.parseInt(atributos[4]);
+                this.puntos_velocidad = Integer.parseInt(atributos[5]);
+                this.puntos_armadura = Integer.parseInt(atributos[6]);
+                this.resistencia_magica = Integer.parseInt(atributos[7]);
+                if(atributos[8].contains("vivo")){
+                    this.estado = true;
+                }else if(atributos[8].contains("muerto")) {
+                    this.estado = false;
+                }
+                br.close();
+                fr.close();
+            }
+        } catch (IOException ioe){
+            throw new RuntimeException(ioe);
+        }
+    }
+
 
     /**
      * Devuelve el valor del atributo nombre

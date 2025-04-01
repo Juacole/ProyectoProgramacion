@@ -1,0 +1,13 @@
+Ficha del Monstruo Benito.
+Nombre: Benito.
+Clase: Monstruo.
+Raza: Bestia.
+
+Nivel: 11.
+Vida: 1331.
+Ataque: 225.
+Velocidad: 36.
+Armadura: 48.
+Resistencia magica: 23.
+
+Esta actualmente: vivo.

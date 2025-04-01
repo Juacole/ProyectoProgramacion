@@ -1,3 +1,7 @@
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Random;
 
 /**
@@ -41,6 +45,38 @@ public class Mago extends Personaje{
     public Mago(Mago copia){
         super();
         this.puntos_magia = copia.puntos_magia;
+    }
+
+    /**
+     * Al inicilizarse un personaje este recibira un path donde estara la ruta hacia un
+     * fichero donde estara la ficha del personaje y esta se imprimira por pantalla.
+     *
+     * @param path de tipo String que define la ruta del fichero del cual se inicializa
+     * un objeto.
+     */
+    public Mago(String path) {
+        try {
+            File fichaLectura = new File(path);
+            if (fichaLectura.canRead()) {
+                FileReader fr = new FileReader(fichaLectura);
+                BufferedReader br = new BufferedReader(fr);
+                String linea;
+                int indice = 0;
+                String[] atributos = new String[1];
+                while ((linea = br.readLine()) != null) {
+                    String[] aux = linea.split(": ");
+                    if (aux.length > 1 && linea.startsWith("Magia")) {
+                        String valor_atributo = aux[1].replace(".", "");
+                        atributos[indice] = valor_atributo;
+                    }
+                }
+                this.puntos_magia = Integer.parseInt(atributos[0]);
+                br.close();
+                fr.close();
+            }
+        } catch (IOException ioe) {
+            throw new RuntimeException(ioe);
+        }
     }
 
     /**
@@ -181,6 +217,6 @@ public class Mago extends Personaje{
      */
     public String toString(){
         return super.toString()
-                + "\nPuntos de magia: " + getPuntos_magia();
+                + "\nMagia: " + getPuntos_magia();
     }
 }

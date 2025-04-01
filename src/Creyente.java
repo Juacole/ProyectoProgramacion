@@ -1,3 +1,7 @@
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 
 /**
  * Representa a un Creyente, una subclase abstracta de {@link Personaje} que tiene un
@@ -41,6 +45,39 @@ public abstract class Creyente extends Personaje {
     }
 
     /**
+     * Al inicilizarse un personaje este recibira un path donde estara la ruta hacia un
+     * fichero donde estara la ficha del personaje y esta se imprimira por pantalla.
+     *
+     * @param path de tipo String que define la ruta del fichero del cual se inicializa
+     * un objeto.
+     */
+    public Creyente(String path){
+        super(path);
+        try{
+            File fichaLectura = new File(path);
+            if(fichaLectura.canRead()){
+                FileReader fr = new FileReader(fichaLectura);
+                BufferedReader br = new BufferedReader(fr);
+                String linea;
+                int indice = 0;
+                String[] atributos = new String[1];
+                while((linea = br.readLine()) != null){
+                    String[] aux = linea.split(": ");
+                    if(aux.length > 1 && !linea.startsWith("Fe")){
+                        String valor_atributo = aux[1].replace(".","");
+                        atributos[indice] = valor_atributo;
+                    }
+                }
+                this.fe = Integer.parseInt(atributos[0]);
+                br.close();
+                fr.close();
+            }
+        } catch (IOException ioe){
+            throw new RuntimeException(ioe);
+        }
+    }
+
+    /**
      * Devuelve el nivel de fe del Creyente, que determina su capacidad para realizar milagros.
      *
      * @return el valor actual de los puntos de fe del Creyente.
@@ -76,6 +113,6 @@ public abstract class Creyente extends Personaje {
      * @return una cadena de texto que describe el estado del Creyente y sus puntos de fe.
      */
     public String toString(){
-        return super.toString() + "\nEl creyente tiene unos puntos de fe de: " + getFe();
+        return super.toString() + "\nFe: " + getFe();
     }
 }

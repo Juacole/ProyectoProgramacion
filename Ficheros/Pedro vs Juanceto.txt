@@ -1,0 +1,70 @@
+
+En un mundo donde solo los más fuertes sobreviven...
+Dos guerreros se encuentran en un campo de batalla marcado por antiguas luchas.
+Pedro, un valeroso Venezolano, afila su arma mientras observa a su oponente.
+A unos pasos de distancia, Juanceto, un feroz Orco, deja escapar una risa desafiante.
+El viento se detiene. La tensión es insoportable.
+¡Que comience el combate!
+
+Ficha del Paladin Pedro.
+Nombre: Pedro.
+Clase: Paladin.
+Raza: Venezolano.
+
+Nivel: 6.
+Vida: 101.
+Ataque: 22.
+Velocidad: 10.
+Armadura: 22.
+Resistencia magica: 10.
+
+Esta actualmente: vivo.
+Fe: 20
+
+Ficha del Cazador Juanceto.
+Nombre: Juanceto.
+Clase: Cazador.
+Raza: Orco.
+
+Nivel: 6.
+Vida: 160.
+Ataque: 24.
+Velocidad: 22.
+Armadura: 12.
+Resistencia magica: 18.
+
+Esta actualmente: vivo.
+
+Ficha del CompanieroAnimal Ricardito.
+Nombre: Ricardito.
+Clase: CompanieroAnimal.
+Raza: rapaz.
+
+Nivel: 7.
+Vida: 80.
+Ataque: 3.
+Velocidad: 7.
+Armadura: 6.
+Resistencia magica: 4.
+
+Esta actualmente: vivo.
+
+Juanceto aprovecha su agilidad y ataca dos veces seguidas
+---Juanceto inflige un total de 54 puntos de ataque---
+Pedro responde con un feroz contraataque.
+---Pedro inflige un total de 22 puntos de ataque---
+
+Vida de Pedro: 47
+Vida de Juanceto: 138
+
+Juanceto aprovecha su agilidad y ataca dos veces seguidas
+---Juanceto inflige un total de 54 puntos de ataque---
+Pedro responde con un feroz contraataque.
+---Pedro inflige un total de 22 puntos de ataque---
+
+Vida de Pedro: -7
+Vida de Juanceto: 116
+
+El ganador es Juanceto, ha derrotado a Pedro
+
+El combate ha terminado. Solo el más fuerte queda en pie.

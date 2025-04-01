@@ -1,0 +1,14 @@
+Ficha del Guerrero Aldebaran.
+Nombre: Aldebaran.
+Clase: Guerrero.
+Raza: Tauren.
+
+Nivel: 11.
+Vida: 18001.
+Ataque: 112.
+Velocidad: 30.
+Armadura: 44.
+Resistencia magica: 50.
+
+Esta actualmente: vivo.
+Furia: Inactiva

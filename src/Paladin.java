@@ -38,6 +38,17 @@ public class Paladin extends Creyente{
     }
 
     /**
+     * Al inicilizarse un personaje este recibira un path donde estara la ruta hacia un
+     * fichero donde estara la ficha del personaje y esta se imprimira por pantalla.
+     *
+     * @param path de tipo String que define la ruta del fichero del cual se inicializa
+     * un objeto.
+     */
+    public Paladin(String path){
+        super(path);
+    }
+
+    /**
      * Aumenta el nivel del Mago y mejora sus estadisticas segun las probabilidades especificadas:
      *
      * <ul>
@@ -99,6 +110,6 @@ public class Paladin extends Creyente{
      * @return una cadena que describe el estado del Paladín y sus puntos de fe.
      */
     public String toString(){
-        return super.toString() + "El Paladin tiene una fe de: " + getFe();
+        return super.toString();
     }
 }

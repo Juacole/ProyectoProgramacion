@@ -39,6 +39,17 @@ public class Ladron extends Personaje{
     }
 
     /**
+     * Al inicilizarse un personaje este recibira un path donde estara la ruta hacia un
+     * fichero donde estara la ficha del personaje y esta se imprimira por pantalla.
+     *
+     * @param path de tipo String que define la ruta del fichero del cual se inicializa
+     * un objeto.
+     */
+    public Ladron(String path){
+        super(path);
+    }
+
+    /**
      * Realiza una accion especial de robo, devolviendo la velocidad del Ladron.
      *
      * @return la velocidad del Ladron.

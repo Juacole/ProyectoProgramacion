@@ -1,0 +1,14 @@
+Ficha del Mago Jaina.
+Nombre: Jaina.
+Clase: Mago.
+Raza: Humano.
+
+Nivel: 11.
+Vida: 757.
+Ataque: 14.
+Velocidad: 28.
+Armadura: 14.
+Resistencia magica: 66.
+
+Esta actualmente: vivo.
+Magia: 75

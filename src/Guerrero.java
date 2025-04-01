@@ -1,3 +1,7 @@
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Random;
 
 /**
@@ -43,12 +47,62 @@ public class Guerrero extends Personaje{
     }
 
     /**
+     * Al inicilizarse un personaje este recibira un path donde estara la ruta hacia un
+     * fichero donde estara la ficha del personaje y esta se imprimira por pantalla.
+     *
+     * @param path de tipo String que define la ruta del fichero del cual se inicializa
+     * un objeto.
+     */
+    public Guerrero(String path){
+        super(path);
+        try{
+            File fichaLectura = new File(path);
+            if(fichaLectura.canRead()){
+                FileReader fr = new FileReader(fichaLectura);
+                BufferedReader br = new BufferedReader(fr);
+                String linea;
+                int indice = 0;
+                String[] atributos = new String[1];
+                while((linea = br.readLine()) != null){
+                    String[] aux = linea.split(": ");
+                    if(aux.length > 1 && linea.startsWith("Furia")){
+                        String valor_atributo = aux[1].replace(".","");
+                        atributos[indice] = valor_atributo;
+                    }
+                }
+                if(atributos[0].contains("Inactiva")){
+                    this.furia = false;
+                }else if(atributos[0].contains("Activa")){
+                    this.furia = true;
+                }
+                br.close();
+                fr.close();
+            }
+        } catch (IOException ioe){
+            throw new RuntimeException(ioe);
+        }
+    }
+
+    /**
      * Devuelve el estado de furia del Guerrero.
      *
      * @return furia de tipo boolean, true si la furia esta activada, false en caso contrario.
      */
     public boolean getFuria() {
         return furia;
+    }
+
+    /**
+     * Devuelve la cadena de texto Inactiva si el atributo furia es false, en caso contrario
+     * devuelve Activa.
+     *
+     * @return "Inactiva" o "Activa" en funcion del atributo furia.
+     */
+    public String estadoFuria(){
+        if(!this.furia){
+            return "Inactiva";
+        }
+        return "Activa";
     }
 
     /**
@@ -145,6 +199,6 @@ public class Guerrero extends Personaje{
      * @return cadena de texto con la informacion del Guerrero.
      */
     public String toString() {
-        return super.toString() + "\nEstado de la furia: " + getFuria();
+        return super.toString() + "\nFuria: " + estadoFuria();
     }
 }

@@ -1,0 +1,193 @@
+
+En un mundo donde solo los más fuertes sobreviven...
+Dos guerreros se encuentran en un campo de batalla marcado por antiguas luchas.
+Jaina, un valeroso Humano, afila su arma mientras observa a su oponente.
+A unos pasos de distancia, Manolo, un feroz Tauren, deja escapar una risa desafiante.
+El viento se detiene. La tensión es insoportable.
+¡Que comience el combate!
+
+Ficha del Mago Jaina.
+Nombre: Jaina.
+Clase: Mago.
+Raza: Humano.
+
+Nivel: 6.
+Vida: 757.
+Ataque: 11.
+Velocidad: 26.
+Armadura: 11.
+Resistencia magica: 30.
+
+Esta actualmente: vivo.
+Magia: 30
+
+Ficha del Guerrero Manolo.
+Nombre: Manolo.
+Clase: Guerrero.
+Raza: Tauren.
+
+Nivel: 6.
+Vida: 1944.
+Ataque: 40.
+Velocidad: 12.
+Armadura: 30.
+Resistencia magica: 22.
+
+Esta actualmente: vivo.
+Furia: Inactiva
+
+Jaina es increíblemente rápido y ataca dos veces seguidasނ
+---Jaina inflige un total de 22 puntos de ataque---
+Manolo contraataca con todas sus fuerzas.
+---Manolo inflige un total de 40 puntos de ataque---
+
+Vida de Jaina: 717
+Vida de Manolo: 1944
+
+Jaina es increíblemente rápido y ataca dos veces seguidasނ
+---Jaina inflige un total de 22 puntos de ataque---
+Manolo contraataca con todas sus fuerzas.
+---Manolo inflige un total de 40 puntos de ataque---
+
+Vida de Jaina: 677
+Vida de Manolo: 1944
+
+Jaina es increíblemente rápido y ataca dos veces seguidasނ
+---Jaina inflige un total de 22 puntos de ataque---
+Manolo contraataca con todas sus fuerzas.
+---Manolo inflige un total de 40 puntos de ataque---
+
+Vida de Jaina: 637
+Vida de Manolo: 1944
+
+Jaina es increíblemente rápido y ataca dos veces seguidasނ
+---Jaina inflige un total de 22 puntos de ataque---
+Manolo contraataca con todas sus fuerzas.
+---Manolo inflige un total de 40 puntos de ataque---
+
+Vida de Jaina: 597
+Vida de Manolo: 1944
+
+Jaina es increíblemente rápido y ataca dos veces seguidasނ
+---Jaina inflige un total de 22 puntos de ataque---
+Manolo contraataca con todas sus fuerzas.
+---Manolo inflige un total de 40 puntos de ataque---
+
+Vida de Jaina: 557
+Vida de Manolo: 1944
+
+Jaina es increíblemente rápido y ataca dos veces seguidasނ
+---Jaina inflige un total de 22 puntos de ataque---
+Manolo contraataca con todas sus fuerzas.
+---Manolo inflige un total de 40 puntos de ataque---
+
+Vida de Jaina: 517
+Vida de Manolo: 1944
+
+Jaina es increíblemente rápido y ataca dos veces seguidasނ
+---Jaina inflige un total de 22 puntos de ataque---
+Manolo contraataca con todas sus fuerzas.
+---Manolo inflige un total de 40 puntos de ataque---
+
+Vida de Jaina: 477
+Vida de Manolo: 1944
+
+Jaina es increíblemente rápido y ataca dos veces seguidasނ
+---Jaina inflige un total de 22 puntos de ataque---
+Manolo contraataca con todas sus fuerzas.
+---Manolo inflige un total de 40 puntos de ataque---
+
+Vida de Jaina: 437
+Vida de Manolo: 1944
+
+Jaina es increíblemente rápido y ataca dos veces seguidasނ
+---Jaina inflige un total de 22 puntos de ataque---
+Manolo contraataca con todas sus fuerzas.
+---Manolo inflige un total de 40 puntos de ataque---
+
+Vida de Jaina: 397
+Vida de Manolo: 1944
+
+Jaina es increíblemente rápido y ataca dos veces seguidasނ
+---Jaina inflige un total de 22 puntos de ataque---
+Manolo contraataca con todas sus fuerzas.
+---Manolo inflige un total de 40 puntos de ataque---
+
+Vida de Jaina: 357
+Vida de Manolo: 1944
+
+Jaina es increíblemente rápido y ataca dos veces seguidasނ
+---Jaina inflige un total de 22 puntos de ataque---
+Manolo contraataca con todas sus fuerzas.
+---Manolo inflige un total de 40 puntos de ataque---
+
+Vida de Jaina: 317
+Vida de Manolo: 1944
+
+Jaina es increíblemente rápido y ataca dos veces seguidasނ
+---Jaina inflige un total de 22 puntos de ataque---
+Manolo contraataca con todas sus fuerzas.
+---Manolo inflige un total de 40 puntos de ataque---
+
+Vida de Jaina: 277
+Vida de Manolo: 1944
+
+Jaina es increíblemente rápido y ataca dos veces seguidasނ
+---Jaina inflige un total de 22 puntos de ataque---
+Manolo contraataca con todas sus fuerzas.
+---Manolo inflige un total de 40 puntos de ataque---
+
+Vida de Jaina: 237
+Vida de Manolo: 1944
+
+Jaina es increíblemente rápido y ataca dos veces seguidasނ
+---Jaina inflige un total de 22 puntos de ataque---
+Manolo contraataca con todas sus fuerzas.
+---Manolo inflige un total de 40 puntos de ataque---
+
+Vida de Jaina: 197
+Vida de Manolo: 1944
+
+Jaina es increíblemente rápido y ataca dos veces seguidasނ
+---Jaina inflige un total de 22 puntos de ataque---
+Manolo contraataca con todas sus fuerzas.
+---Manolo inflige un total de 40 puntos de ataque---
+
+Vida de Jaina: 157
+Vida de Manolo: 1944
+
+Jaina es increíblemente rápido y ataca dos veces seguidasނ
+---Jaina inflige un total de 22 puntos de ataque---
+Manolo contraataca con todas sus fuerzas.
+---Manolo inflige un total de 40 puntos de ataque---
+
+Vida de Jaina: 117
+Vida de Manolo: 1944
+
+Jaina es increíblemente rápido y ataca dos veces seguidasނ
+---Jaina inflige un total de 22 puntos de ataque---
+Manolo contraataca con todas sus fuerzas.
+---Manolo inflige un total de 40 puntos de ataque---
+
+Vida de Jaina: 77
+Vida de Manolo: 1944
+
+Jaina es increíblemente rápido y ataca dos veces seguidasނ
+---Jaina inflige un total de 22 puntos de ataque---
+Manolo contraataca con todas sus fuerzas.
+---Manolo inflige un total de 40 puntos de ataque---
+
+Vida de Jaina: 37
+Vida de Manolo: 1944
+
+Jaina es increíblemente rápido y ataca dos veces seguidasނ
+---Jaina inflige un total de 22 puntos de ataque---
+Manolo contraataca con todas sus fuerzas.
+---Manolo inflige un total de 40 puntos de ataque---
+
+Vida de Jaina: -3
+Vida de Manolo: 1944
+
+El ganador es Manolo, ha derrotado a Jaina
+
+El combate ha terminado. Solo el más fuerte queda en pie.

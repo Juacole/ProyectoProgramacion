@@ -4,7 +4,7 @@
  * ficheros.
  *
  * @author Joaquin Puchuri Tunjar
- * @version 1.0
+ * @version 2.0
  */
 
 import java.io.*;
@@ -46,9 +46,7 @@ public class GameLogger {
                     Personaje aux = lista[j];
                     lista[j] = lista[j+1];
                     lista[j+1] = aux;
-                }else if(lista[j].getPuntos_velocidad() == lista[j+1].getPuntos_velocidad()){
-                    ordenarAlfabeticamente(lista, j);
-                }
+                }else if(lista[j].getPuntos_velocidad() == lista[j+1].getPuntos_velocidad()) ordenarAlfabeticamente(lista, j);
             }
         }
         try{
@@ -121,11 +119,8 @@ public class GameLogger {
                 }
             }
         }
-        if(!noEncontrado){
-            System.out.println(nombrePersonaje + " no existe en los registros del juego.");
-        }
+        if(!noEncontrado) System.out.println(nombrePersonaje + " no existe en los registros del juego.");
     }
-
 
     /**
      * Cuenta cuántas veces aparece una clase específica en los registros del juego,
@@ -153,11 +148,8 @@ public class GameLogger {
                     fr.close();
                 }
             }
-            if(contador > 0){
-                System.out.println("La clase " + nombreClass + " aparece " + contador + " veces en los archivos del juego.");
-            }else {
-                System.out.println("La clase " + nombreClass + " no aparece en los registros del juego.");
-            }
+            if(contador > 0) System.out.println("La clase " + nombreClass + " aparece " + contador + " veces en los archivos del juego.");
+            else System.out.println("La clase " + nombreClass + " no aparece en los registros del juego.");
         }catch (IOException ioe){
             throw new RuntimeException(ioe);
         }
@@ -283,15 +275,12 @@ public class GameLogger {
                     BufferedReader br = new BufferedReader(fr);
                     String linea;
                     while ((linea = br.readLine()) != null) {
-                        if (linea.startsWith("El ganador es " + personajes[i].getNombre())) {
-                           personajes[i].subirNivel();
-                        }
+                        if (linea.startsWith("El ganador es " + personajes[i].getNombre())) personajes[i].subirNivel();
                     }
                     br.close();
                     fr.close();
                 }
             }
-
         } catch (IOException ioe){
             throw new RuntimeException(ioe);
         }
@@ -324,72 +313,106 @@ public class GameLogger {
      * @param path de tipo String, la ruta al fichero (utilizada para casos especiales como Cazador).
      */
     private static void asignarAtributos(String[] atributos, Personaje pj, String path){
-        if(!atributos[0].equals(pj.getNombre()) && atributos[0] != null){
-            pj.setNombre(atributos[0]);
+        if(!atributos[0].equals(pj.getNombre()) && atributos[0] != null) pj.setNombre(atributos[0]);
+        if(atributos[1] != null && atributos[10] != null) atributosEspeciales(atributos, pj, path);
+        if(!atributos[2].equals(pj.getRaza()) && atributos[2] != null) pj.setRaza(atributos[2]);
+        if(Integer.parseInt(atributos[3]) != pj.getNivel() && atributos[3] != null) pj.setNivel(Integer.parseInt(atributos[3]));
+        if(Integer.parseInt(atributos[4]) != pj.getPuntos_vida() && atributos[4] != null) pj.setPuntos_vida(Integer.parseInt(atributos[4]));
+        if(Integer.parseInt(atributos[5]) != pj.getPuntos_ataque() && atributos[5] != null) pj.setPuntos_ataque(Integer.parseInt(atributos[5]));
+        if(Integer.parseInt(atributos[6]) != pj.getPuntos_velocidad() && atributos[6] != null) pj.setPuntos_velocidad(Integer.parseInt(atributos[6]));
+        if(Integer.parseInt(atributos[7]) != pj.getPuntos_armadura() && atributos[7] != null) pj.setPuntos_armadura(Integer.parseInt(atributos[7]));
+        if(Integer.parseInt(atributos[8]) != pj.getResistencia_magica() && atributos[8] != null) pj.setResistencia_magica(Integer.parseInt(atributos[8]));
+        if(atributos[9].equals("vivo")) pj.setEstado(true);
+        else if (atributos[9].equals("muerto")) pj.setEstado(false);
+    }
+
+    /**
+     * Metodo auxiliar utilizado en el metodo asignarAtributos, que permite actualizar
+     * el atributo unico para las clases Guerrero, Mago, Creyente, Clerigo y Paladin.
+     * En caso de Cazador se llama a un metodo auxiliar para inicializar el compañero
+     * animal.
+     *
+     * @param atributos un array de String, contiene los datos necesarios para inicializar el atributo unico.
+     * @param pj objeto de tipo Personaje, es el objeto que se actualizara.
+     * @param path de tipo String, el path contiene el archivo con el cual se actualizara el objeto.
+     */
+    private static void atributosEspeciales(String[] atributos, Personaje pj, String path){
+        switch (atributos[1]){
+            case "Guerrero":
+                Guerrero guerrero = (Guerrero) pj;
+                if(atributos[10].equals("Inactiva")) guerrero.setFuria(false);
+                else if(atributos[10].equals("Activa")) guerrero.setFuria(true);
+                break;
+
+            case "Mago":
+                Mago mago = (Mago) pj;
+                mago.setPuntos_magia(Integer.parseInt(atributos[10]));
+                break;
+
+            case "Creyente":
+                Creyente creyente = (Creyente) pj;
+                creyente.setFe(Integer.parseInt(atributos[10]));
+                break;
+
+            case "Clerigo":
+                Clerigo clerigo = (Clerigo) pj;
+                clerigo.setFe(Integer.parseInt(atributos[10]));
+                break;
+
+            case "Paladin":
+                Paladin paladin = (Paladin) pj;
+                paladin.setFe(Integer.parseInt(atributos[10]));
+                break;
+
+            case "Cazador":
+                Cazador cazador = (Cazador) pj;
+                actualizarCompanieroAnimal(path, cazador);
+                break;
         }
-        if(atributos[1] != null && atributos[10] != null){
-            switch (atributos[1]){
-                case "Guerrero":
-                    Guerrero  guerrero= (Guerrero) pj;
-                    if(atributos[10].equals("Inactiva")){
-                        guerrero.setFuria(false);
-                    }else if(atributos[10].equals("Activa")){
-                        guerrero.setFuria(true);
+    }
+
+    /**
+     * Metodo auxiliar para actualizar los atributos del compañero animal del
+     * Cazador. Este metodo recorre un path y va guardando cada valor de los
+     * atributos del compañero animal para luego asignarselos.
+     *
+     * @param path de tipo String, el path contiene el archivo con el cual se actualizara el compañero animal.
+     * @param cazador de tipo Cazador, nos permite llamar a la instancia actual del compañero animal para actualizar sus atributos.
+     */
+    private static void actualizarCompanieroAnimal(String path, Cazador cazador) {
+        try {
+            File fichaLectura = new File(path);
+            if (fichaLectura.canRead()) {
+                FileReader fr = new FileReader(fichaLectura);
+                BufferedReader br = new BufferedReader(fr);
+                String[] atributos = new String[9];
+                int indice = 0;
+                String linea;
+                for (int i = 0; i < 14; i++) br.readLine();
+                while ((linea = br.readLine()) != null && indice < 9) {
+                    String[] aux = linea.split(": ");
+                    if (aux.length > 1 && !linea.startsWith("Clase")) {
+                        String valor_atributo = aux[1].replace(".", "");
+                        atributos[indice] = valor_atributo;
+                        indice++;
                     }
-                    break;
-
-                case "Mago":
-                    Mago mago = (Mago) pj;
-                    mago.setPuntos_magia(Integer.parseInt(atributos[10]));
-                    break;
-
-                case "Creyente":
-                    Creyente creyente = (Creyente) pj;
-                    creyente.setFe(Integer.parseInt(atributos[10]));
-                    break;
-
-                case "Clerigo":
-                    Clerigo clerigo = (Clerigo) pj;
-                    clerigo.setFe(Integer.parseInt(atributos[10]));
-                    break;
-
-                case "Paladin":
-                    Paladin paladin = (Paladin) pj;
-                    paladin.setFe(Integer.parseInt(atributos[10]));
-                    break;
-
-                case "Cazador":
-                    Cazador cazador = new Cazador();
-                    Cazador.CompanieroAnimal compa = cazador.new CompanieroAnimal(path);
-                    break;
+                }
+                Cazador.CompanieroAnimal compa = cazador.getCompanieroAnimal();
+                compa.setNombre(atributos[0]);
+                compa.setRaza(atributos[1]);
+                compa.setNivel(Integer.parseInt(atributos[2]));
+                compa.setPuntos_vida(Integer.parseInt(atributos[3]));
+                compa.setPuntos_ataque(Integer.parseInt(atributos[4]));
+                compa.setPuntos_velocidad(Integer.parseInt(atributos[5]));
+                compa.setPuntos_armadura(Integer.parseInt(atributos[6]));
+                compa.setResistencia_magica(Integer.parseInt(atributos[7]));
+                if (atributos[8].contains("vivo")) compa.setEstado(true);
+                else if (atributos[8].contains("muerto")) compa.setEstado(false);
+                br.close();
+                fr.close();
             }
-        }
-        if(!atributos[2].equals(pj.getRaza()) && atributos[2] != null){
-            pj.setRaza(atributos[2]);
-        }
-        if(Integer.parseInt(atributos[3]) != pj.getNivel() && atributos[3] != null){
-            pj.setNivel(Integer.parseInt(atributos[3]));
-        }
-        if(Integer.parseInt(atributos[4]) != pj.getPuntos_vida() && atributos[4] != null){
-            pj.setPuntos_vida(Integer.parseInt(atributos[4]));
-        }
-        if(Integer.parseInt(atributos[5]) != pj.getPuntos_ataque() && atributos[5] != null){
-            pj.setPuntos_ataque(Integer.parseInt(atributos[5]));
-        }
-        if(Integer.parseInt(atributos[6]) != pj.getPuntos_velocidad() && atributos[6] != null){
-            pj.setPuntos_velocidad(Integer.parseInt(atributos[6]));
-        }
-        if(Integer.parseInt(atributos[7]) != pj.getPuntos_armadura() && atributos[7] != null){
-            pj.setPuntos_armadura(Integer.parseInt(atributos[7]));
-        }
-        if(Integer.parseInt(atributos[8]) != pj.getResistencia_magica() && atributos[8] != null){
-            pj.setResistencia_magica(Integer.parseInt(atributos[8]));
-        }
-        if(atributos[9].equals("vivo")){
-            pj.setEstado(true);
-        } else if (atributos[9].equals("muerto")) {
-            pj.setEstado(false);
+        } catch (IOException ioe) {
+            throw new RuntimeException(ioe);
         }
     }
 }
-

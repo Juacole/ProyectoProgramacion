@@ -9,7 +9,7 @@ import java.util.Random;
  * que comparte atributos y ayuda en el combate, sumando su poder de ataque al del Cazador.
  *
  * @author Joaquin Puchuri Tunjar
- * @version 1.1.1
+ * @version 1.3.1
  */
 public class Cazador extends Personaje{
 
@@ -45,6 +45,7 @@ public class Cazador extends Personaje{
      */
     public Cazador(Cazador copia){
         super(copia);
+        this.companieroAnimal = new CompanieroAnimal(copia.companieroAnimal);
     }
 
     /**
@@ -57,6 +58,15 @@ public class Cazador extends Personaje{
     public Cazador(String path){
         super(path);
         companieroAnimal = new CompanieroAnimal(path);
+    }
+
+    /**
+     * Devuelve la instancia actual del compañero animal.
+     *
+     * @return companieroAnimal objeto de la clase CompanieroAnimal.
+     */
+    public CompanieroAnimal getCompanieroAnimal() {
+        return this.companieroAnimal;
     }
 
     /**
@@ -147,7 +157,6 @@ public class Cazador extends Personaje{
          */
         public CompanieroAnimal(CompanieroAnimal copia){
             super(copia);
-            setRaza();
         }
 
         /**
@@ -204,27 +213,27 @@ public class Cazador extends Personaje{
          * diferentes modificaciones en los atributos.
          */
         public void setRaza(){
-             switch (getRaza().toLowerCase()){
-                 case "canido":
-                     Canido();
-                     break;
+            switch (getRaza().toLowerCase()){
+                case "canido":
+                    Canido();
+                    break;
 
-                 case "felino":
-                     Felino();
-                     break;
+                case "felino":
+                    Felino();
+                    break;
 
-                 case "rapaz":
-                     Rapaz();
-                     break;
+                case "rapaz":
+                    Rapaz();
+                    break;
 
-                 default:
-                     System.err.println("Tu compañero animal solo puede ser uno de los siguientes tipos: " +
-                             "\n-canido" +
-                             "\n-felino" +
-                             "\n-rapaz" +
-                             "\nSe le asiganara por defecto la raza de canido a tu compañero animal.");
-                     Canido();
-             }
+                default:
+                    System.err.println("Tu compañero animal solo puede ser uno de los siguientes tipos: " +
+                            "\n-canido" +
+                            "\n-felino" +
+                            "\n-rapaz" +
+                            "\nSe le asiganara por defecto la raza de canido a tu compañero animal.");
+                    Canido();
+            }
         }
 
         /**

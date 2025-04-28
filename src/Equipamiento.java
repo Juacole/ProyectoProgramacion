@@ -9,12 +9,12 @@ public abstract class Equipamiento {
     public Equipamiento() {
         this.nombre = "";
         this.estadisticas = new HashMap<>();
-        this.estadisticas.put("Ataque", 0);
-        this.estadisticas.put("Velocidad", 0);
-        this.estadisticas.put("Magia", 0);
-        this.estadisticas.put("Fe", 0);
-        this.estadisticas.put("Armadura", 0);
-        this.estadisticas.put("ResistenciaMagica", 0);
+        this.estadisticas.put("ataque", 0);
+        this.estadisticas.put("velocidad", 0);
+        this.estadisticas.put("magia", 0);
+        this.estadisticas.put("fe", 0);
+        this.estadisticas.put("armadura", 0);
+        this.estadisticas.put("resistencia_magica", 0);
         this.rareza = "";
         this.valor_economico = 0;
     }
@@ -77,6 +77,37 @@ public abstract class Equipamiento {
             this.valor_economico = 1;
         } else {
             this.valor_economico = valor_economico;
+        }
+    }
+
+    public void recuperaEstadistica(String estadistica) {
+        switch (estadistica.toLowerCase().strip()) {
+            case "ataque":
+                System.out.println(this.estadisticas.get(estadistica));
+                break;
+
+            case "velocidad":
+                System.out.println(this.estadisticas.get(estadistica));
+                break;
+
+            case "magia":
+                System.out.println(this.estadisticas.get(estadistica));
+                break;
+
+            case "fe":
+                System.out.println(this.estadisticas.get(estadistica));
+                break;
+
+            case "armadura":
+                System.out.println(this.estadisticas.get(estadistica));
+                break;
+
+            case "resistencia_magica":
+                System.out.println(this.estadisticas.get(estadistica));
+                break;
+
+            default:
+                break;
         }
     }
 

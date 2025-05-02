@@ -1,6 +1,6 @@
-Ficha del Ladron Cristorata.
+Ficha del main.java.personajes.Ladron Cristorata.
 Nombre: Cristorata.
-Clase: Ladron.
+Clase: main.java.personajes.Ladron.
 Raza: Chileno.
 
 Nivel: 11.

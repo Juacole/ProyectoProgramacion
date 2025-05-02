@@ -1,6 +1,6 @@
-Ficha del Monstruo Benito.
+Ficha del main.java.personajes.monstruos.Monstruo Benito.
 Nombre: Benito.
-Clase: Monstruo.
+Clase: main.java.personajes.monstruos.Monstruo.
 Raza: Bestia.
 
 Nivel: 11.

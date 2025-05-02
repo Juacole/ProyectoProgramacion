@@ -7,17 +7,17 @@ Este proyecto consiste en la implementación de un sistema de personajes para un
 
 ### Tema 5 - Práctica
 
-1. **Clase Abstracta Personaje**
+1. **Clase Abstracta main.java.personajes.Personaje**
    - Atributos: nombre, raza, nivel, puntos de vida, ataque, velocidad, armadura, resistencia mágica.
    - Métodos: `subirNivel()`, `luchar()`, `defender(int, String)`, `toString()`.
    - Condiciones: nombre mínimo de cuatro caracteres, raza no puede ser "ángel" ni "demonio".
 
-2. **Subclase Guerrero**
+2. **Subclase main.java.personajes.Guerrero**
    - Atributo adicional: furia.
    - Probabilidades y mejoras específicas para ataque, vida, armadura, resistencia mágica y velocidad.
    - Métodos sobrescritos: `subirNivel()`, `luchar()`, `defender()`, `toString()`.
 
-3. **Subclase Mago**
+3. **Subclase main.java.personajes.Mago**
    - Atributo adicional: puntos de magia.
    - Probabilidades y mejoras específicas para vida, armadura, ataque, resistencia mágica y velocidad.
    - Métodos adicionales: `lanzarConjuro(int, String)`, `apoyar(int, String)`.
@@ -28,12 +28,12 @@ Este proyecto consiste en la implementación de un sistema de personajes para un
    - Método adicional: `robar()`.
    - Métodos sobrescritos: `subirNivel()`, `toString()`.
 
-5. **Subclase Cazador**
+5. **Subclase main.java.personajes.Cazador**
    - Atributo adicional: Compañero Animal (clase anidada).
    - Probabilidades y mejoras específicas para velocidad.
    - Métodos sobrescritos: `subirNivel()`, `luchar()`, `toString()`.
 
-6. **Subclase Abstracta Creyente**
+6. **Subclase Abstracta main.java.personajes.creyentes.Creyente**
    - Atributo adicional: puntos de fe.
    - Método adicional: `plegaria(int, String)`.
    - Métodos sobrescritos: `toString()`.
@@ -48,17 +48,17 @@ Este proyecto consiste en la implementación de un sistema de personajes para un
    - Métodos adicionales: `plegaria(int, String)`, `apoyar(int, String)`.
    - Métodos sobrescritos: `subirNivel()`, `luchar()`, `toString()`.
 
-9. **Subclase Monstruo**
+9. **Subclase main.java.personajes.monstruos.Monstruo**
    - Ventajas y desventajas específicas según el tipo de monstruo (Bestia, No-muerto, Gigante).
    - Métodos sobrescritos: `toString()`.
 
-10. **Clase Final Combate**
+10. **Clase Final main.java.sistema.Combate**
     - Procedimiento de combate entre dos personajes.
     - Registro de cada turno y resultado final del combate.
 
 ### Tema 6 - Práctica
 
-1. **Clase GameLogger**
+1. **Clase main.java.utils.GameLogger**
    - Métodos de clase para crear y trabajar con ficheros.
    - Método para emitir la ficha de un personaje como fichero de texto.
 
@@ -73,13 +73,13 @@ Este proyecto consiste en la implementación de un sistema de personajes para un
 4. **Verificación de Estado**
    - Método para verificar y actualizar el estado de un personaje según su ficha.
 
-5. **Búsqueda de Personaje**
+5. **Búsqueda de main.java.personajes.Personaje**
    - Método para evaluar si un personaje específico existe en los registros del juego.
 
 6. **Búsqueda de Clases Repetidas**
    - Método para evaluar si existen personajes con clases repetidas en los ficheros recibidos.
 
-7. **Registro de Combate**
+7. **Registro de main.java.sistema.Combate**
    - Método para almacenar el registro de un combate entre dos personajes en un fichero.
 
 8. **Subida de Nivel**

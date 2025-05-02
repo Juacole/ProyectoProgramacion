@@ -1,6 +1,6 @@
-Ficha del Mago Jaina.
+Ficha del main.java.personajes.Mago Jaina.
 Nombre: Jaina.
-Clase: Mago.
+Clase: main.java.personajes.Mago.
 Raza: Humano.
 
 Nivel: 11.

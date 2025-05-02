@@ -1,6 +1,10 @@
+package main.java.personajes.monstruos;
+
+import main.java.personajes.Personaje;
+
 /**
- * La clase Monstruo es una subclase de {@link Personaje} que representa a un monstruo,
- * un tipo de Personaje enemigo cuya estadísticas varían en función de su raza (tipo de monstruo).
+ * La clase main.java.personajes.monstruos.Monstruo es una subclase de {@link Personaje} que representa a un monstruo,
+ * un tipo de main.java.personajes.Personaje enemigo cuya estadísticas varían en función de su raza (tipo de monstruo).
  * Los monstruos tienen diferentes ventajas y desventajas según su tipo (Bestia, No-muerto o Gigante).
  *
  * @author Joaquin Puchuri Tunjar
@@ -9,7 +13,7 @@
 public class Monstruo extends Personaje {
 
     /**
-     * Constructor por defecto que inicializa un nuevo Monstruo con la raza "bestia".
+     * Constructor por defecto que inicializa un nuevo main.java.personajes.monstruos.Monstruo con la raza "bestia".
      * Utiliza el constructor de la superclase {@link Personaje}.
      */
     public Monstruo() {
@@ -18,11 +22,11 @@ public class Monstruo extends Personaje {
     }
 
     /**
-     * Constructor que inicializa un nuevo Monstruo con el nombre y la raza especificados.
+     * Constructor que inicializa un nuevo main.java.personajes.monstruos.Monstruo con el nombre y la raza especificados.
      * Utiliza el constructor de la superclase {@link Personaje}.
      *
-     * @param nombre el nombre del Monstruo.
-     * @param raza   la raza del Monstruo.
+     * @param nombre el nombre del main.java.personajes.monstruos.Monstruo.
+     * @param raza   la raza del main.java.personajes.monstruos.Monstruo.
      */
     public Monstruo(String nombre, String raza) {
         super(nombre, raza);
@@ -32,7 +36,7 @@ public class Monstruo extends Personaje {
     /**
      * Constructor de copia que permite inicializar un objeto a partir de otro ya existente.
      *
-     * @param copia objeto de tipo Guerrero.
+     * @param copia objeto de tipo main.java.personajes.Guerrero.
      */
     public Monstruo(Monstruo copia){
         super(copia);
@@ -50,8 +54,8 @@ public class Monstruo extends Personaje {
     }
 
     /**
-     * Método que establece las estadísticas del Monstruo según su raza. Dependiendo
-     * de la raza del Monstruo (Bestia, No-muerto o Gigante), las estadísticas se
+     * Método que establece las estadísticas del main.java.personajes.monstruos.Monstruo según su raza. Dependiendo
+     * de la raza del main.java.personajes.monstruos.Monstruo (Bestia, No-muerto o Gigante), las estadísticas se
      * ajustan. Las razas y sus estadísticas son las siguientes:
      * <ol>
      *   <li>Bestia:
@@ -121,7 +125,7 @@ public class Monstruo extends Personaje {
     /**
      * Devuelve una representacion en cadena del estado actual Mosntruo.
      *
-     * @return una cadena de texto que representa al Monstruo.
+     * @return una cadena de texto que representa al main.java.personajes.monstruos.Monstruo.
      */
     public String toString(){
         return super.toString();

@@ -1,8 +1,10 @@
+package main.java.personajes;
+
 import java.util.Random;
 
 /**
  * Representa una subclase de {@link Personaje} especializada en el robo y el uso de la velocidad
- * en combate. El Ladron tiene la capacidad de robar, utilizando su velocidad en lugar de su ataque
+ * en combate. El main.java.personajes.Ladron tiene la capacidad de robar, utilizando su velocidad en lugar de su ataque
  * en combate.
  *
  * @author Joaquin Puchuri Tunjar
@@ -11,7 +13,7 @@ import java.util.Random;
 public class Ladron extends Personaje{
 
     /**
-     * Constructor por defecto que inicializa un Ladron con los valores predeterminados
+     * Constructor por defecto que inicializa un main.java.personajes.Ladron con los valores predeterminados
      * de la superclase {@link Personaje}.
      */
     public Ladron() {
@@ -19,11 +21,11 @@ public class Ladron extends Personaje{
     }
 
     /**
-     * Constructor por parametros que permite inicializar el Ladron con un nombre y raza
+     * Constructor por parametros que permite inicializar el main.java.personajes.Ladron con un nombre y raza
      * especificos, heredando el resto de estadisticas de la superclase {@link Personaje}.
      *
-     * @param nombre de tipo String que define el nombre del Ladron.
-     * @param raza de tipo String que define la raza del Ladron.
+     * @param nombre de tipo String que define el nombre del main.java.personajes.Ladron.
+     * @param raza de tipo String que define la raza del main.java.personajes.Ladron.
      */
     public Ladron(String nombre, String raza) {
         super(nombre, raza);
@@ -32,7 +34,7 @@ public class Ladron extends Personaje{
     /**
      * Constructor de copia que permite inicializar un objeto a partir de otro ya existente.
      *
-     * @param copia objeto de tipo Ladron.
+     * @param copia objeto de tipo main.java.personajes.Ladron.
      */
     public Ladron(Ladron copia){
         super(copia);
@@ -50,16 +52,16 @@ public class Ladron extends Personaje{
     }
 
     /**
-     * Realiza una accion especial de robo, devolviendo la velocidad del Ladron.
+     * Realiza una accion especial de robo, devolviendo la velocidad del main.java.personajes.Ladron.
      *
-     * @return la velocidad del Ladron.
+     * @return la velocidad del main.java.personajes.Ladron.
      */
     public double Robar(){
         return getPuntos_velocidad();
     }
 
     /**
-     * Incrementa el nivel del Ladron y mejora sus estadisticas segun sus ventajas
+     * Incrementa el nivel del main.java.personajes.Ladron y mejora sus estadisticas segun sus ventajas
      * y penalizaciones especificas. La probabilidad de mejorar cada estadistica
      * varia segun lo siguiente:
      *
@@ -93,10 +95,10 @@ public class Ladron extends Personaje{
     }
 
     /**
-     * Devuelve una representacion en cadena del Ladron, incluyendo sus estadisticas
+     * Devuelve una representacion en cadena del main.java.personajes.Ladron, incluyendo sus estadisticas
      * heredadas de {@link Personaje}.
      *
-     * @return cadena de texto con la informacion del Ladron.
+     * @return cadena de texto con la informacion del main.java.personajes.Ladron.
      */
     public String toString() {
         return super.toString();

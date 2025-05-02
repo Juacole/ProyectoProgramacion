@@ -1,6 +1,8 @@
+package main.java.equipamiento;
+
 import java.util.HashMap;
 
-public abstract class Equipamiento {
+public class Equipamiento {
     private String nombre;
     private HashMap<String, Integer> estadisticas;
     private String rareza;
@@ -19,8 +21,8 @@ public abstract class Equipamiento {
         this.valor_economico = 0;
     }
 
-    public Equipamiento(HashMap<String, Integer> estadisticas, String rareza, double valor_economico) {
-        this.nombre = "Equipamiento";
+    public Equipamiento(String nombre, HashMap<String, Integer> estadisticas, String rareza, double valor_economico) {
+        this.nombre = nombre;
         this.estadisticas = new HashMap<>(estadisticas);
         this.rareza = rareza;
         this.valor_economico = valor_economico;
@@ -80,35 +82,53 @@ public abstract class Equipamiento {
         }
     }
 
-    public void recuperaEstadistica(String estadistica) {
+    public double recuperaEstadistica(String estadistica) {
         switch (estadistica.toLowerCase().strip()) {
             case "ataque":
-                System.out.println(this.estadisticas.get(estadistica));
-                break;
+                return this.estadisticas.get(estadistica);
 
             case "velocidad":
-                System.out.println(this.estadisticas.get(estadistica));
-                break;
+                return this.estadisticas.get(estadistica);
 
             case "magia":
-                System.out.println(this.estadisticas.get(estadistica));
-                break;
+                return this.estadisticas.get(estadistica);
 
             case "fe":
-                System.out.println(this.estadisticas.get(estadistica));
-                break;
+                return this.estadisticas.get(estadistica);
 
             case "armadura":
-                System.out.println(this.estadisticas.get(estadistica));
-                break;
+                return this.estadisticas.get(estadistica);
 
             case "resistencia_magica":
-                System.out.println(this.estadisticas.get(estadistica));
-                break;
+                return this.estadisticas.get(estadistica);
 
             default:
+                System.err.println(
+                        "Estadistica no valida. Las estadisticas validas son: ataque, velocidad, magia, fe, armadura y resistencia_magica.");
                 break;
         }
+        return -1;
     }
 
+    public boolean equals(Equipamiento equipamiento) {
+        if (this.nombre.equals(equipamiento.getNombre()) && this.rareza.equals(equipamiento.getRareza())
+                && this.valor_economico == equipamiento.getValorEconomico())
+            return true;
+
+        if (this.estadisticas.size() == equipamiento.estadisticas.size()) {
+            for (String llave : equipamiento.estadisticas.keySet()) {
+                if (this.estadisticas.get(llave) == equipamiento.estadisticas.get(llave))
+                    return true;
+            }
+        }
+        return false;
+    }
+
+    public String toString() {
+        return "Nombre: " + this.nombre +
+                "\nRareza: " + this.rareza +
+                "\nValor economico: " + this.valor_economico +
+                "\nEstadisticas: " + this.estadisticas.toString();
+
+    }
 }

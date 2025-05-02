@@ -1,4 +1,4 @@
-/**
+package main.java.utils; /**
  * La clase ofrece metodos para crear y trabajar con ficheros, crear
  * instancias a partir de objetos y modificar instancias a partir de
  * ficheros.
@@ -6,6 +6,14 @@
  * @author Joaquin Puchuri Tunjar
  * @version 2.0
  */
+
+import main.java.personajes.Cazador;
+import main.java.personajes.Guerrero;
+import main.java.personajes.Mago;
+import main.java.personajes.Personaje;
+import main.java.personajes.creyentes.Clerigo;
+import main.java.personajes.creyentes.Creyente;
+import main.java.personajes.creyentes.Paladin;
 
 import java.io.*;
 public class GameLogger {
@@ -66,12 +74,11 @@ public class GameLogger {
         }
     }
 
-
     /**
      * Actualiza el estado de un personaje leyendo sus atributos desde un fichero,
      * asignando los atributos al personaje proporcionado.
      *
-     * @param pj de tipo Personaje, el personaje cuyos atributos serán actualizados.
+     * @param pj de tipo main.java.personajes.Personaje, el personaje cuyos atributos serán actualizados.
      * @param path de tipo String, la ruta al fichero que contiene los atributos del personaje.
      */
     public static void estadoPersonaje(Personaje pj, String path){
@@ -160,8 +167,8 @@ public class GameLogger {
      * El registro incluye la narrativa del combate, los ataques realizados y el resultado final.
      *
      * @param path de tipo String, la ruta donde se guardará el registro del combate.
-     * @param pepe1 de tipo Personaje, el primer participante del combate.
-     * @param pepe2 de tipo Personaje, el segundo participante del combate.
+     * @param pepe1 de tipo main.java.personajes.Personaje, el primer participante del combate.
+     * @param pepe2 de tipo main.java.personajes.Personaje, el segundo participante del combate.
      */
     public static void registroCombate(String path, Personaje pepe1, Personaje pepe2){
         try{
@@ -263,7 +270,7 @@ public class GameLogger {
      * buscando en los archivos de registro de combate especificado para determinar
      * el ganador.
      *
-     * @param personajes array de Personaje, los personajes que podrían subir de nivel.
+     * @param personajes array de main.java.personajes.Personaje, los personajes que podrían subir de nivel.
      * @param path de tipo String, la ruta al fichero de registro del combate.
      */
     public static void ganadorCombate(Personaje[] personajes, String path){
@@ -292,7 +299,7 @@ public class GameLogger {
      * Método auxiliar utilizado cuando hay empate en velocidad al ordenar en
      * el metodo party.
      *
-     * @param lista array de Personaje, la lista de personajes a ordenar.
+     * @param lista array de main.java.personajes.Personaje, la lista de personajes a ordenar.
      * @param indice de tipo int, la posición del primer personaje a comparar.
      */
     private static void ordenarAlfabeticamente(Personaje[] lista, int indice){
@@ -309,8 +316,8 @@ public class GameLogger {
      * personaje según los valores del fichero.
      *
      * @param atributos array de String, los valores de los atributos leídos del fichero.
-     * @param pj de tipo Personaje, el personaje cuyos atributos serán actualizados.
-     * @param path de tipo String, la ruta al fichero (utilizada para casos especiales como Cazador).
+     * @param pj de tipo main.java.personajes.Personaje, el personaje cuyos atributos serán actualizados.
+     * @param path de tipo String, la ruta al fichero (utilizada para casos especiales como main.java.personajes.Cazador).
      */
     private static void asignarAtributos(String[] atributos, Personaje pj, String path){
         if(!atributos[0].equals(pj.getNombre()) && atributos[0] != null) pj.setNombre(atributos[0]);
@@ -328,43 +335,43 @@ public class GameLogger {
 
     /**
      * Metodo auxiliar utilizado en el metodo asignarAtributos, que permite actualizar
-     * el atributo unico para las clases Guerrero, Mago, Creyente, Clerigo y Paladin.
-     * En caso de Cazador se llama a un metodo auxiliar para inicializar el compañero
+     * el atributo unico para las clases main.java.personajes.Guerrero, main.java.personajes.Mago, main.java.personajes.creyentes.Creyente, main.java.personajes.creyentes.Clerigo y main.java.personajes.creyentes.Paladin.
+     * En caso de main.java.personajes.Cazador se llama a un metodo auxiliar para inicializar el compañero
      * animal.
      *
      * @param atributos un array de String, contiene los datos necesarios para inicializar el atributo unico.
-     * @param pj objeto de tipo Personaje, es el objeto que se actualizara.
+     * @param pj objeto de tipo main.java.personajes.Personaje, es el objeto que se actualizara.
      * @param path de tipo String, el path contiene el archivo con el cual se actualizara el objeto.
      */
     private static void atributosEspeciales(String[] atributos, Personaje pj, String path){
         switch (atributos[1]){
-            case "Guerrero":
+            case "main.java.personajes.Guerrero":
                 Guerrero guerrero = (Guerrero) pj;
                 if(atributos[10].equals("Inactiva")) guerrero.setFuria(false);
                 else if(atributos[10].equals("Activa")) guerrero.setFuria(true);
                 break;
 
-            case "Mago":
+            case "main.java.personajes.Mago":
                 Mago mago = (Mago) pj;
                 mago.setPuntos_magia(Integer.parseInt(atributos[10]));
                 break;
 
-            case "Creyente":
+            case "main.java.personajes.creyentes.Creyente":
                 Creyente creyente = (Creyente) pj;
                 creyente.setFe(Integer.parseInt(atributos[10]));
                 break;
 
-            case "Clerigo":
+            case "main.java.personajes.creyentes.Clerigo":
                 Clerigo clerigo = (Clerigo) pj;
                 clerigo.setFe(Integer.parseInt(atributos[10]));
                 break;
 
-            case "Paladin":
+            case "main.java.personajes.creyentes.Paladin":
                 Paladin paladin = (Paladin) pj;
                 paladin.setFe(Integer.parseInt(atributos[10]));
                 break;
 
-            case "Cazador":
+            case "main.java.personajes.Cazador":
                 Cazador cazador = (Cazador) pj;
                 actualizarCompanieroAnimal(path, cazador);
                 break;
@@ -373,11 +380,11 @@ public class GameLogger {
 
     /**
      * Metodo auxiliar para actualizar los atributos del compañero animal del
-     * Cazador. Este metodo recorre un path y va guardando cada valor de los
+     * main.java.personajes.Cazador. Este metodo recorre un path y va guardando cada valor de los
      * atributos del compañero animal para luego asignarselos.
      *
      * @param path de tipo String, el path contiene el archivo con el cual se actualizara el compañero animal.
-     * @param cazador de tipo Cazador, nos permite llamar a la instancia actual del compañero animal para actualizar sus atributos.
+     * @param cazador de tipo main.java.personajes.Cazador, nos permite llamar a la instancia actual del compañero animal para actualizar sus atributos.
      */
     private static void actualizarCompanieroAnimal(String path, Cazador cazador) {
         try {

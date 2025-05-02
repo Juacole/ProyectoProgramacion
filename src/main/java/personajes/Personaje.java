@@ -1,6 +1,6 @@
-/**
+package main.java.personajes; /**
  * Representa un personaje generico de un juego de rol con unas estadisticas basicas.
- * Esta clase Personaje sera extenddida a traves de varias subclases de personajes con
+ * Esta clase main.java.personajes.Personaje sera extenddida a traves de varias subclases de personajes con
  * nuevos comportamientos y cambios en sus estadisticas basicas de acuerdo a su categoria.
  *
  * @author Joaquin Puchuri Tunjar
@@ -60,7 +60,7 @@ public abstract class Personaje{
     /**
      * Constructor de copia que permite inicializar un objeto a partir de otro ya existente.
      *
-     * @param copia objeto de tipo Personaje.
+     * @param copia objeto de tipo main.java.personajes.Personaje.
      */
     public Personaje(Personaje copia){
         this.nombre=copia.nombre;

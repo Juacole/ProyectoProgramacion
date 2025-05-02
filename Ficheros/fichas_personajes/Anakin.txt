@@ -1,6 +1,6 @@
-Ficha del Guerrero Anakin.
+Ficha del main.java.personajes.Guerrero Anakin.
 Nombre: Anakin.
-Clase: Guerrero.
+Clase: main.java.personajes.Guerrero.
 Raza: Humano.
 
 Nivel: 11.

@@ -1,8 +1,10 @@
+package main.java.personajes.creyentes;
+
 import java.util.Random;
 
 /**
- * La clase {@code Clerigo} es una subclase de {@link Creyente} que representa a un Clérigo,
- * un tipo de Creyente que combate a distancia y sana a sus aliados. Los Clérigos tienen
+ * La clase {@code main.java.personajes.creyentes.Clerigo} es una subclase de {@link Creyente} que representa a un Clérigo,
+ * un tipo de main.java.personajes.creyentes.Creyente que combate a distancia y sana a sus aliados. Los Clérigos tienen
  * una gran capacidad de curación y resistencia mágica, pero sus habilidades de ataque y
  * defensa son limitadas.
  *
@@ -12,7 +14,7 @@ import java.util.Random;
 public class Clerigo extends Creyente{
 
     /**
-     * Constructor por defecto, que inicializa los atributos del Clerigo
+     * Constructor por defecto, que inicializa los atributos del main.java.personajes.creyentes.Clerigo
      * utilizando el constructor de la superclase {@link Creyente}.
      */
     public Clerigo(){
@@ -20,11 +22,11 @@ public class Clerigo extends Creyente{
     }
 
     /**
-     * Constructor que inicializa los atributos del Clerigo utilizando el
+     * Constructor que inicializa los atributos del main.java.personajes.creyentes.Clerigo utilizando el
      * constructor de la superclase {@link Creyente} y configurando los puntos de fe.
      *
-     * @param nombre el nombre del Clerigo.
-     * @param raza la raza del Clerigo.
+     * @param nombre el nombre del main.java.personajes.creyentes.Clerigo.
+     * @param raza la raza del main.java.personajes.creyentes.Clerigo.
      */
     public Clerigo(String nombre, String raza){
         super(nombre,raza);
@@ -33,7 +35,7 @@ public class Clerigo extends Creyente{
     /**
      * Constructor de copia que permite inicializar un objeto a partir de otro ya existente.
      *
-     * @param copia objeto de tipo Clerigo.
+     * @param copia objeto de tipo main.java.personajes.creyentes.Clerigo.
      */
     public Clerigo(Clerigo copia){
         super(copia);
@@ -51,7 +53,7 @@ public class Clerigo extends Creyente{
     }
 
     /**
-     * Aumenta el nivel del Clerigo y mejora sus estadisticas segun las probabilidades especificadas:
+     * Aumenta el nivel del main.java.personajes.creyentes.Clerigo y mejora sus estadisticas segun las probabilidades especificadas:
      *
      * <ul>
      *   <li>Fe y Resistencia magica: Probabilidad del 80% de incrementar los puntos de fe y resistencia mágica el doble de lo habitual.</li>
@@ -82,7 +84,7 @@ public class Clerigo extends Creyente{
 
     /**
      * Sobrescribe el método plegaria para implementar los milagros
-     * disponibles para un Clerigo.
+     * disponibles para un main.java.personajes.creyentes.Clerigo.
      *
      * @param tipoMilagro el tipo de milagro que se va a realizar.
      * @param objetivo el objetivo al que se dirige el milagro.
@@ -130,10 +132,10 @@ public class Clerigo extends Creyente{
     }
 
     /**
-     * Permite que el Clerigo apoye a un aliado objetivo con un hechizo.
-     * El Clerigo solo puede usar conjuros no ofensivos para apoyar.
+     * Permite que el main.java.personajes.creyentes.Clerigo apoye a un aliado objetivo con un hechizo.
+     * El main.java.personajes.creyentes.Clerigo solo puede usar conjuros no ofensivos para apoyar.
      *
-     * @param hechizo el tipo de hechizo que el Clerigo usa para apoyar.
+     * @param hechizo el tipo de hechizo que el main.java.personajes.creyentes.Clerigo usa para apoyar.
      * @param objetivo un parámetro adicional, que no es utilizado en esta implementación.
      */
     public void apoyar(int hechizo, String objetivo){
@@ -146,7 +148,7 @@ public class Clerigo extends Creyente{
     }
 
     /**
-     * Devuelve una representacion en cadena del estado actual del Clerigo.
+     * Devuelve una representacion en cadena del estado actual del main.java.personajes.creyentes.Clerigo.
      *
      * @return una representación en formato de texto del estado del Clérigo.
      */

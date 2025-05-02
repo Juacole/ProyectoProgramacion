@@ -1,3 +1,5 @@
+package main.java.personajes;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -6,7 +8,7 @@ import java.util.Random;
 
 /**
  * Representa una subclase de {@link Personaje} especializada en el uso de la magia.
- * Un Mago posee puntos de magia que determinan su destreza en el uso de hechizos,
+ * Un main.java.personajes.Mago posee puntos de magia que determinan su destreza en el uso de hechizos,
  * y tiene diferentes probabilidades de mejora en sus estadisticas al subir de nivel.
  *
  * @author Joaquin Puchuri Tunjar
@@ -16,7 +18,7 @@ public class Mago extends Personaje{
     private int puntos_magia;
 
     /**
-     * Constructor por defecto que inicializa un Mago con los valores
+     * Constructor por defecto que inicializa un main.java.personajes.Mago con los valores
      * predetermiandos de la superclase {@link Personaje} y con los
      * puntos en 10.
      */
@@ -26,11 +28,11 @@ public class Mago extends Personaje{
     }
 
     /**
-     * Constructor por parametros que permite inicializar al Mago con un nombre y raza
+     * Constructor por parametros que permite inicializar al main.java.personajes.Mago con un nombre y raza
      * especificos, heredando el resto de estadisticas de la superclase {@link Personaje}.
      *
-     * @param nombre de tipo String, define el nombre del Mago.
-     * @param raza de tipo String, define la raza del Mago.
+     * @param nombre de tipo String, define el nombre del main.java.personajes.Mago.
+     * @param raza de tipo String, define la raza del main.java.personajes.Mago.
      */
     public Mago(String nombre, String raza) {
         super(nombre, raza);
@@ -40,7 +42,7 @@ public class Mago extends Personaje{
     /**
      * Constructor de copia que permite inicializar un objeto a partir de otro ya existente.
      *
-     * @param copia objeto de tipo Mago.
+     * @param copia objeto de tipo main.java.personajes.Mago.
      */
     public Mago(Mago copia){
         super();
@@ -80,7 +82,7 @@ public class Mago extends Personaje{
     }
 
     /**
-     * Devuelve los puntos de magia del Mago.
+     * Devuelve los puntos de magia del main.java.personajes.Mago.
      *
      * @return puntos_magia de tipo double.
      */
@@ -89,9 +91,9 @@ public class Mago extends Personaje{
     }
 
     /**
-     * Establece los puntos de magia del Mago.
+     * Establece los puntos de magia del main.java.personajes.Mago.
      *
-     * @param puntos_magia de tipo double, nuevos puntos de magia del Mago.
+     * @param puntos_magia de tipo double, nuevos puntos de magia del main.java.personajes.Mago.
      */
     public void setPuntos_magia(int puntos_magia) {
         this.puntos_magia = puntos_magia;
@@ -122,7 +124,7 @@ public class Mago extends Personaje{
     }
 
     /**
-     * Aumenta el nivel del Mago y mejora sus estadisticas segun las probabilidades especificadas:
+     * Aumenta el nivel del main.java.personajes.Mago y mejora sus estadisticas segun las probabilidades especificadas:
      *
      * <ul>
      *   <li>Ataque: 15% de probabilidad de mejora, incrementando un cuarto del nivel actual.</li>
@@ -158,7 +160,7 @@ public class Mago extends Personaje{
     }
 
     /**
-     * Permite al Mago lanzar un conjuro segun el tipo de hechizo indicado.
+     * Permite al main.java.personajes.Mago lanzar un conjuro segun el tipo de hechizo indicado.
      *
      * @param tipoHechizo de tipo int, representa el conjuro a lanzar.
      * @param objetivo de tipo String, indica a quien va dirigido el conjuro.
@@ -195,7 +197,7 @@ public class Mago extends Personaje{
     }
 
     /**
-     * Permite al Mago apoyar a un aliado con un conjuro.
+     * Permite al main.java.personajes.Mago apoyar a un aliado con un conjuro.
      *
      * @param hechizo de tipo int, determina el tipo de hechizo de apoyo.
      * @param objetivo de tipo String, indica a quien se dirige el apoyo.
@@ -211,9 +213,9 @@ public class Mago extends Personaje{
     }
 
     /**
-     * Devuelve una representacion en cadena del estado actual del Mago.
+     * Devuelve una representacion en cadena del estado actual del main.java.personajes.Mago.
      *
-     * @return cadena con los atributos del Mago.
+     * @return cadena con los atributos del main.java.personajes.Mago.
      */
     public String toString(){
         return super.toString()

@@ -1,7 +1,9 @@
+package main.java.personajes.creyentes;
+
 import java.util.Random;
 
 /**
- * Representa a un Paladin, una subclase de {@link Creyente}. Un Paladin es un tipo
+ * Representa a un main.java.personajes.creyentes.Paladin, una subclase de {@link Creyente}. Un main.java.personajes.creyentes.Paladin es un tipo
  * de creyente que se especializa en el combate cuerpo a cuerpo. Además de usar su fe
  * para realizar milagros, tiene ventajas en su armadura, vida, y ataque.
  *
@@ -11,7 +13,7 @@ import java.util.Random;
 public class Paladin extends Creyente{
 
     /**
-     * Constructor por defecto que crea un Paladin con valores predeterminados.
+     * Constructor por defecto que crea un main.java.personajes.creyentes.Paladin con valores predeterminados.
      */
     public Paladin(){
         super();
@@ -21,8 +23,8 @@ public class Paladin extends Creyente{
     /**
      * Constructor que permite crear un Paladín con un nombre, raza y cantidad de fe específicos.
      *
-     * @param nombre de tipo String que define el nombre del Paladin.
-     * @param raza de tipo String que define la raza del Paladin.
+     * @param nombre de tipo String que define el nombre del main.java.personajes.creyentes.Paladin.
+     * @param raza de tipo String que define la raza del main.java.personajes.creyentes.Paladin.
      */
     public Paladin(String nombre, String raza) {
         super(nombre, raza);
@@ -31,7 +33,7 @@ public class Paladin extends Creyente{
     /**
      * Constructor de copia que permite inicializar un objeto a partir de otro ya existente.
      *
-     * @param copia objeto de tipo Paladin.
+     * @param copia objeto de tipo main.java.personajes.creyentes.Paladin.
      */
     public Paladin(Paladin copia){
         super(copia);
@@ -49,7 +51,7 @@ public class Paladin extends Creyente{
     }
 
     /**
-     * Aumenta el nivel del Mago y mejora sus estadisticas segun las probabilidades especificadas:
+     * Aumenta el nivel del main.java.personajes.Mago y mejora sus estadisticas segun las probabilidades especificadas:
      *
      * <ul>
      *   <li>Armadura: Probabilidad del 70% de incrementar el doble de lo habitual.</li>
@@ -105,7 +107,7 @@ public class Paladin extends Creyente{
     }
 
     /**
-     * Devuelve una representacion en cadena del estado actual del Paladin.
+     * Devuelve una representacion en cadena del estado actual del main.java.personajes.creyentes.Paladin.
      *
      * @return una cadena que describe el estado del Paladín y sus puntos de fe.
      */

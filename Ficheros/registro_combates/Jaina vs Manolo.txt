@@ -6,9 +6,9 @@ A unos pasos de distancia, Manolo, un feroz Tauren, deja escapar una risa desafi
 El viento se detiene. La tensión es insoportable.
 ¡Que comience el combate!
 
-Ficha del Mago Jaina.
+Ficha del main.java.personajes.Mago Jaina.
 Nombre: Jaina.
-Clase: Mago.
+Clase: main.java.personajes.Mago.
 Raza: Humano.
 
 Nivel: 6.
@@ -21,9 +21,9 @@ Resistencia magica: 30.
 Esta actualmente: vivo.
 Magia: 30
 
-Ficha del Guerrero Manolo.
+Ficha del main.java.personajes.Guerrero Manolo.
 Nombre: Manolo.
-Clase: Guerrero.
+Clase: main.java.personajes.Guerrero.
 Raza: Tauren.
 
 Nivel: 6.

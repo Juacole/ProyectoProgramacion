@@ -1,3 +1,5 @@
+package main.java.personajes;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -5,8 +7,8 @@ import java.io.IOException;
 import java.util.Random;
 
 /**
- * Representa a un Cazador, una subclase de {@link Personaje}. Además, tiene un Compañero Animal
- * que comparte atributos y ayuda en el combate, sumando su poder de ataque al del Cazador.
+ * Representa a un main.java.personajes.Cazador, una subclase de {@link Personaje}. Además, tiene un Compañero Animal
+ * que comparte atributos y ayuda en el combate, sumando su poder de ataque al del main.java.personajes.Cazador.
  *
  * @author Joaquin Puchuri Tunjar
  * @version 1.3.1
@@ -16,7 +18,7 @@ public class Cazador extends Personaje{
     CompanieroAnimal companieroAnimal;
 
     /**
-     * Constructor por defecto que crea un Cazador con los valores predeterminados de la
+     * Constructor por defecto que crea un main.java.personajes.Cazador con los valores predeterminados de la
      * superclase {@link Personaje}.
      */
     public Cazador(){
@@ -25,11 +27,11 @@ public class Cazador extends Personaje{
     }
 
     /**
-     * Constructor que permite crear un Cazador con un nombre, raza y raza del compañero animal
+     * Constructor que permite crear un main.java.personajes.Cazador con un nombre, raza y raza del compañero animal
      * específicos.
      *
-     * @param nombre de tipo String que define el nombre del Cazador.
-     * @param raza de tipo String que define la raza del Cazador.
+     * @param nombre de tipo String que define el nombre del main.java.personajes.Cazador.
+     * @param raza de tipo String que define la raza del main.java.personajes.Cazador.
      * @param razaAnimal de tipo String que define la raza del compañero animal.
      * @param nombreCompaniero de tipo String que define el nombre del compañero animal.
      */
@@ -41,7 +43,7 @@ public class Cazador extends Personaje{
     /**
      * Constructor de copia que permite inicializar un objeto a partir de otro ya existente.
      *
-     * @param copia objeto de tipo Cazador.
+     * @param copia objeto de tipo main.java.personajes.Cazador.
      */
     public Cazador(Cazador copia){
         super(copia);
@@ -70,7 +72,7 @@ public class Cazador extends Personaje{
     }
 
     /**
-     * Incrementa el nivel del Cazador y mejora sus estadisticas segun sus ventajas
+     * Incrementa el nivel del main.java.personajes.Cazador y mejora sus estadisticas segun sus ventajas
      * y penalizaciones especificas. La probabilidad de mejorar cada estadistica
      * varia segun lo siguiente:
      *
@@ -79,7 +81,7 @@ public class Cazador extends Personaje{
      *   <li>Otros atributos como vida, ataque, armadura y resistencia mágico tienen un 50% de probabilidad de aumento.</li>
      * </ul>
      *
-     * Se actualizan las estadísticas del compañero animal según su raza y las estadisticas del Cazador.
+     * Se actualizan las estadísticas del compañero animal según su raza y las estadisticas del main.java.personajes.Cazador.
      */
     public void subirNivel(){
         setNivel(getNivel() +1);
@@ -102,28 +104,28 @@ public class Cazador extends Personaje{
     }
 
     /**
-     * Calcula el ataque total del Cazador, sumando los puntos de ataque del Cazador
+     * Calcula el ataque total del main.java.personajes.Cazador, sumando los puntos de ataque del main.java.personajes.Cazador
      * y los de su compañero animal.
      *
-     * @return el valor total del ataque del Cazador y su compañero animal.
+     * @return el valor total del ataque del main.java.personajes.Cazador y su compañero animal.
      */
     public int luchar(){
         return getPuntos_ataque() + companieroAnimal.getPuntos_ataque();
     }
 
     /**
-     * Devuelve una representación en cadena de texto del Cazador, incluyendo sus
+     * Devuelve una representación en cadena de texto del main.java.personajes.Cazador, incluyendo sus
      * estadísticas y el estado de su mascota.
      *
-     * @return cadena de texto con la información del Cazador y su mascota.
+     * @return cadena de texto con la información del main.java.personajes.Cazador y su mascota.
      */
     public String toString(){
         return super.toString() + "\n" + companieroAnimal.toString();
     }
 
     /**
-     * Clase anidada Mascota que representa al compañero animal del Cazador.
-     * Un Mascota es un {@link Personaje} que comparte estadísticas con el Cazador,
+     * Clase anidada Mascota que representa al compañero animal del main.java.personajes.Cazador.
+     * Un Mascota es un {@link Personaje} que comparte estadísticas con el main.java.personajes.Cazador,
      * pero tiene sus propios valores ajustados según su raza.
      *
      * @author Joaquin Puchuri Tunjar
@@ -238,7 +240,7 @@ public class Cazador extends Personaje{
 
         /**
          * Ajusta las estadísticas del Compañero Animal como un "Canido", que tiene 20% de los atributos
-         * del Cazador.
+         * del main.java.personajes.Cazador.
          */
         private void Canido(){
             setRaza("canido");
@@ -252,7 +254,7 @@ public class Cazador extends Personaje{
 
         /**
          * Ajusta las estadísticas del Compañero Animal como un "Felino", que tiene 30% de ataque y
-         * velocidad, y 15% de los demás atributos del Cazador.
+         * velocidad, y 15% de los demás atributos del main.java.personajes.Cazador.
          */
         private void Felino(){
             setRaza("felino");

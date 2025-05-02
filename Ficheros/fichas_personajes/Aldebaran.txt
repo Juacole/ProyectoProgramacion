@@ -1,6 +1,6 @@
-Ficha del Guerrero Aldebaran.
+Ficha del main.java.personajes.Guerrero Aldebaran.
 Nombre: Aldebaran.
-Clase: Guerrero.
+Clase: main.java.personajes.Guerrero.
 Raza: Tauren.
 
 Nivel: 11.

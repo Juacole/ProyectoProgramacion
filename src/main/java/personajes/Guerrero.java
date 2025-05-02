@@ -1,3 +1,5 @@
+package main.java.personajes;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -6,7 +8,7 @@ import java.util.Random;
 
 /**
  * Representa una subclase de {@link Personaje} especializada en el combate fisico.
- * El Guerrero tiene la capacidad de entrar en un estado de furia lo que duplica
+ * El main.java.personajes.Guerrero tiene la capacidad de entrar en un estado de furia lo que duplica
  * temporalmente su ataque, pero tambien incrementa el daño recibido al defenderse.
  *
  * @author Joaquin Puchuri Tunjar
@@ -16,7 +18,7 @@ public class Guerrero extends Personaje{
     private boolean furia;
 
     /**
-     * Constructor por defecto que inicializa un Guerrero con los valores predeterminados
+     * Constructor por defecto que inicializa un main.java.personajes.Guerrero con los valores predeterminados
      * de la superclase {@link Personaje} y con el estado de furia desactivado.
      */
     public Guerrero(){
@@ -25,7 +27,7 @@ public class Guerrero extends Personaje{
     }
 
     /**
-     * Constructor por parametros que permite inicializar el Guerrero con un nombre y raza
+     * Constructor por parametros que permite inicializar el main.java.personajes.Guerrero con un nombre y raza
      * especificos, heredando el resto de estadisticas de la superclase {@link Personaje}.
      *
      * @param nombre de tipo String que define el nombre del guerrero.
@@ -39,7 +41,7 @@ public class Guerrero extends Personaje{
     /**
      * Constructor de copia que permite inicializar un objeto a partir de otro ya existente.
      *
-     * @param copia objeto de tipo Guerrero.
+     * @param copia objeto de tipo main.java.personajes.Guerrero.
      */
     public Guerrero(Guerrero copia){
         super();
@@ -84,7 +86,7 @@ public class Guerrero extends Personaje{
     }
 
     /**
-     * Devuelve el estado de furia del Guerrero.
+     * Devuelve el estado de furia del main.java.personajes.Guerrero.
      *
      * @return furia de tipo boolean, true si la furia esta activada, false en caso contrario.
      */
@@ -106,7 +108,7 @@ public class Guerrero extends Personaje{
     }
 
     /**
-     * Establece el estado de furia del Guerrero.
+     * Establece el estado de furia del main.java.personajes.Guerrero.
      *
      * @param furia de tipo boolean, true para activar la furia, false para desactivarla.
      */
@@ -115,7 +117,7 @@ public class Guerrero extends Personaje{
     }
 
     /**
-     * Incrementa el nivel del Guerrero y mejora sus estadisticas segun sus ventajas
+     * Incrementa el nivel del main.java.personajes.Guerrero y mejora sus estadisticas segun sus ventajas
      * y penalizaciones especificas. La probabilidad de mejorar cada estadistica
      * varia segun lo siguiente:
      *
@@ -149,11 +151,11 @@ public class Guerrero extends Personaje{
     }
 
     /**
-     * Realiza un ataque y devuelve los puntos de ataque del Guerrero.
-     * Si el Guerrero no esta en estado de furia, su ataque es normal.
+     * Realiza un ataque y devuelve los puntos de ataque del main.java.personajes.Guerrero.
+     * Si el main.java.personajes.Guerrero no esta en estado de furia, su ataque es normal.
      * Si esta en estado de furia, su ataque se duplica.
      *
-     * @return puntos de ataque del Guerrero en base a su estado de furia.
+     * @return puntos de ataque del main.java.personajes.Guerrero en base a su estado de furia.
      */
     public int Luchar(){
         if(!this.furia){
@@ -163,8 +165,8 @@ public class Guerrero extends Personaje{
     }
 
     /**
-     * Permite al Guerrero defenderse de un ataque, reduciendo su vida o resistencia
-     * segun el tipo de ataque recibido. Si la furia esta activa, el Guerrero recibe
+     * Permite al main.java.personajes.Guerrero defenderse de un ataque, reduciendo su vida o resistencia
+     * segun el tipo de ataque recibido. Si la furia esta activa, el main.java.personajes.Guerrero recibe
      * el doble de daño.
      *
      * @param tipoAtaque de tipo int, 1 para ataque fisico, 2 para ataque magico.
@@ -193,10 +195,10 @@ public class Guerrero extends Personaje{
     }
 
     /**
-     * Devuelve una representacion en cadena del Guerrero, incluyendo sus estadisticas
+     * Devuelve una representacion en cadena del main.java.personajes.Guerrero, incluyendo sus estadisticas
      * y el estado de furia.
      *
-     * @return cadena de texto con la informacion del Guerrero.
+     * @return cadena de texto con la informacion del main.java.personajes.Guerrero.
      */
     public String toString() {
         return super.toString() + "\nFuria: " + estadoFuria();

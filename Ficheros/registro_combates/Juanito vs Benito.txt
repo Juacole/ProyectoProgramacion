@@ -6,9 +6,9 @@ A unos pasos de distancia, Benito, un feroz Bestia, deja escapar una risa desafi
 El viento se detiene. La tensión es insoportable.
 ¡Que comience el combate!
 
-Ficha del Clerigo Juanito.
+Ficha del main.java.personajes.creyentes.Clerigo Juanito.
 Nombre: Juanito.
-Clase: Clerigo.
+Clase: main.java.personajes.creyentes.Clerigo.
 Raza: Goblin.
 
 Nivel: 6.
@@ -21,9 +21,9 @@ Resistencia magica: 30.
 Esta actualmente: vivo.
 Fe: 38
 
-Ficha del Monstruo Benito.
+Ficha del main.java.personajes.monstruos.Monstruo Benito.
 Nombre: Benito.
-Clase: Monstruo.
+Clase: main.java.personajes.monstruos.Monstruo.
 Raza: Bestia.
 
 Nivel: 6.

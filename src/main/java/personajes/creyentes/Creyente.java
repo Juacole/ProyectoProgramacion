@@ -1,10 +1,14 @@
+package main.java.personajes.creyentes;
+
+import main.java.personajes.Personaje;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
 /**
- * Representa a un Creyente, una subclase abstracta de {@link Personaje} que tiene un
+ * Representa a un main.java.personajes.creyentes.Creyente, una subclase abstracta de {@link Personaje} que tiene un
  * atributo nuevo fe. Los Creyentes son personajes que pueden realizar milagros basados
  * en su cantidad de fe, lo que afecta a su destreza y habilidades en combate.
  *
@@ -15,7 +19,7 @@ public abstract class Creyente extends Personaje {
     public int fe;
 
     /**
-     * Constructor por defecto que crea un Creyente con valores predeterminados y
+     * Constructor por defecto que crea un main.java.personajes.creyentes.Creyente con valores predeterminados y
      * asigna un nivel de fe de 10.
      */
     public Creyente(){
@@ -24,10 +28,10 @@ public abstract class Creyente extends Personaje {
     }
 
     /**
-     * Constructor que permite crear un Creyente con un nombre, raza y nivel de fe específicos.
+     * Constructor que permite crear un main.java.personajes.creyentes.Creyente con un nombre, raza y nivel de fe específicos.
      *
-     * @param nombre de tipo String que define el nombre del Creyente.
-     * @param raza de tipo String que define la raza del Creyente.
+     * @param nombre de tipo String que define el nombre del main.java.personajes.creyentes.Creyente.
+     * @param raza de tipo String que define la raza del main.java.personajes.creyentes.Creyente.
      */
     public Creyente(String nombre, String raza){
         super(nombre, raza);
@@ -37,7 +41,7 @@ public abstract class Creyente extends Personaje {
     /**
      * Constructor de copia que permite inicializar un objeto a partir de otro ya existente.
      *
-     * @param copia objeto de tipo Creyente.
+     * @param copia objeto de tipo main.java.personajes.creyentes.Creyente.
      */
     public Creyente(Creyente copia){
         super(copia);
@@ -78,26 +82,26 @@ public abstract class Creyente extends Personaje {
     }
 
     /**
-     * Devuelve el nivel de fe del Creyente, que determina su capacidad para realizar milagros.
+     * Devuelve el nivel de fe del main.java.personajes.creyentes.Creyente, que determina su capacidad para realizar milagros.
      *
-     * @return el valor actual de los puntos de fe del Creyente.
+     * @return el valor actual de los puntos de fe del main.java.personajes.creyentes.Creyente.
      */
     public int getFe() {
         return fe;
     }
 
     /**
-     * Establece el nivel de fe del Creyente.
+     * Establece el nivel de fe del main.java.personajes.creyentes.Creyente.
      *
-     * @param fe de tipo int que representa el nuevo nivel de fe del Creyente.
+     * @param fe de tipo int que representa el nuevo nivel de fe del main.java.personajes.creyentes.Creyente.
      */
     public void setFe(int fe){
         this.fe = fe;
     }
 
     /**
-     * Método abstracto que representa la plegaria del Creyente. Este método se implementa
-     * en las subclases de Creyente y permite al Creyente realizar milagros, afectando a
+     * Método abstracto que representa la plegaria del main.java.personajes.creyentes.Creyente. Este método se implementa
+     * en las subclases de main.java.personajes.creyentes.Creyente y permite al main.java.personajes.creyentes.Creyente realizar milagros, afectando a
      * un objetivo específico dependiendo del tipo de milagro indicado.
      *
      * @param tipoMilagro de tipo int que indica el tipo de milagro a realizar.
@@ -108,9 +112,9 @@ public abstract class Creyente extends Personaje {
 
     /**
      * Sobrescribe el método toString para proporcionar una representación
-     * completa del estado del Creyente, incluyendo su cantidad de fe.
+     * completa del estado del main.java.personajes.creyentes.Creyente, incluyendo su cantidad de fe.
      *
-     * @return una cadena de texto que describe el estado del Creyente y sus puntos de fe.
+     * @return una cadena de texto que describe el estado del main.java.personajes.creyentes.Creyente y sus puntos de fe.
      */
     public String toString(){
         return super.toString() + "\nFe: " + getFe();

@@ -6,9 +6,9 @@ A unos pasos de distancia, Juanceto, un feroz Orco, deja escapar una risa desafi
 El viento se detiene. La tensión es insoportable.
 ¡Que comience el combate!
 
-Ficha del Paladin Pedro.
+Ficha del main.java.personajes.creyentes.Paladin Pedro.
 Nombre: Pedro.
-Clase: Paladin.
+Clase: main.java.personajes.creyentes.Paladin.
 Raza: Venezolano.
 
 Nivel: 6.
@@ -21,9 +21,9 @@ Resistencia magica: 10.
 Esta actualmente: vivo.
 Fe: 20
 
-Ficha del Cazador Juanceto.
+Ficha del main.java.personajes.Cazador Juanceto.
 Nombre: Juanceto.
-Clase: Cazador.
+Clase: main.java.personajes.Cazador.
 Raza: Orco.
 
 Nivel: 6.

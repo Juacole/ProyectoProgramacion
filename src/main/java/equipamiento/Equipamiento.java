@@ -22,10 +22,10 @@ public class Equipamiento {
     }
 
     public Equipamiento(String nombre, HashMap<String, Integer> estadisticas, String rareza, double valor_economico) {
-        this.nombre = nombre;
+        setNombre(nombre);
         this.estadisticas = new HashMap<>(estadisticas);
-        this.rareza = rareza;
-        this.valor_economico = valor_economico;
+        setRareza(rareza);
+        setValorEconomico(valor_economico);
     }
 
     public String getNombre() {
@@ -83,45 +83,60 @@ public class Equipamiento {
     }
 
     public double recuperaEstadistica(String estadistica) {
+        double valor_estadistica = 0;
         switch (estadistica.toLowerCase().strip()) {
             case "ataque":
-                return this.estadisticas.get(estadistica);
+                valor_estadistica = this.estadisticas.get(estadistica);
+                break;
 
             case "velocidad":
-                return this.estadisticas.get(estadistica);
+                valor_estadistica = this.estadisticas.get(estadistica);
+                break;
 
             case "magia":
-                return this.estadisticas.get(estadistica);
+                valor_estadistica = this.estadisticas.get(estadistica);
+                break;
 
             case "fe":
-                return this.estadisticas.get(estadistica);
+                valor_estadistica = this.estadisticas.get(estadistica);
+                break;
 
             case "armadura":
-                return this.estadisticas.get(estadistica);
+                valor_estadistica = this.estadisticas.get(estadistica);
+                break;
 
             case "resistencia_magica":
-                return this.estadisticas.get(estadistica);
+                valor_estadistica = this.estadisticas.get(estadistica);
+                break;
 
             default:
                 System.err.println(
                         "Estadistica no valida. Las estadisticas validas son: ataque, velocidad, magia, fe, armadura y resistencia_magica.");
                 break;
         }
-        return -1;
+        return valor_estadistica;
     }
 
     public boolean equals(Equipamiento equipamiento) {
-        if (this.nombre.equals(equipamiento.getNombre()) && this.rareza.equals(equipamiento.getRareza())
-                && this.valor_economico == equipamiento.getValorEconomico())
-            return true;
+        if (!this.nombre.equals(equipamiento.getNombre())) {
+            return false;
+        }
+
+        if (this.valor_economico != equipamiento.getValorEconomico()) {
+            return false;
+        }
+
+        if (!this.rareza.equals(equipamiento.getRareza())) {
+            return false;
+        }
 
         if (this.estadisticas.size() == equipamiento.estadisticas.size()) {
             for (String llave : equipamiento.estadisticas.keySet()) {
-                if (this.estadisticas.get(llave) == equipamiento.estadisticas.get(llave))
-                    return true;
+                if (this.estadisticas.get(llave) != equipamiento.estadisticas.get(llave))
+                    return false;
             }
         }
-        return false;
+        return true;
     }
 
     public String toString() {

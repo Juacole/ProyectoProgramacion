@@ -1,4 +1,5 @@
-package main.java.personajes; /**
+package main.java.personajes; 
+/**
  * Representa un personaje generico de un juego de rol con unas estadisticas basicas.
  * Esta clase main.java.personajes.Personaje sera extenddida a traves de varias subclases de personajes con
  * nuevos comportamientos y cambios en sus estadisticas basicas de acuerdo a su categoria.

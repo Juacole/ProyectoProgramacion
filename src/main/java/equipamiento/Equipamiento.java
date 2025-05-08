@@ -2,7 +2,7 @@ package main.java.equipamiento;
 
 import java.util.HashMap;
 
-public class Equipamiento {
+public abstract class Equipamiento {
     private String nombre;
     private HashMap<String, Integer> estadisticas;
     private String rareza;
@@ -28,8 +28,20 @@ public class Equipamiento {
         setValorEconomico(valor_economico);
     }
 
+    public Equipamiento(Equipamiento equipamiento) {
+        setNombre(equipamiento.getNombre());
+        this.estadisticas = new HashMap<>(); // Inicializar siempre el hashmap
+        setEstadisticas(equipamiento.getEstadistica());
+        setRareza(equipamiento.getRareza());
+        setValorEconomico(equipamiento.getValorEconomico());
+    }
+
     public String getNombre() {
         return this.nombre;
+    }
+
+    public HashMap<String, Integer> getEstadistica() {
+        return this.estadisticas;
     }
 
     public String getRareza() {
@@ -46,6 +58,10 @@ public class Equipamiento {
         } else {
             this.nombre = nombre;
         }
+    }
+
+    public void setEstadisticas(HashMap<String, Integer> estadisticas) {
+        this.estadisticas.putAll(estadisticas);
     }
 
     public void setRareza(String rareza) {

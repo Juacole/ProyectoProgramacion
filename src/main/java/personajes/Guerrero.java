@@ -9,7 +9,6 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Random;
 
 /**
@@ -45,12 +44,14 @@ public class Guerrero extends Personaje{
     }
 
     public Guerrero(String nombre, String raza, Arma arma){
-        super(nombre, raza, arma);
+        super(nombre,raza);
+        setArma(arma);
         this.furia = false;
     }
 
-    public Guerrero(String nombre, String raza, HashMap<String, Armadura> equipamiento){
-        super(nombre, raza, equipamiento);
+    public Guerrero(String nombre, String raza, Armadura equipamiento){
+        super(nombre, raza);
+        setArmadura(equipamiento);
         this.furia = false;
     }
 
@@ -59,24 +60,26 @@ public class Guerrero extends Personaje{
         this.furia = false;
     }
 
-    public Guerrero(String nombre, String raza, Arma arma, HashMap<String, Armadura> equipamiento){
-        super(nombre, raza, equipamiento, arma);
+    public Guerrero(String nombre, String raza, Arma arma, Armadura equipamiento){
+        super(nombre, raza, arma);
+        setArmadura(equipamiento);
         this.furia = false;
     }
 
     public Guerrero(String nombre, String raza, Arma arma, ArrayList<Artefacto> artefactos){
-        super(nombre, raza, artefactos, arma);
+        super(nombre, raza, arma, artefactos);
         this.furia = false;
     }
 
-    public Guerrero(String nombre, String raza, HashMap<String, Armadura> equipamiento, ArrayList<Artefacto> artefactos){
-        super(nombre, raza, equipamiento, artefactos);
+    public Guerrero(String nombre, String raza, Armadura equipamiento, ArrayList<Artefacto> artefactos){
+        super(nombre, raza, artefactos);
+        setArmadura(equipamiento);
         this.furia = false;
     }
 
-
-    public Guerrero(String nombre, String raza, Arma arma, HashMap<String, Armadura> equipamiento, ArrayList<Artefacto> artefactos){
-        super(nombre, raza, arma, equipamiento, artefactos);
+    public Guerrero(String nombre, String raza, Arma arma, Armadura equipamiento, ArrayList<Artefacto> artefactos){
+        super(nombre, raza, arma, artefactos);
+        setArmadura(equipamiento);
         this.furia = false;
     }
 
@@ -158,6 +161,22 @@ public class Guerrero extends Personaje{
         this.furia = furia;
     }
 
+    public void setArma(Arma arma){
+        if(!arma.getTipo().equals("cetro") && !arma.getTipo().equals("arco") && !arma.getTipo().equals("baston")) super.setArma(arma);
+        else System.err.println("El arma del guerrero no puede ser ni cetro, arco y baston.");
+    }
+
+    public void setArmaComplementaria(Arma armaComplementaria){
+        if(!super.getArma().getEmpuñadura() && !armaComplementaria.getEmpuñadura()){
+            super.setArmaComplementaria(armaComplementaria);
+        }
+    }
+
+    public void setArmadura(Armadura armadura){
+        if(armadura.getMaterial().equals("metal")) super.setArmadura(armadura);
+        else System.err.println("La armadura del Guerrero solo puede ser de metal, no de otro material.");
+    }
+
     /**
      * Incrementa el nivel del main.java.personajes.Guerrero y mejora sus estadisticas segun sus ventajas
      * y penalizaciones especificas. La probabilidad de mejorar cada estadistica
@@ -208,8 +227,7 @@ public class Guerrero extends Personaje{
 
     /**
      * Permite al main.java.personajes.Guerrero defenderse de un ataque, reduciendo su vida o resistencia
-     * segun el tipo de ataque recibido. Si la furia esta activa, el main.java.personajes.Guerrero recibe
-     * el doble de daño.
+     * segun el tipo de ataque recibido. Si la furia esta activa, el Guerrero recibe el doble de daño.
      *
      * @param tipoAtaque de tipo int, 1 para ataque fisico, 2 para ataque magico.
      * @param objetivo de tipo String, el nombre del personaje que se defiende.
@@ -217,15 +235,15 @@ public class Guerrero extends Personaje{
     public void defender(int tipoAtaque, String objetivo){
         switch (tipoAtaque){
             case 1:
-                if(furia == true){
-                    setPuntos_vida((int) (getPuntos_vida() - (getPuntos_armadura() - luchar())));
+                if(this.furia){
+                    setPuntos_vida((int) 2*(getPuntos_vida() - (getPuntos_armadura() - luchar())));
                 } else{
                     setPuntos_vida((int) (getPuntos_vida() - (getPuntos_armadura() - luchar())));
                 }
                 break;
             case 2:
-                if(furia == true){
-                    setResistencia_magica((int) (getPuntos_vida() - (getResistencia_magica() - luchar())));
+                if(this.furia){
+                    setResistencia_magica((int) 2*(getPuntos_vida() - (getResistencia_magica() - luchar())));
                 } else{
                     setResistencia_magica((int) (getPuntos_vida() - (getResistencia_magica() - luchar())));
                 }

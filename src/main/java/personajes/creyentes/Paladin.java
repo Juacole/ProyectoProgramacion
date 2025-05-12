@@ -1,5 +1,10 @@
 package main.java.personajes.creyentes;
 
+import main.java.equipamiento.Arma;
+import main.java.equipamiento.Armadura;
+import main.java.equipamiento.Artefacto;
+
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -30,6 +35,42 @@ public class Paladin extends Creyente{
         super(nombre, raza);
     }
 
+    public Paladin(String nombre, String raza, Arma arma) {
+        super(nombre, raza);
+        setArma(arma);
+    }
+
+    public Paladin(String nombre, String raza, Armadura equipamiento) {
+        super(nombre, raza);
+        setArmadura(equipamiento);
+    }
+
+    public Paladin(String nombre, String raza, ArrayList<Artefacto> artefactos) {
+        super(nombre, raza, artefactos);
+    }
+
+    public Paladin(String nombre, String raza, Arma arma, Armadura equipamiento) {
+        super(nombre, raza);
+        setArma(arma);
+        setArmadura(equipamiento);
+    }
+
+    public Paladin(String nombre, String raza, Arma arma, ArrayList<Artefacto> artefactos) {
+        super(nombre, raza, artefactos);
+        setArma(arma);
+    }
+
+    public Paladin(String nombre, String raza, Armadura equipamiento, ArrayList<Artefacto> artefactos) {
+        super(nombre, raza, artefactos);
+        setArmadura(equipamiento);
+    }
+
+    public Paladin(String nombre, String raza, Arma arma, Armadura equipamiento, ArrayList<Artefacto> artefactos) {
+        super(nombre, raza, artefactos);
+        setArma(arma);
+        setArmadura(equipamiento);
+    }
+
     /**
      * Constructor de copia que permite inicializar un objeto a partir de otro ya existente.
      *
@@ -48,6 +89,16 @@ public class Paladin extends Creyente{
      */
     public Paladin(String path){
         super(path);
+    }
+
+    public void setArma(Arma arma){
+        if(!arma.getTipo().equals("arco") && !arma.getTipo().equals("baston")) super.setArma(arma);
+        else System.err.println("El Paladin puede llevar cualquier arma menos un arco o baston.");
+    }
+
+    public void setArmadura(Armadura armadura){
+        if(armadura.getMaterial().equals("metal")) super.setArmadura(armadura);
+        else System.err.println("La armadura del Paladin solo puede ser de metal y no de cualquier otro material.");
     }
 
     /**

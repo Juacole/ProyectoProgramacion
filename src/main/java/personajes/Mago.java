@@ -1,9 +1,14 @@
 package main.java.personajes;
 
+import main.java.equipamiento.Arma;
+import main.java.equipamiento.Armadura;
+import main.java.equipamiento.Artefacto;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -37,6 +42,49 @@ public class Mago extends Personaje{
     public Mago(String nombre, String raza) {
         super(nombre, raza);
         setPuntos_magia(10);
+    }
+
+    public Mago(String nombre, String raza, Arma arma, int puntos_magia){
+        super(nombre,raza);
+        setArma(arma);
+        setPuntos_magia(puntos_magia);
+    }
+
+    public Mago(String nombre, String raza, Armadura equipamiento, int puntos_magia){
+        super(nombre, raza);
+        setArmadura(equipamiento);
+        setPuntos_magia(puntos_magia);
+    }
+
+    public Mago(String nombre, String raza, ArrayList<Artefacto> artefactos, int puntos_magia){
+        super(nombre, raza, artefactos);
+        setPuntos_magia(puntos_magia);
+    }
+
+    public Mago(String nombre, String raza, Arma arma, Armadura equipamiento, int puntos_magia){
+        super(nombre, raza, arma);
+        setArma(arma);
+        setArmadura(equipamiento);
+        setPuntos_magia(puntos_magia);
+    }
+
+    public Mago(String nombre, String raza, Arma arma, ArrayList<Artefacto> artefactos, int puntos_magia){
+        super(nombre, raza, arma, artefactos);
+        setArma(arma);
+        setPuntos_magia(puntos_magia);
+    }
+
+    public Mago(String nombre, String raza, Armadura equipamiento, ArrayList<Artefacto> artefactos, int puntos_magia){
+        super(nombre, raza, artefactos);
+        setArmadura(equipamiento);
+        setPuntos_magia(puntos_magia);
+    }
+
+    public Mago(String nombre, String raza, Arma arma, Armadura equipamiento, ArrayList<Artefacto> artefactos, int puntos_magia){
+        super(nombre, raza, arma, artefactos);
+        setArma(arma);
+        setArmadura(equipamiento);
+        setPuntos_magia(puntos_magia);
     }
 
     /**
@@ -97,6 +145,16 @@ public class Mago extends Personaje{
      */
     public void setPuntos_magia(int puntos_magia) {
         this.puntos_magia = puntos_magia;
+    }
+
+    public void setArma(Arma arma){
+        if(arma.getTipo().equals("cetro") && arma.getTipo().equals("baston")) super.setArma(arma);
+        else System.err.println("Las unicas armas que puede empuñar un Mago son cetros y bastones.");
+    }
+
+    public void setArmadura(Armadura armadura){
+        if(armadura.getMaterial().equals("tela")) super.setArmadura(armadura);
+        else System.err.println("La armadura de un mago solo puede ser de tela, no de otro tipo de material.");
     }
 
     /**

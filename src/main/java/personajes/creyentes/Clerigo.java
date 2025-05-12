@@ -1,5 +1,10 @@
 package main.java.personajes.creyentes;
 
+import main.java.equipamiento.Arma;
+import main.java.equipamiento.Armadura;
+import main.java.equipamiento.Artefacto;
+
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -32,6 +37,42 @@ public class Clerigo extends Creyente{
         super(nombre,raza);
     }
 
+    public Clerigo(String nombre, String raza, Arma arma) {
+        super(nombre, raza);
+        setArma(arma);
+    }
+
+    public Clerigo(String nombre, String raza, Armadura equipamiento) {
+        super(nombre, raza);
+        setArmadura(equipamiento);
+    }
+
+    public Clerigo(String nombre, String raza, ArrayList<Artefacto> artefactos) {
+        super(nombre, raza, artefactos);
+    }
+
+    public Clerigo(String nombre, String raza, Arma arma, Armadura equipamiento) {
+        super(nombre, raza);
+        setArma(arma);
+        setArmadura(equipamiento);
+    }
+
+    public Clerigo(String nombre, String raza, Arma arma, ArrayList<Artefacto> artefactos) {
+        super(nombre, raza, artefactos);
+        setArma(arma);
+    }
+
+    public Clerigo(String nombre, String raza, Armadura equipamiento, ArrayList<Artefacto> artefactos) {
+        super(nombre, raza, artefactos);
+        setArmadura(equipamiento);
+    }
+
+    public Clerigo(String nombre, String raza, Arma arma, Armadura equipamiento, ArrayList<Artefacto> artefactos) {
+        super(nombre, raza, artefactos);
+        setArma(arma);
+        setArmadura(equipamiento);
+    }
+
     /**
      * Constructor de copia que permite inicializar un objeto a partir de otro ya existente.
      *
@@ -50,6 +91,16 @@ public class Clerigo extends Creyente{
      */
     public Clerigo(String path){
         super(path);
+    }
+
+    public void serArma(Arma arma){
+        if(arma.getTipo().equals("baston")) super.setArma(arma);
+        else System.err.println("Los sacerdotes solo podran empuñar bastones.");
+    }
+
+    public void setArmadura(Armadura armadura){
+        if(armadura.getMaterial().equals("tela")) super.setArmadura(armadura);
+        else System.err.println("El Clerigo solo puede llevar armadura de tela.");
     }
 
     /**

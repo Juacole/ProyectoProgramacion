@@ -21,7 +21,7 @@ import main.java.equipamiento.Arma;
 import main.java.equipamiento.Armadura;
 import main.java.equipamiento.Artefacto;
 
-public class Personaje {
+public abstract class Personaje {
     private String nombre;
     private String raza;
     private int nivel;
@@ -32,6 +32,7 @@ public class Personaje {
     private int resistencia_magica;
     private boolean estado;
     private Arma arma;
+    private Arma arma_complementaria;
     private HashMap<String, Armadura> armadura;
     private ArrayList<Artefacto> artefactos;
 
@@ -50,6 +51,7 @@ public class Personaje {
         this.resistencia_magica = 10;
         this.estado = true;
         this.arma = new Arma();
+        this.arma_complementaria = new Arma();
         this.armadura = new HashMap<>();
         this.armadura.put("yelmo", null);
         this.armadura.put("pechera", null);
@@ -71,6 +73,7 @@ public class Personaje {
         this.resistencia_magica = 10;
         this.estado = true;
         this.arma = new Arma();
+        this.arma_complementaria = new Arma();
         this.armadura = new HashMap<>();
         this.armadura.put("yelmo", null);
         this.armadura.put("pechera", null);
@@ -92,6 +95,7 @@ public class Personaje {
         this.resistencia_magica = 10;
         this.estado = true;
         setArma(arma);
+        this.arma_complementaria = new Arma();
         this.armadura = new HashMap<>();
         this.armadura.put("yelmo", null);
         this.armadura.put("pechera", null);
@@ -102,7 +106,7 @@ public class Personaje {
         this.artefactos = new ArrayList<>();
     }
 
-    public Personaje(String nombre, String raza, HashMap<String, Armadura> equipamiento) {
+    public Personaje(String nombre, String raza, Armadura equipamiento) {
         setNombre(nombre);
         razaElegida(raza);
         this.nivel = 1;
@@ -113,6 +117,7 @@ public class Personaje {
         this.resistencia_magica = 10;
         this.estado = true;
         this.arma = new Arma();
+        this.arma_complementaria = new Arma();
         this.armadura = new HashMap<>();
         this.armadura.put("yelmo", null);
         this.armadura.put("pechera", null);
@@ -134,6 +139,7 @@ public class Personaje {
         this.resistencia_magica = 10;
         this.estado = true;
         this.arma = new Arma();
+        this.arma_complementaria = new Arma();
         this.armadura = new HashMap<>();
         this.armadura.put("yelmo", null);
         this.armadura.put("pechera", null);
@@ -151,7 +157,7 @@ public class Personaje {
      * @param nombre de tipo String define el nombre del personaje.
      * @param raza   de tipo String define la raza del personaje.
      */
-    public Personaje(String nombre, String raza, HashMap<String, Armadura> equipamiento, Arma arma) {
+    public Personaje(String nombre, String raza, Arma arma, Armadura armadura) {
         setNombre(nombre);
         razaElegida(raza);
         this.nivel = 1;
@@ -162,6 +168,7 @@ public class Personaje {
         this.resistencia_magica = 10;
         this.estado = true;
         setArma(arma);
+        this.arma_complementaria = new Arma();
         this.armadura = new HashMap<>();
         this.armadura.put("yelmo", null);
         this.armadura.put("pechera", null);
@@ -169,10 +176,10 @@ public class Personaje {
         this.armadura.put("guanteletes", null);
         this.armadura.put("grebas", null);
         this.armadura.put("botas", null);
-        setArmadura(equipamiento);
+        setArmadura(armadura);
     }
 
-    public Personaje(String nombre, String raza, HashMap<String,Armadura> equipamiento, ArrayList<Artefacto> artefactos) {
+    public Personaje(String nombre, String raza, Armadura equipamiento, ArrayList<Artefacto> artefactos) {
         setNombre(nombre);
         razaElegida(raza);
         this.nivel = 1;
@@ -182,6 +189,8 @@ public class Personaje {
         this.puntos_armadura = 10;
         this.resistencia_magica = 10;
         this.estado = true;
+        this.arma = new Arma();
+        this.arma_complementaria = new Arma();
         this.armadura = new HashMap<>();
         this.armadura.put("yelmo", null);
         this.armadura.put("pechera", null);
@@ -193,7 +202,7 @@ public class Personaje {
         setArtefactos(artefactos);
     }
 
-    public Personaje(String nombre, String raza, ArrayList<Artefacto> artefactos, Arma arma) {
+    public Personaje(String nombre, String raza, Arma arma, ArrayList<Artefacto> artefactos) {
         setNombre(nombre);
         razaElegida(raza);
         this.nivel = 1;
@@ -204,6 +213,7 @@ public class Personaje {
         this.resistencia_magica = 10;
         this.estado = true;
         setArma(arma);
+        this.arma_complementaria = new Arma();
         this.armadura = new HashMap<>();
         this.armadura.put("yelmo", null);
         this.armadura.put("pechera", null);
@@ -214,7 +224,7 @@ public class Personaje {
         setArtefactos(artefactos);
     }
 
-    public Personaje(String nombre, String raza, Arma arma, HashMap<String,Armadura> equipamiento, ArrayList<Artefacto> artefactos) {
+    public Personaje(String nombre, String raza, Arma arma, Armadura equipamiento, ArrayList<Artefacto> artefactos) {
         setNombre(nombre);
         razaElegida(raza);
         this.nivel = 1;
@@ -225,6 +235,7 @@ public class Personaje {
         this.resistencia_magica = 10;
         this.estado = true;
         setArma(arma);
+        this.arma_complementaria = new Arma();
         this.armadura = new HashMap<>();
         this.armadura.put("yelmo", null);
         this.armadura.put("pechera", null);
@@ -513,6 +524,12 @@ public class Personaje {
         }
     }
 
+    public void setArmadura(Armadura equipamiento) {
+        if(this.armadura.get(equipamiento.getTipo()) != null){
+            this.armadura.put(equipamiento.getTipo(), equipamiento);
+        }
+    }
+
     public void setArmadura(HashMap<String, Armadura> armadura) {
         Set<String> piezasValidas = Set.of("yelmo", "pechera", "hombreras", "guanteletes", "grebas", "botas");
         for (String clave : armadura.keySet()) {
@@ -557,6 +574,14 @@ public class Personaje {
 
     public void setArma(Arma arma) {
         this.arma = new Arma(arma);
+    }
+
+    public void setArmaComplementaria(Arma armaComplementaria){
+        this.arma_complementaria = new Arma(armaComplementaria);
+    }
+
+    public void setArtefacto(Artefacto artefacto){
+        this.artefactos.add(artefacto);
     }
 
     public void setArtefactos(ArrayList<Artefacto> artefactos) {

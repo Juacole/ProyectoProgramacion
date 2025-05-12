@@ -1,9 +1,14 @@
 package main.java.personajes;
 
+import main.java.equipamiento.Arma;
+import main.java.equipamiento.Armadura;
+import main.java.equipamiento.Artefacto;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -40,6 +45,49 @@ public class Cazador extends Personaje{
         this.companieroAnimal = new CompanieroAnimal(nombreCompaniero, razaAnimal);
     }
 
+    public Cazador(String nombre, String raza, Arma arma, String nombreCompaniero, String razaAnimal) {
+        super(nombre, raza);
+        setArma(arma);
+        this.companieroAnimal = new CompanieroAnimal(nombreCompaniero, razaAnimal);
+    }
+
+    public Cazador(String nombre, String raza, Armadura equipamiento, String nombreCompaniero, String razaAnimal) {
+        super(nombre, raza);
+        setArmadura(equipamiento);
+        this.companieroAnimal = new CompanieroAnimal(nombreCompaniero, razaAnimal);
+    }
+
+    public Cazador(String nombre, String raza, ArrayList<Artefacto> artefactos, String nombreCompaniero, String razaAnimal) {
+        super(nombre, raza, artefactos);
+        this.companieroAnimal = new CompanieroAnimal(nombreCompaniero, razaAnimal);
+    }
+
+    public Cazador(String nombre, String raza, Arma arma, Armadura equipamiento, String nombreCompaniero, String razaAnimal) {
+        super(nombre, raza);
+        setArma(arma);
+        setArmadura(equipamiento);
+        this.companieroAnimal = new CompanieroAnimal(nombreCompaniero, razaAnimal);
+    }
+
+    public Cazador(String nombre, String raza, Arma arma, ArrayList<Artefacto> artefactos, String nombreCompaniero, String razaAnimal) {
+        super(nombre, raza, artefactos);
+        setArma(arma);
+        this.companieroAnimal = new CompanieroAnimal(nombreCompaniero, razaAnimal);
+    }
+
+    public Cazador(String nombre, String raza, Armadura equipamiento, ArrayList<Artefacto> artefactos, String nombreCompaniero, String razaAnimal) {
+        super(nombre, raza, artefactos);
+        setArmadura(equipamiento);
+        this.companieroAnimal = new CompanieroAnimal(nombreCompaniero, razaAnimal);
+    }
+
+    public Cazador(String nombre, String raza, Arma arma, Armadura equipamiento, ArrayList<Artefacto> artefactos, String nombreCompaniero, String razaAnimal) {
+        super(nombre, raza, artefactos);
+        setArma(arma);
+        setArmadura(equipamiento);
+        this.companieroAnimal = new CompanieroAnimal(nombreCompaniero, razaAnimal);
+    }
+
     /**
      * Constructor de copia que permite inicializar un objeto a partir de otro ya existente.
      *
@@ -69,6 +117,16 @@ public class Cazador extends Personaje{
      */
     public CompanieroAnimal getCompanieroAnimal() {
         return this.companieroAnimal;
+    }
+
+    public void setArma(Arma arma){
+        if(arma.getTipo().equals("espada") || arma.getTipo().equals("hacha") || arma.getTipo().equals("daga") || arma.getTipo().equals("arco")) super.setArma(arma);
+        else System.err.println("El Cazador solo puede empuñar espadas, hachas, dagas y arcos.");
+    }
+
+    public void setArmadura(Armadura armadura){
+        if(armadura.getMaterial().equals("cuero")) super.setArmadura(armadura);
+        else System.err.println("El Cazador solo puede llevar armadura de cuero.");
     }
 
     /**
@@ -152,6 +210,11 @@ public class Cazador extends Personaje{
             setRaza();
         }
 
+        public CompanieroAnimal(String nombre, String raza, Artefacto artefacto){
+            super(nombre, raza);
+            setArtefacto(artefacto);
+        }
+
         /**
          * Constructor de copia que permite inicializar un objeto a partir de otro ya existente.
          *
@@ -207,6 +270,11 @@ public class Cazador extends Personaje{
             } catch (IOException ioe){
                 throw new RuntimeException(ioe);
             }
+        }
+
+        public void setArtefacto(Artefacto artefacto){
+            if(artefacto.getTipo().equals("amuelto")) super.setArtefacto(artefacto);
+            else System.err.println("El Compañero animal solo puede llevar un artefacto de tipo amuleto.");
         }
 
         /**

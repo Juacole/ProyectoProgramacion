@@ -1,5 +1,10 @@
 package main.java.personajes;
 
+import main.java.equipamiento.Arma;
+import main.java.equipamiento.Armadura;
+import main.java.equipamiento.Artefacto;
+
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -31,6 +36,42 @@ public class Ladron extends Personaje{
         super(nombre, raza);
     }
 
+    public Ladron(String nombre, String raza, Arma arma) {
+        super(nombre, raza);
+        setArma(arma);
+    }
+
+    public Ladron(String nombre, String raza, Armadura equipamiento) {
+        super(nombre, raza);
+        setArmadura(equipamiento);
+    }
+
+    public Ladron(String nombre, String raza, ArrayList<Artefacto> artefactos) {
+        super(nombre, raza, artefactos);
+    }
+
+    public Ladron(String nombre, String raza, Arma arma, Armadura equipamiento) {
+        super(nombre, raza);
+        setArma(arma);
+        setArmadura(equipamiento);
+    }
+
+    public Ladron(String nombre, String raza, Arma arma, ArrayList<Artefacto> artefactos) {
+        super(nombre, raza, artefactos);
+        setArma(arma);
+    }
+
+    public Ladron(String nombre, String raza, Armadura equipamiento, ArrayList<Artefacto> artefactos) {
+        super(nombre, raza, artefactos);
+        setArmadura(equipamiento);
+    }
+
+    public Ladron(String nombre, String raza, Arma arma, Armadura equipamiento, ArrayList<Artefacto> artefactos) {
+        super(nombre, raza, artefactos);
+        setArma(arma);
+        setArmadura(equipamiento);
+    }
+
     /**
      * Constructor de copia que permite inicializar un objeto a partir de otro ya existente.
      *
@@ -49,6 +90,16 @@ public class Ladron extends Personaje{
      */
     public Ladron(String path){
         super(path);
+    }
+
+    public void setArma(Arma arma){
+        if(arma.getTipo().equals("espada") || arma.getTipo().equals("daga")) super.setArma(arma);
+        else System.err.println("El Ladron solo puede llevar como arma espada o daga.");
+    }
+
+    public void setArmadura(Armadura armadura){
+        if(armadura.getTipo().equals("cuero")) super.setArmadura(armadura);
+        else System.err.println("El Ladron solo puede llevar armadura de cuero, no de otro tipo.");
     }
 
     /**

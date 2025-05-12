@@ -1,11 +1,15 @@
 package main.java.personajes.creyentes;
 
+import main.java.equipamiento.Arma;
+import main.java.equipamiento.Armadura;
+import main.java.equipamiento.Artefacto;
 import main.java.personajes.Personaje;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * Representa a un main.java.personajes.creyentes.Creyente, una subclase abstracta de {@link Personaje} que tiene un
@@ -24,6 +28,41 @@ public abstract class Creyente extends Personaje {
      */
     public Creyente(){
         super();
+        this.fe = 10;
+    }
+
+    public Creyente(String nombre, String raza, Arma arma) {
+        super(nombre, raza, arma);
+        this.fe = 10;
+    }
+
+    public Creyente(String nombre, String raza, Armadura equipamiento) {
+        super(nombre, raza, equipamiento);
+        this.fe = 10;
+    }
+
+    public Creyente(String nombre, String raza, ArrayList<Artefacto> artefactos) {
+        super(nombre, raza, artefactos);
+        this.fe = 10;
+    }
+
+    public Creyente(String nombre, String raza, Arma arma, Armadura equipamiento) {
+        super(nombre, raza, arma, equipamiento);
+        this.fe = 10;
+    }
+
+    public Creyente(String nombre, String raza, Arma arma, ArrayList<Artefacto> artefactos) {
+        super(nombre, raza, arma, artefactos);
+        this.fe = 10;
+    }
+
+    public Creyente(String nombre, String raza, Armadura equipamiento, ArrayList<Artefacto> artefactos) {
+        super(nombre, raza, equipamiento, artefactos);
+        this.fe = 10;
+    }
+
+    public Creyente(String nombre, String raza, Arma arma, Armadura equipamiento, ArrayList<Artefacto> artefactos) {
+        super(nombre, raza, arma, equipamiento, artefactos);
         this.fe = 10;
     }
 

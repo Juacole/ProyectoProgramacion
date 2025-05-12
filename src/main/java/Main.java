@@ -8,6 +8,7 @@ import java.util.HashMap;
 
 public class Main {
     public static void main(String[] args) {
+        /*
         HashMap<String, Integer> estadisticas = new HashMap<>();
         estadisticas.put("ataque", 54);
         estadisticas.put("velocidad", 76);
@@ -30,10 +31,11 @@ public class Main {
         armadura.put("grebas", armadura5);
         armadura.put("botas", armadura6);
         Personaje nuevo_personaje = new Personaje("pedro", "humano");
-        nuevo_personaje.setArmadura(armadura);
+        nuevo_personaje.setArmadura(armadura1);
         //System.out.println(nuevo_personaje.getArmadura());
         System.out.println(nuevo_personaje.toString());
 
+         */
         /*
         HashMap<String, Integer> estadisticas2 = new HashMap<>();
         estadisticas2.put("ataque", 54);

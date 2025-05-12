@@ -1,15 +1,20 @@
 package main.java.equipamiento;
 
+import java.util.HashMap;
+import java.util.Set;
+
 public class Armadura extends Equipamiento {
     private String tipo;
     private String material;
 
     public Armadura() {
+        super();
         this.tipo = "";
         this.material = "";
     }
 
-    public Armadura(String tipo, String material) {
+    public Armadura(String nombre, HashMap<String, Integer> estadisticas, String rareza, double valor_economico, String tipo, String material) {
+        super(nombre,estadisticas,rareza,valor_economico);
         setTipo(tipo);
         setMaterial(material);
     }
@@ -29,32 +34,23 @@ public class Armadura extends Equipamiento {
     }
 
     public void setTipo(String tipo) {
-        if (tipo.toLowerCase().equals("yelmo")) {
-            this.tipo = tipo;
-        } else if (tipo.toLowerCase().equals("pechera")) {
-            this.tipo = tipo;
-        } else if (tipo.toLowerCase().equals("hombreras")) {
-            this.tipo = tipo;
-        } else if (tipo.toLowerCase().equals("guanteletes")) {
-            this.tipo = tipo;
-        } else if (tipo.toLowerCase().equals("grebas")) {
-            this.tipo = tipo;
-        } else if (tipo.toLowerCase().equals("botas")) {
-            this.tipo = tipo;
-        } else {
-            System.err.println("El tipo de armadura solo puede ser: \n-yelmo \n-pechera \n-hombreras \n-guanteletes \n-grebas \n-botas");
+        Set<String> tiposValidos = Set.of("yelmo", "pechera", "hombreras", "guanteletes", "grebas", "botas");
+
+        if(tiposValidos.contains(tipo.toLowerCase())){
+            this.tipo = tipo.toLowerCase();
+        }else {
+            System.err.println("El tipo de armadura solo puede ser: \n-" + String.join("\n-", tiposValidos));
+            this.tipo = "";
         }
     }
 
     public void setMaterial(String material) {
-        if (material.toLowerCase().equals("tela")) {
-            this.material = material;
-        } else if (material.toLowerCase().equals("cuero")) {
-            this.material = material;
-        } else if (material.toLowerCase().equals("metal")) {
-            this.material = material;
-        } else {
-            System.err.println("Los materiales de la armadura solo puedes ser: \n-tela \n-cuero \n-metal");
+        Set<String> materialesValidos = Set.of("tela","cuero","metal");
+
+        if(materialesValidos.contains(material.toLowerCase())){
+            this.material = material.toLowerCase();
+        }else {
+            System.err.println("Los materiales de la armadura solo puedes ser: \n-" + String.join("\n-", materialesValidos));
         }
     }
 

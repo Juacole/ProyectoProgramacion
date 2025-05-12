@@ -1,6 +1,8 @@
 package main.java;
 
 import main.java.equipamiento.Arma;
+import main.java.equipamiento.Armadura;
+import main.java.personajes.Personaje;
 
 import java.util.HashMap;
 
@@ -14,8 +16,25 @@ public class Main {
         estadisticas.put("armadura", 98);
         estadisticas.put("resistencia_magica", 45);
 
-        Arma arma = new Arma("Palo", estadisticas, "Comun", 34.8, false, "espada");
+        Armadura armadura1 = new Armadura("prueba1",estadisticas,"comun",34.7,"yelmo","cuero");
+        Armadura armadura2 = new Armadura("prueba1",estadisticas,"comun",34.7,"pechera","cuero");
+        Armadura armadura3 = new Armadura("prueba1",estadisticas,"comun",34.7,"hombreras","cuero");
+        Armadura armadura4 = new Armadura("prueba1",estadisticas,"comun",34.7,"guanteletes","cuero");
+        Armadura armadura5 = new Armadura("prueba1",estadisticas,"comun",34.7,"grebas","cuero");
+        Armadura armadura6 = new Armadura("prueba1",estadisticas,"comun",34.7,"botas","cuero");
+        HashMap<String,Armadura> armadura = new HashMap<String, Armadura>();
+        armadura.put("yelmo", armadura1);
+        armadura.put("pechera", armadura2);
+        armadura.put("hombreras", armadura3);
+        armadura.put("guanteletes", armadura4);
+        armadura.put("grebas", armadura5);
+        armadura.put("botas", armadura6);
+        Personaje nuevo_personaje = new Personaje("pedro", "humano");
+        nuevo_personaje.setArmadura(armadura);
+        //System.out.println(nuevo_personaje.getArmadura());
+        System.out.println(nuevo_personaje.toString());
 
+        /*
         HashMap<String, Integer> estadisticas2 = new HashMap<>();
         estadisticas2.put("ataque", 54);
         estadisticas2.put("velocidad", 76);
@@ -24,8 +43,9 @@ public class Main {
         estadisticas2.put("armadura", 98);
         estadisticas2.put("resistencia_magica", 45);
 
-        System.out.println(arma.toString());
-        Arma arma2 = new Arma(arma);
-        System.out.println(arma2.toString());
+        Armadura armadura = new Armadura();
+        armadura.setTipo("pechera");
+        */
+
     }
 }

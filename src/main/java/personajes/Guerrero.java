@@ -1,9 +1,15 @@
 package main.java.personajes;
 
+import main.java.equipamiento.Arma;
+import main.java.equipamiento.Armadura;
+import main.java.equipamiento.Artefacto;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Random;
 
 /**
@@ -35,6 +41,42 @@ public class Guerrero extends Personaje{
      */
     public Guerrero(String nombre, String raza) {
         super(nombre, raza);
+        this.furia = false;
+    }
+
+    public Guerrero(String nombre, String raza, Arma arma){
+        super(nombre, raza, arma);
+        this.furia = false;
+    }
+
+    public Guerrero(String nombre, String raza, HashMap<String, Armadura> equipamiento){
+        super(nombre, raza, equipamiento);
+        this.furia = false;
+    }
+
+    public Guerrero(String nombre, String raza, ArrayList<Artefacto> artefactos){
+        super(nombre, raza, artefactos);
+        this.furia = false;
+    }
+
+    public Guerrero(String nombre, String raza, Arma arma, HashMap<String, Armadura> equipamiento){
+        super(nombre, raza, equipamiento, arma);
+        this.furia = false;
+    }
+
+    public Guerrero(String nombre, String raza, Arma arma, ArrayList<Artefacto> artefactos){
+        super(nombre, raza, artefactos, arma);
+        this.furia = false;
+    }
+
+    public Guerrero(String nombre, String raza, HashMap<String, Armadura> equipamiento, ArrayList<Artefacto> artefactos){
+        super(nombre, raza, equipamiento, artefactos);
+        this.furia = false;
+    }
+
+
+    public Guerrero(String nombre, String raza, Arma arma, HashMap<String, Armadura> equipamiento, ArrayList<Artefacto> artefactos){
+        super(nombre, raza, arma, equipamiento, artefactos);
         this.furia = false;
     }
 

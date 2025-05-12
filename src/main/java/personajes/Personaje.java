@@ -1,19 +1,27 @@
-package main.java.personajes; 
+package main.java.personajes;
 /**
- * Representa un personaje generico de un juego de rol con unas estadisticas basicas.
- * Esta clase main.java.personajes.Personaje sera extenddida a traves de varias subclases de personajes con
- * nuevos comportamientos y cambios en sus estadisticas basicas de acuerdo a su categoria.
- *
- * @author Joaquin Puchuri Tunjar
- * @version 1.1.1
- * */
+* Representa un personaje generico de un juego de rol con unas estadisticas basicas.
+* Esta clase main.java.personajes.Personaje sera extenddida a traves de varias subclases de personajes con
+* nuevos comportamientos y cambios en sus estadisticas basicas de acuerdo a su categoria.
+*
+* @author Joaquin Puchuri Tunjar
+* @version 1.1.1
+* */
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Random;
+import java.util.Set;
 
-public abstract class Personaje{
+import main.java.equipamiento.Arma;
+import main.java.equipamiento.Armadura;
+import main.java.equipamiento.Artefacto;
+
+public class Personaje {
     private String nombre;
     private String raza;
     private int nivel;
@@ -23,20 +31,117 @@ public abstract class Personaje{
     private int puntos_armadura;
     private int resistencia_magica;
     private boolean estado;
+    private Arma arma;
+    private HashMap<String, Armadura> armadura;
+    private ArrayList<Artefacto> artefactos;
 
     /**
-     * Constructor por defecto que inicializa los atributos a unas estadisticas predeterminadas..
-     * */
-    public Personaje(){
-        this.nombre="";
-        this.raza="";
-        this.nivel=1;
-        this.puntos_vida=100;
-        this.puntos_ataque=10;
-        this.puntos_velocidad=10;
-        this.puntos_armadura=10;
-        this.resistencia_magica=10;
-        this.estado=true;
+     * Constructor por defecto que inicializa los atributos a unas estadisticas
+     * predeterminadas..
+     */
+    public Personaje() {
+        this.nombre = "";
+        this.raza = "";
+        this.nivel = 1;
+        this.puntos_vida = 100;
+        this.puntos_ataque = 10;
+        this.puntos_velocidad = 10;
+        this.puntos_armadura = 10;
+        this.resistencia_magica = 10;
+        this.estado = true;
+        this.arma = new Arma();
+        this.armadura = new HashMap<>();
+        this.armadura.put("yelmo", null);
+        this.armadura.put("pechera", null);
+        this.armadura.put("hombreras", null);
+        this.armadura.put("guanteletes", null);
+        this.armadura.put("grebas", null);
+        this.armadura.put("botas", null);
+        this.artefactos = new ArrayList<>();
+    }
+
+    public Personaje(String nombre, String raza) {
+        setNombre(nombre);
+        razaElegida(raza);
+        this.nivel = 1;
+        this.puntos_vida = 100;
+        this.puntos_ataque = 10;
+        this.puntos_velocidad = 10;
+        this.puntos_armadura = 10;
+        this.resistencia_magica = 10;
+        this.estado = true;
+        this.arma = new Arma();
+        this.armadura = new HashMap<>();
+        this.armadura.put("yelmo", null);
+        this.armadura.put("pechera", null);
+        this.armadura.put("hombreras", null);
+        this.armadura.put("guanteletes", null);
+        this.armadura.put("grebas", null);
+        this.armadura.put("botas", null);
+        this.artefactos = new ArrayList<>();
+    }
+
+    public Personaje(String nombre, String raza, Arma arma) {
+        setNombre(nombre);
+        razaElegida(raza);
+        this.nivel = 1;
+        this.puntos_vida = 100;
+        this.puntos_ataque = 10;
+        this.puntos_velocidad = 10;
+        this.puntos_armadura = 10;
+        this.resistencia_magica = 10;
+        this.estado = true;
+        setArma(arma);
+        this.armadura = new HashMap<>();
+        this.armadura.put("yelmo", null);
+        this.armadura.put("pechera", null);
+        this.armadura.put("hombreras", null);
+        this.armadura.put("guanteletes", null);
+        this.armadura.put("grebas", null);
+        this.armadura.put("botas", null);
+        this.artefactos = new ArrayList<>();
+    }
+
+    public Personaje(String nombre, String raza, HashMap<String, Armadura> equipamiento) {
+        setNombre(nombre);
+        razaElegida(raza);
+        this.nivel = 1;
+        this.puntos_vida = 100;
+        this.puntos_ataque = 10;
+        this.puntos_velocidad = 10;
+        this.puntos_armadura = 10;
+        this.resistencia_magica = 10;
+        this.estado = true;
+        this.arma = new Arma();
+        this.armadura = new HashMap<>();
+        this.armadura.put("yelmo", null);
+        this.armadura.put("pechera", null);
+        this.armadura.put("hombreras", null);
+        this.armadura.put("guanteletes", null);
+        this.armadura.put("grebas", null);
+        this.armadura.put("botas", null);
+        setArmadura(equipamiento);
+    }
+
+    public Personaje(String nombre, String raza, ArrayList<Artefacto> artefactos) {
+        setNombre(nombre);
+        razaElegida(raza);
+        this.nivel = 1;
+        this.puntos_vida = 100;
+        this.puntos_ataque = 10;
+        this.puntos_velocidad = 10;
+        this.puntos_armadura = 10;
+        this.resistencia_magica = 10;
+        this.estado = true;
+        this.arma = new Arma();
+        this.armadura = new HashMap<>();
+        this.armadura.put("yelmo", null);
+        this.armadura.put("pechera", null);
+        this.armadura.put("hombreras", null);
+        this.armadura.put("guanteletes", null);
+        this.armadura.put("grebas", null);
+        this.armadura.put("botas", null);
+        setArtefactos(artefactos);
     }
 
     /**
@@ -44,57 +149,136 @@ public abstract class Personaje{
      * manteniendo sus estadisticas predeterminadas.
      *
      * @param nombre de tipo String define el nombre del personaje.
-     * @param raza de tipo String define la raza del personaje.
-     * */
-    public Personaje(String nombre, String raza){
+     * @param raza   de tipo String define la raza del personaje.
+     */
+    public Personaje(String nombre, String raza, HashMap<String, Armadura> equipamiento, Arma arma) {
         setNombre(nombre);
         razaElegida(raza);
-        this.nivel=1;
-        this.puntos_vida=100;
-        this.puntos_ataque=10;
-        this.puntos_velocidad=10;
-        this.puntos_armadura=10;
-        this.resistencia_magica=10;
-        this.estado=true;
+        this.nivel = 1;
+        this.puntos_vida = 100;
+        this.puntos_ataque = 10;
+        this.puntos_velocidad = 10;
+        this.puntos_armadura = 10;
+        this.resistencia_magica = 10;
+        this.estado = true;
+        setArma(arma);
+        this.armadura = new HashMap<>();
+        this.armadura.put("yelmo", null);
+        this.armadura.put("pechera", null);
+        this.armadura.put("hombreras", null);
+        this.armadura.put("guanteletes", null);
+        this.armadura.put("grebas", null);
+        this.armadura.put("botas", null);
+        setArmadura(equipamiento);
+    }
+
+    public Personaje(String nombre, String raza, HashMap<String,Armadura> equipamiento, ArrayList<Artefacto> artefactos) {
+        setNombre(nombre);
+        razaElegida(raza);
+        this.nivel = 1;
+        this.puntos_vida = 100;
+        this.puntos_ataque = 10;
+        this.puntos_velocidad = 10;
+        this.puntos_armadura = 10;
+        this.resistencia_magica = 10;
+        this.estado = true;
+        this.armadura = new HashMap<>();
+        this.armadura.put("yelmo", null);
+        this.armadura.put("pechera", null);
+        this.armadura.put("hombreras", null);
+        this.armadura.put("guanteletes", null);
+        this.armadura.put("grebas", null);
+        this.armadura.put("botas", null);
+        setArmadura(equipamiento);
+        setArtefactos(artefactos);
+    }
+
+    public Personaje(String nombre, String raza, ArrayList<Artefacto> artefactos, Arma arma) {
+        setNombre(nombre);
+        razaElegida(raza);
+        this.nivel = 1;
+        this.puntos_vida = 100;
+        this.puntos_ataque = 10;
+        this.puntos_velocidad = 10;
+        this.puntos_armadura = 10;
+        this.resistencia_magica = 10;
+        this.estado = true;
+        setArma(arma);
+        this.armadura = new HashMap<>();
+        this.armadura.put("yelmo", null);
+        this.armadura.put("pechera", null);
+        this.armadura.put("hombreras", null);
+        this.armadura.put("guanteletes", null);
+        this.armadura.put("grebas", null);
+        this.armadura.put("botas", null);
+        setArtefactos(artefactos);
+    }
+
+    public Personaje(String nombre, String raza, Arma arma, HashMap<String,Armadura> equipamiento, ArrayList<Artefacto> artefactos) {
+        setNombre(nombre);
+        razaElegida(raza);
+        this.nivel = 1;
+        this.puntos_vida = 100;
+        this.puntos_ataque = 10;
+        this.puntos_velocidad = 10;
+        this.puntos_armadura = 10;
+        this.resistencia_magica = 10;
+        this.estado = true;
+        setArma(arma);
+        this.armadura = new HashMap<>();
+        this.armadura.put("yelmo", null);
+        this.armadura.put("pechera", null);
+        this.armadura.put("hombreras", null);
+        this.armadura.put("guanteletes", null);
+        this.armadura.put("grebas", null);
+        this.armadura.put("botas", null);
+        setArmadura(equipamiento);
+        setArtefactos(artefactos);
     }
 
     /**
-     * Constructor de copia que permite inicializar un objeto a partir de otro ya existente.
+     * Constructor de copia que permite inicializar un objeto a partir de otro ya
+     * existente.
      *
      * @param copia objeto de tipo main.java.personajes.Personaje.
      */
-    public Personaje(Personaje copia){
-        this.nombre=copia.nombre;
-        this.raza=copia.raza;
-        this.nivel=copia.nivel;
-        this.puntos_vida=copia.puntos_vida;
-        this.puntos_ataque=copia.puntos_ataque;
-        this.puntos_velocidad=copia.puntos_velocidad;
-        this.puntos_armadura=copia.puntos_armadura;
-        this.resistencia_magica=copia.resistencia_magica;
-        this.estado=copia.estado;
+    public Personaje(Personaje copia) {
+        setNombre(copia.getNombre());
+        setRaza(copia.getRaza());
+        setNivel(copia.getNivel());
+        setPuntos_vida(copia.getPuntos_vida());
+        setPuntos_ataque(copia.getPuntos_ataque());
+        setPuntos_velocidad(copia.getPuntos_velocidad());
+        setPuntos_armadura(copia.getPuntos_armadura());
+        setResistencia_magica(copia.getResistencia_magica());
+        setEstado(copia.isEstado());
+        setArma(copia.getArma());
+        setArmadura(copia.getArmadura());
+        setArtefactos(copia.getArtefactos());
     }
 
     /**
-     * Al inicilizarse un personaje este recibira un path donde estara la ruta hacia un
+     * Al inicilizarse un personaje este recibira un path donde estara la ruta hacia
+     * un
      * fichero donde estara la ficha del personaje y esta se imprimira por pantalla.
      *
-     * @param path de tipo String que define la ruta del fichero del cual se inicializa
-     * un objeto.
+     * @param path de tipo String que define la ruta del fichero del cual se
+     *             inicializa
+     *             un objeto.
      */
-    public Personaje(String path){
-        try{
+    public Personaje(String path) {
+        try {
             File fichaLectura = new File(path);
-            if(fichaLectura.canRead()){
+            if (fichaLectura.canRead()) {
                 FileReader fr = new FileReader(fichaLectura);
                 BufferedReader br = new BufferedReader(fr);
                 String linea;
                 int indice = 0;
                 String[] atributos = new String[9];
-                while((linea = br.readLine()) != null && indice < 9){
+                while ((linea = br.readLine()) != null && indice < 9) {
                     String[] aux = linea.split(": ");
-                    if(aux.length > 1 && !linea.startsWith("Clase")){
-                        String valor_atributo = aux[1].replace(".","");
+                    if (aux.length > 1 && !linea.startsWith("Clase")) {
+                        String valor_atributo = aux[1].replace(".", "");
                         atributos[indice] = valor_atributo;
                         indice++;
                     }
@@ -107,25 +291,24 @@ public abstract class Personaje{
                 this.puntos_velocidad = Integer.parseInt(atributos[5]);
                 this.puntos_armadura = Integer.parseInt(atributos[6]);
                 this.resistencia_magica = Integer.parseInt(atributos[7]);
-                if(atributos[8].contains("vivo")){
+                if (atributos[8].contains("vivo")) {
                     this.estado = true;
-                }else if(atributos[8].contains("muerto")) {
+                } else if (atributos[8].contains("muerto")) {
                     this.estado = false;
                 }
                 br.close();
                 fr.close();
             }
-        } catch (IOException ioe){
+        } catch (IOException ioe) {
             throw new RuntimeException(ioe);
         }
     }
-
 
     /**
      * Devuelve el valor del atributo nombre
      *
      * @return nombre de tipo String.
-     * */
+     */
     public String getNombre() {
         return nombre;
     }
@@ -134,7 +317,7 @@ public abstract class Personaje{
      * Devuelve el valor del atributo raza.
      *
      * @return raza de tipo String.
-     * */
+     */
     public String getRaza() {
         return raza;
     }
@@ -143,7 +326,7 @@ public abstract class Personaje{
      * Devuelve el valor del atributo nivel.
      *
      * @return sitio_web de tipo double.
-     * */
+     */
     public int getNivel() {
         return nivel;
     }
@@ -152,7 +335,7 @@ public abstract class Personaje{
      * Devuelve el valor del atributo puntos_vida.
      *
      * @return puntos_vida de tipo double.
-     * */
+     */
     public int getPuntos_vida() {
         return puntos_vida;
     }
@@ -161,7 +344,7 @@ public abstract class Personaje{
      * Devuelve el valor del atributo puntos_ataque.
      *
      * @return puntos_ataque de tipo double.
-     * */
+     */
     public int getPuntos_ataque() {
         return puntos_ataque;
     }
@@ -170,7 +353,7 @@ public abstract class Personaje{
      * Devuelve el valor del atributo puntos_velocidad.
      *
      * @return puntos_velocidad de tipo double.
-     * */
+     */
     public int getPuntos_velocidad() {
         return puntos_velocidad;
     }
@@ -179,7 +362,7 @@ public abstract class Personaje{
      * Devuelve el valor del atributo puntos_armadura.
      *
      * @return puntos_armadura de tipo double.
-     * */
+     */
     public int getPuntos_armadura() {
         return puntos_armadura;
     }
@@ -188,9 +371,17 @@ public abstract class Personaje{
      * Devuelve el valor del atributo resistencia_magica.
      *
      * @return resistencia_magica de tipo double.
-     * */
+     */
     public int getResistencia_magica() {
         return resistencia_magica;
+    }
+
+    public Arma getArma() {
+        return this.arma;
+    }
+
+    public ArrayList<Artefacto> getArtefactos() {
+        return this.artefactos;
     }
 
     /**
@@ -198,7 +389,7 @@ public abstract class Personaje{
      * devuelve true, en caos contrario devolvera false.
      *
      * @return estado de tipo boolean.
-     * */
+     */
     public boolean isEstado() {
         return this.estado;
     }
@@ -208,10 +399,14 @@ public abstract class Personaje{
      *
      * @return vivo si estado es true, y muerto si estado es false.
      */
-    public String vitalidad(){
-        if(this.estado == false)
+    public String vitalidad() {
+        if (!this.estado)
             return "muerto";
         return "vivo";
+    }
+
+    public HashMap<String, Armadura> getArmadura() {
+        return this.armadura;
     }
 
     /**
@@ -287,18 +482,19 @@ public abstract class Personaje{
     }
 
     /**
-     * Establece el nombre del personaje siempre que este tenga una longitud mayor a 4,
+     * Establece el nombre del personaje siempre que este tenga una longitud mayor a
+     * 4,
      * y en caso de que contenga espacios se eliminaran.
      *
      * @param nombre del personaje.
-     * */
-    public void setNombre(String nombre){
-        if(nombre.length() < 4){
+     */
+    public void setNombre(String nombre) {
+        if (nombre.length() < 4) {
             System.err.println("El nombre no puede contener menos de 4 caracteres.");
             this.nombre = "";
-        } else if(nombre.contains(" ")){
-            this.nombre = nombre.replace(" ", "");;
-        } else{
+        } else if (nombre.contains(" ")) {
+            this.nombre = nombre.replace(" ", "");
+        } else {
             this.nombre = nombre;
         }
     }
@@ -307,34 +503,115 @@ public abstract class Personaje{
      * Establece la raza del personaje siempre y cuando no sea ni angel ni demonio.
      *
      * @param raza del personaje.
-     * */
-    public void razaElegida(String raza){
-        if(raza.equals("angel") || raza.equals("demonio")){
+     */
+    public void razaElegida(String raza) {
+        if (raza.equals("angel") || raza.equals("demonio")) {
             System.out.println("La raza del personaje no puede ser ángel ni demonio, asegurese de elegir otra raza.");
-            this.raza="";
-        } else{
-            this.raza=raza;
+            this.raza = "";
+        } else {
+            this.raza = raza;
         }
+    }
+
+    public void setArmadura(HashMap<String, Armadura> armadura) {
+        Set<String> piezasValidas = Set.of("yelmo", "pechera", "hombreras", "guanteletes", "grebas", "botas");
+        for (String clave : armadura.keySet()) {
+            if (!piezasValidas.contains(clave) && UnaPiezaPorCadaTipoDeArmadura(armadura)) {
+                System.err.println("Pieza invalida: " + clave + " : " + armadura.get(clave));
+            }
+        }
+        this.armadura.putAll(armadura);
+    }
+
+    public boolean UnaPiezaPorCadaTipoDeArmadura(HashMap<String, Armadura> armadura) {
+        int contadorYelmo = 0;
+        int contadorPechera = 0;
+        int contadorHombreras = 0;
+        int contadorGuanteletes = 0;
+        int contadorGrebas = 0;
+        int contadorBotas = 0;
+        for (String clave : armadura.keySet()) {
+            if (armadura.get(clave).getTipo().equals("yelmo")) {
+                contadorYelmo++;
+                if (contadorYelmo > 1) return false;
+            }else  if (armadura.get(clave).getTipo().equals("pechera")) {
+                contadorPechera++;
+                if (contadorPechera > 1) return false;
+            }else  if (armadura.get(clave).getTipo().equals("hombreras")) {
+                contadorHombreras++;
+                if (contadorHombreras > 1) return false;
+            }else  if (armadura.get(clave).getTipo().equals("guanteletes")) {
+                contadorGuanteletes++;
+                if (contadorGuanteletes > 1) return false;
+            }else  if (armadura.get(clave).getTipo().equals("grebas")) {
+                contadorGrebas++;
+                if (contadorGrebas > 1) return false;
+            }else  if (armadura.get(clave).getTipo().equals("botas")) {
+                contadorBotas++;
+                if (contadorBotas > 1) return false;
+            }
+        }
+        int total = contadorHombreras + contadorGrebas + contadorBotas + contadorGuanteletes + contadorPechera + contadorYelmo;
+        return total == 6;
+    }
+
+    public void setArma(Arma arma) {
+        this.arma = new Arma(arma);
+    }
+
+    public void setArtefactos(ArrayList<Artefacto> artefactos) {
+        int contador = 0;
+        for(Artefacto artefacto : artefactos){
+            if(tieneExactamenteUnAmuleto(artefactos)){
+                this.artefactos.add(artefacto);
+            }else if(tieneExactamenteUnoOdosAnillos(artefactos)){
+                this.artefactos.add(artefacto);
+            }else{
+                System.err.println("El personaje solo puede tener un amuleto como maximo, y dos anillos como maximo.");
+            }
+        }
+    }
+
+    public boolean tieneExactamenteUnAmuleto(ArrayList<Artefacto> artefactos) {
+        int contador = 0;
+        for (Artefacto art : artefactos) {
+            if (art.getTipo().toLowerCase().equals("amuleto")) {
+                contador++;
+                if (contador > 1) return false;
+            }
+        }
+        return contador == 1;
+    }
+
+    public boolean tieneExactamenteUnoOdosAnillos(ArrayList<Artefacto> artefactos) {
+        int contador = 0;
+        for (Artefacto art : artefactos) {
+            if (art.getTipo().toLowerCase().equals("anillo")) {
+                contador++;
+                if (contador > 2) return false;
+            }
+        }
+        return contador >= 1 && contador <= 2;
     }
 
     /**
      * Aumenta el nivel del personaje y mejora sus estadisticas con una probabilidad
      * del 50% de aunmentar la cantidad equivalente a los puntos de vida.
      */
-    public void subirNivel(){
+    public void subirNivel() {
         this.nivel++;
         this.puntos_vida += this.puntos_vida * 1.1;
         Random random = new Random();
-        if(random.nextDouble() > 0.5) {
+        if (random.nextDouble() > 0.5) {
             this.puntos_ataque += this.nivel;
         }
-        if(random.nextDouble() > 0.5){
+        if (random.nextDouble() > 0.5) {
             this.resistencia_magica += this.nivel;
         }
-        if(random.nextDouble() > 0.5){
+        if (random.nextDouble() > 0.5) {
             this.puntos_armadura += this.nivel;
         }
-        if(random.nextDouble() > 0.5){
+        if (random.nextDouble() > 0.5) {
             this.puntos_velocidad += this.nivel;
         }
     }
@@ -344,7 +621,7 @@ public abstract class Personaje{
      *
      * @return puntos de ataque del personaje.
      */
-    public int luchar(){
+    public int luchar() {
         return getPuntos_ataque();
     }
 
@@ -352,7 +629,7 @@ public abstract class Personaje{
      * Realiza una accion de defensa basada en el tipo de ataque recibido.
      *
      * @param tipoDefensa tipo de ataque recibido, 1 para fisico y 2 para magico.
-     * @param personaje nombre del personaje que se defiende.
+     * @param personaje   nombre del personaje que se defiende.
      */
     public void defender(int tipoDefensa, String personaje) {
         switch (tipoDefensa) {
@@ -365,7 +642,8 @@ public abstract class Personaje{
                 break;
 
             default:
-                System.out.println("Asegure de elegir entre los siguientes tipos de ataque: \n-1 para fisico \n-2 para magico");
+                System.out.println(
+                        "Asegure de elegir entre los siguientes tipos de ataque: \n-1 para fisico \n-2 para magico");
                 break;
         }
     }
@@ -375,7 +653,7 @@ public abstract class Personaje{
      *
      * @return cadena de texto con el resumen del personaje.
      */
-    public String toString(){
+    public String toString() {
         return "Ficha del " + getClass().getSimpleName() + " " + getNombre() + "."
                 + "\nNombre: " + getNombre() + "."
                 + "\nClase: " + getClass().getSimpleName() + "."
@@ -387,6 +665,9 @@ public abstract class Personaje{
                 + "\nArmadura: " + getPuntos_armadura() + "."
                 + "\nResistencia magica: " + getResistencia_magica() + ".\n"
                 + "\n"
-                + "Esta actualmente: " + vitalidad() + ".";
+                + "Esta actualmente: " + vitalidad() + "."
+                + "\nArma: " + getArma() + "."
+                + "\nArmadura: " + "\n" + getArmadura().toString() + "."
+                + "\nArtefactos: " + getArtefactos().toString() + ".";
     }
 }

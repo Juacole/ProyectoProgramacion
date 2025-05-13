@@ -1,5 +1,8 @@
 package main.java.personajes.monstruos;
 
+import main.java.equipamiento.Arma;
+import main.java.equipamiento.Armadura;
+import main.java.equipamiento.Artefacto;
 import main.java.personajes.Personaje;
 
 /**
@@ -118,6 +121,39 @@ public class Monstruo extends Personaje {
                 setPuntos_vida(getNivel());
                 setPuntos_armadura(getNivel()/2);
                 setResistencia_magica(getNivel()/2);
+        }
+    }
+
+    public void equiparMonstruo(Arma arma, Armadura armadura, Artefacto artefacto){
+        switch (getRaza().toLowerCase().replace(" ","").replace("-","")){
+            case "bestia":
+                equiparBestia(artefacto);
+                break;
+
+            case "nomuerto":
+                equiparNoMuerto(arma);
+                break;
+
+            case "gigante":
+                equiparGigante(armadura);
+                break;
+        }
+
+    }
+
+    private void equiparBestia(Artefacto artefacto){
+        if(artefacto.getTipo().equals("amuleto")){
+            super.setArtefacto(artefacto);
+        }
+    }
+
+    private void equiparNoMuerto(Arma arma){
+        super.setArma(arma);
+    }
+
+    private void equiparGigante(Armadura armadura){
+        if(armadura.getMaterial().equals("cuero")){
+            super.setArmadura(armadura);
         }
     }
 

@@ -62,6 +62,13 @@ public abstract class Personaje {
         this.artefactos = new ArrayList<>();
     }
 
+    /**
+     * Constructor por parametros que inicializa el nombre y la raza del personaje,
+     * manteniendo sus estadisticas predeterminadas.
+     *
+     * @param nombre de tipo String define el nombre del personaje.
+     * @param raza   de tipo String define la raza del personaje.
+     */
     public Personaje(String nombre, String raza) {
         setNombre(nombre);
         razaElegida(raza);
@@ -150,13 +157,7 @@ public abstract class Personaje {
         setArtefactos(artefactos);
     }
 
-    /**
-     * Constructor por parametros que inicializa el nombre y la raza del personaje,
-     * manteniendo sus estadisticas predeterminadas.
-     *
-     * @param nombre de tipo String define el nombre del personaje.
-     * @param raza   de tipo String define la raza del personaje.
-     */
+
     public Personaje(String nombre, String raza, Arma arma, Armadura armadura) {
         setNombre(nombre);
         razaElegida(raza);
@@ -576,7 +577,7 @@ public abstract class Personaje {
         this.arma = new Arma(arma);
     }
 
-    public void setArmaComplementaria(Arma armaComplementaria){
+    protected void setArmaComplementaria(Arma armaComplementaria){
         this.arma_complementaria = new Arma(armaComplementaria);
     }
 

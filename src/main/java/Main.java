@@ -2,6 +2,8 @@ package main.java;
 
 import main.java.equipamiento.Arma;
 import main.java.equipamiento.Armadura;
+import main.java.personajes.Guerrero;
+import main.java.personajes.Mago;
 import main.java.personajes.Personaje;
 
 import java.util.HashMap;
@@ -48,6 +50,11 @@ public class Main {
         Armadura armadura = new Armadura();
         armadura.setTipo("pechera");
         */
+        Arma arma = new Arma();
+        Guerrero guerrero = new Guerrero();
+        guerrero.setArmaComplementaria(arma);
+        Mago mago = new Mago();
+
 
     }
 }

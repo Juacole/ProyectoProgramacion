@@ -6,7 +6,7 @@ public abstract class Equipamiento {
     private String nombre;
     private HashMap<String, Integer> estadisticas;
     private String rareza;
-    private double valor_economico;
+    private int valor_economico;
 
     public Equipamiento() {
         this.nombre = "";
@@ -21,7 +21,7 @@ public abstract class Equipamiento {
         this.valor_economico = 0;
     }
 
-    public Equipamiento(String nombre, HashMap<String, Integer> estadisticas, String rareza, double valor_economico) {
+    public Equipamiento(String nombre, HashMap<String, Integer> estadisticas, String rareza, int valor_economico) {
         setNombre(nombre);
         this.estadisticas = new HashMap<>(estadisticas);
         setRareza(rareza);
@@ -48,7 +48,7 @@ public abstract class Equipamiento {
         return this.rareza;
     }
 
-    public double getValorEconomico() {
+    public int getValorEconomico() {
         return this.valor_economico;
     }
 
@@ -89,7 +89,7 @@ public abstract class Equipamiento {
         }
     }
 
-    public void setValorEconomico(double valor_economico) {
+    public void setValorEconomico(int valor_economico) {
         if (valor_economico < 1) {
             System.err.println("El valor economico de un equipamiento no puede ser menor que 1 moneda de oro.");
             this.valor_economico = 1;

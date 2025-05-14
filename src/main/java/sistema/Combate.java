@@ -1,7 +1,15 @@
 package main.java.sistema;
 
+import main.java.equipamiento.Equipamiento;
 import main.java.personajes.Personaje;
 import main.java.utils.GameLogger;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 /**
  * La clase COmbate representa un combate entre dos personajes. Este combate se resuelve
@@ -20,6 +28,71 @@ import main.java.utils.GameLogger;
  * @version 1.0
  */
 public final class Combate {
+    private static ArrayList<Equipamiento> tesoros;
+    private final static String path = "C:\\Users\\Hp\\Desktop\\DAM\\PROGRAMACION\\PRACTICAS\\ProyectoProgramacion\\Ficheros\\equipamiento\\tesoros\\";
+    private ArrayList<String> armas;
+    private ArrayList<String> armaduras;
+    private ArrayList<String> artefactos;
+
+    public Combate(){
+        this.armas = new ArrayList<>();
+        this.armaduras = new ArrayList<>();
+        this.artefactos = new ArrayList<>();
+        String[] ficheros = {"armas.csv","armadura.csv","artefactos.csv"};
+        recuperarEquipamientos(ficheros);
+    }
+
+    public void recuperarEquipamientos(String[] ficheros){
+        try {
+            for(int i = 0; i < ficheros.length; i++){
+                File fichero = new File(path + ficheros[i]);
+                if(fichero.canRead()){
+                    FileReader fr = new FileReader(fichero);
+                    BufferedReader br = new BufferedReader(fr);
+                    String linea;
+                    while((linea = br.readLine()) != null){
+                        if(i == 0 && !linea.startsWith("Nombre")){
+                            this.armas.add(linea + "\n");
+                        }else if(i == 1 && !linea.startsWith("Nombre")){
+                            this.armaduras.add(linea + "\n");
+                        }else if(i == 2 && !linea.startsWith("Nombre")){
+                            this.artefactos.add(linea + "\n");
+                        }
+                    }
+                }
+            }
+        }catch (IOException ioe){
+            throw new RuntimeException(ioe);
+        }
+    }
+
+    public ArrayList<String> getArmas() {
+        return armas;
+    }
+
+    public void setArmas(ArrayList<String> armas) {
+        this.armas = new ArrayList<>(armas);
+    }
+
+    public ArrayList<String> getArmaduras() {
+        return armaduras;
+    }
+
+    public void setArmaduras(ArrayList<String> armaduras) {
+        this.armaduras = new ArrayList<>(armaduras);
+    }
+
+    public ArrayList<String> getArtefactos() {
+        return artefactos;
+    }
+
+    public void setArtefactos(ArrayList<String> artefactos) {
+        this.artefactos = new ArrayList<>(artefactos);
+    }
+
+    public void equiparGanador(Personaje pepeGanador){
+
+    }
 
     /**
      * Inicia el combate entre dos personajes, y los personajes se atacarán según
@@ -81,8 +154,10 @@ public final class Combate {
 
             if (pepe1.getPuntos_vida() > 0) {
                 System.out.println("El ganador es " + pepe1.getNombre() + ", ha derrotado a " + pepe2.getNombre());
+                equiparGanador(pepe1);
             } else {
                 System.out.println("El ganador es " + pepe2.getNombre() + ", ha derrotado a " + pepe1.getNombre());
+                equiparGanador(pepe2);
             }
 
             System.out.println("El combate ha terminado. Solo el más fuerte queda en pie.");

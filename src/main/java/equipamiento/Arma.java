@@ -12,8 +12,7 @@ public class Arma extends Equipamiento {
         this.tipo = "";
     }
 
-    public Arma(String nombre, HashMap<String, Integer> estadisticas, String rareza, double valor_economico,
-            boolean empuñadura, String tipo) {
+    public Arma(String nombre, HashMap<String, Integer> estadisticas, String rareza, int valor_economico, boolean empuñadura, String tipo) {
         super(nombre, estadisticas, rareza, valor_economico);
         setEmpuñadura(empuñadura);
         setTipo(tipo);
@@ -38,9 +37,9 @@ public class Arma extends Equipamiento {
     }
 
     public void setTipo(String tipo) {
-        if (this.empuñadura == false) {
+        if (this.empuñadura) {
             armaDeUnaMano(tipo);
-        } else if (this.empuñadura == true) {
+        } else if (!this.empuñadura) {
             armaDeDosMano(tipo);
         }
     }
@@ -48,21 +47,13 @@ public class Arma extends Equipamiento {
     private void armaDeUnaMano(String tipo) {
         if (tipo.equals("espada")) {
             this.tipo = tipo;
-        }
-
-        else if (tipo.equals("maza")) {
+        } else if (tipo.equals("maza")) {
             this.tipo = tipo;
-        }
-
-        else if (tipo.equals("hacha")) {
+        } else if (tipo.equals("hacha")) {
             this.tipo = tipo;
-        }
-
-        else if (tipo.equals("cetro")) {
+        } else if (tipo.equals("cetro")) {
             this.tipo = tipo;
-        }
-
-        else if (tipo.equals("daga")) {
+        } else if (tipo.equals("daga")) {
             this.tipo = tipo;
         } else {
             System.err.println(
@@ -75,22 +66,15 @@ public class Arma extends Equipamiento {
     private void armaDeDosMano(String tipo) {
         if (tipo.equals("espadones")) {
             this.tipo = tipo;
-        }
-
-        else if (tipo.equals("martillos")) {
+        } else if (tipo.equals("martillos")) {
             this.tipo = tipo;
-        }
-
-        else if (tipo.equals("arco")) {
+        } else if (tipo.equals("arco")) {
             this.tipo = tipo;
-        }
-
-        else if (tipo.equals("baston")) {
+        } else if (tipo.equals("baston")) {
             this.tipo = tipo;
         } else {
 
-            System.err.println(
-                    "Si la empuñadura es true solo son validas las armas: \n-espadones \n-martillos \n-arco \n-baston");
+            System.err.println("Si la empuñadura es true solo son validas las armas: \n-espadones \n-martillos \n-arco \n-baston");
         }
 
     }
@@ -108,9 +92,7 @@ public class Arma extends Equipamiento {
     }
 
     public String toString() {
-        return super.toString() +
-                "\nLa empuñadura es de: " + this.empuñadura +
-                "\nEl tipo es: " + this.tipo;
+        return super.toString() + "\nLa empuñadura es de: " + this.empuñadura + "\nEl tipo es: " + this.tipo;
     }
 
 }

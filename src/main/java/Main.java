@@ -5,7 +5,13 @@ import main.java.equipamiento.Armadura;
 import main.java.personajes.Guerrero;
 import main.java.personajes.Mago;
 import main.java.personajes.Personaje;
+import main.java.sistema.Combate;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Main {
@@ -50,11 +56,51 @@ public class Main {
         Armadura armadura = new Armadura();
         armadura.setTipo("pechera");
         */
+        /*
         Arma arma = new Arma();
         Guerrero guerrero = new Guerrero();
         guerrero.setArmaComplementaria(arma);
         Mago mago = new Mago();
 
+         */
 
+        /*
+        Combate combate = new Combate();
+        System.out.println(combate.getArmas());
+        System.out.println(combate.getArmaduras());
+        System.out.println(combate.getArtefactos());
+
+         */
+
+        /*
+        String path = "C:\\Users\\Hp\\Desktop\\DAM\\PROGRAMACION\\PRACTICAS\\ProyectoProgramacion\\Ficheros\\equipamiento\\tesoros\\";
+        ArrayList<String> armas = new ArrayList<>();
+        ArrayList<String> armaduras = new ArrayList<>();
+        ArrayList<String> artefactos = new ArrayList<>();
+
+        String[] ficheros = {"armas.csv","armadura.csv","artefactos.csv"};
+        try {
+            for(int i = 0; i < ficheros.length; i++){
+                File fichero = new File(path + ficheros[i]);
+                if(fichero.canRead()){
+                    FileReader fr = new FileReader(fichero);
+                    BufferedReader br = new BufferedReader(fr);
+                    String linea;
+                    while((linea = br.readLine()) != null){
+                        if(i == 0 && !linea.startsWith("Nombre")){
+                            armas.add(linea + "\n");
+                        }else if(i == 1 && !linea.startsWith("Nombre")){
+                            armaduras.add(linea + "\n");
+                        }else if(i == 2 && !linea.startsWith("Nombre")){
+                            artefactos.add(linea + "\n");
+                        }
+                    }
+                }
+            }
+        }catch (IOException ioe){
+            throw new RuntimeException(ioe);
+        }
+
+         */
     }
 }

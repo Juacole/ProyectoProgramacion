@@ -1,13 +1,17 @@
 package main.java.equipamiento;
 
+import java.util.HashMap;
+
 public class Artefacto extends Equipamiento {
     private String tipo;
 
     public Artefacto() {
+        super();
         this.tipo = "";
     }
 
-    public Artefacto(String tipo) {
+    public Artefacto(String nombre, HashMap<String, Integer> estadisticas, String rareza, int valor_economico, String tipo) {
+        super(nombre, estadisticas, rareza, valor_economico);
         setTipo(tipo);
     }
 

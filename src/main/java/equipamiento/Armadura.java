@@ -13,7 +13,7 @@ public class Armadura extends Equipamiento {
         this.material = "";
     }
 
-    public Armadura(String nombre, HashMap<String, Integer> estadisticas, String rareza, double valor_economico, String tipo, String material) {
+    public Armadura(String nombre, HashMap<String, Integer> estadisticas, String rareza, int valor_economico, String tipo, String material) {
         super(nombre,estadisticas,rareza,valor_economico);
         setTipo(tipo);
         setMaterial(material);

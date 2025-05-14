@@ -85,7 +85,7 @@ public class Monstruo extends Personaje {
      * </ol>
      */
     public void setRaza(){
-        switch (getRaza().toLowerCase().replace(" ","")){
+        switch (getRaza().toLowerCase().replace(" ","").replace("-","")){
             case "bestia":
                 setPuntos_ataque(getPuntos_vida()*2);
                 setPuntos_velocidad(getNivel()*2);

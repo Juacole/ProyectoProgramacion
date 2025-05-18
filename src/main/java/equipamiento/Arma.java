@@ -1,87 +1,64 @@
 package main.java.equipamiento;
 
 import java.util.HashMap;
+import java.util.Set;
 
 public class Arma extends Equipamiento {
-    private boolean empuñadura;
+    private boolean empuniadura;
     private String tipo;
+    private static final Set<String> armas_una_mano = Set.of(
+            "espada", "maza", "hacha", "cetro", "daga"
+    );
+    private static final Set<String> armas_dos_manos = Set.of(
+            "espadon", "martillo", "arco", "baston", "pica"
+    );
 
     public Arma() {
         super();
-        this.empuñadura = false;
+        this.empuniadura = false;
         this.tipo = "";
     }
 
-    public Arma(String nombre, HashMap<String, Integer> estadisticas, String rareza, int valor_economico, boolean empuñadura, String tipo) {
+    public Arma(String nombre, HashMap<String, Integer> estadisticas, String rareza, int valor_economico, String tipo) {
         super(nombre, estadisticas, rareza, valor_economico);
-        setEmpuñadura(empuñadura);
         setTipo(tipo);
     }
 
     public Arma(Arma arma) {
         super(arma);
-        setEmpuñadura(arma.getEmpuñadura());
         setTipo(arma.getTipo());
+        setEmpuniadura(arma.getEmpuniadura());
     }
 
-    public boolean getEmpuñadura() {
-        return this.empuñadura;
+    public boolean getEmpuniadura() {
+        return this.empuniadura;
     }
 
     public String getTipo() {
         return this.tipo;
     }
 
-    public void setEmpuñadura(boolean empuñadura) {
-        this.empuñadura = empuñadura;
+    protected void setEmpuniadura(boolean empuniadura) {
+        this.empuniadura = empuniadura;
     }
 
     public void setTipo(String tipo) {
-        if (this.empuñadura) {
-            armaDeUnaMano(tipo);
-        } else if (!this.empuñadura) {
-            armaDeDosMano(tipo);
+        if (armas_una_mano.contains(tipo.toLowerCase().trim())) {
+            this.tipo = tipo;
+            this.empuniadura = false;
         }
-    }
-
-    private void armaDeUnaMano(String tipo) {
-        if (tipo.equals("espada")) {
+        else if (armas_dos_manos.contains(tipo.toLowerCase().trim())) {
             this.tipo = tipo;
-        } else if (tipo.equals("maza")) {
-            this.tipo = tipo;
-        } else if (tipo.equals("hacha")) {
-            this.tipo = tipo;
-        } else if (tipo.equals("cetro")) {
-            this.tipo = tipo;
-        } else if (tipo.equals("daga")) {
-            this.tipo = tipo;
-        } else {
-            System.err.println(
-
-                    "Si la empuñadura es false solo son validas las armas: \n-espadas \n-mazas \n-hachas \n-cetros \n-dagas");
+            this.empuniadura = true;
         }
-
-    }
-
-    private void armaDeDosMano(String tipo) {
-        if (tipo.equals("espadones")) {
-            this.tipo = tipo;
-        } else if (tipo.equals("martillos")) {
-            this.tipo = tipo;
-        } else if (tipo.equals("arco")) {
-            this.tipo = tipo;
-        } else if (tipo.equals("baston")) {
-            this.tipo = tipo;
-        } else {
-
-            System.err.println("Si la empuñadura es true solo son validas las armas: \n-espadones \n-martillos \n-arco \n-baston");
+        else {
+            System.err.println("Tipo de arma no valido: " + tipo);
         }
-
     }
 
     public boolean equals(Arma arma) {
         super.equals(arma);
-        if (this.empuñadura != arma.getEmpuñadura()) {
+        if (this.empuniadura != arma.getEmpuniadura()) {
             return false;
         }
         if (!this.tipo.equals(arma.getTipo())) {
@@ -92,7 +69,7 @@ public class Arma extends Equipamiento {
     }
 
     public String toString() {
-        return super.toString() + "\nLa empuñadura es de: " + this.empuñadura + "\nEl tipo es: " + this.tipo;
+        return super.toString() + "\nLa empuñadura es de: " + this.empuniadura + "\nEl tipo es: " + this.tipo;
     }
 
 }

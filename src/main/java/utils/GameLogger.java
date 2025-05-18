@@ -345,33 +345,33 @@ public class GameLogger {
      */
     private static void atributosEspeciales(String[] atributos, Personaje pj, String path){
         switch (atributos[1]){
-            case "main.java.personajes.Guerrero":
+            case "Guerrero":
                 Guerrero guerrero = (Guerrero) pj;
                 if(atributos[10].equals("Inactiva")) guerrero.setFuria(false);
                 else if(atributos[10].equals("Activa")) guerrero.setFuria(true);
                 break;
 
-            case "main.java.personajes.Mago":
+            case "Mago":
                 Mago mago = (Mago) pj;
                 mago.setPuntos_magia(Integer.parseInt(atributos[10]));
                 break;
 
-            case "main.java.personajes.creyentes.Creyente":
+            case "Creyente":
                 Creyente creyente = (Creyente) pj;
                 creyente.setFe(Integer.parseInt(atributos[10]));
                 break;
 
-            case "main.java.personajes.creyentes.Clerigo":
+            case "Clerigo":
                 Clerigo clerigo = (Clerigo) pj;
                 clerigo.setFe(Integer.parseInt(atributos[10]));
                 break;
 
-            case "main.java.personajes.creyentes.Paladin":
+            case "Paladin":
                 Paladin paladin = (Paladin) pj;
                 paladin.setFe(Integer.parseInt(atributos[10]));
                 break;
 
-            case "main.java.personajes.Cazador":
+            case "Cazador":
                 Cazador cazador = (Cazador) pj;
                 actualizarCompanieroAnimal(path, cazador);
                 break;

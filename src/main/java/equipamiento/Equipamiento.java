@@ -1,12 +1,16 @@
 package main.java.equipamiento;
 
 import java.util.HashMap;
+import java.util.Set;
 
 public abstract class Equipamiento {
     private String nombre;
     private HashMap<String, Integer> estadisticas;
     private String rareza;
     private int valor_economico;
+    private static final Set<String> rarezas_validos = Set.of(
+            "comun", "raro", "epico", "legendario"
+    );
 
     public Equipamiento() {
         this.nombre = "";
@@ -17,6 +21,7 @@ public abstract class Equipamiento {
         this.estadisticas.put("fe", 0);
         this.estadisticas.put("armadura", 0);
         this.estadisticas.put("resistencia_magica", 0);
+        this.estadisticas.put("vida", 0);
         this.rareza = "";
         this.valor_economico = 0;
     }
@@ -55,6 +60,7 @@ public abstract class Equipamiento {
     public void setNombre(String nombre) {
         if (nombre.length() > 20) {
             System.err.println("El nombre no puede tener mas de 20 digitos.");
+            this.nombre = nombre.substring(0,19);
         } else {
             this.nombre = nombre;
         }
@@ -65,27 +71,11 @@ public abstract class Equipamiento {
     }
 
     public void setRareza(String rareza) {
-        switch (rareza.toLowerCase().strip()) {
-            case "comun":
+        if(rarezas_validos.contains(rareza.toLowerCase().trim())){
                 this.rareza = rareza;
-                break;
-
-            case "raro":
-                this.rareza = rareza;
-                break;
-
-            case "epico":
-                this.rareza = rareza;
-                break;
-
-            case "legendario":
-                this.rareza = rareza;
-                break;
-
-            default:
+        }else {
                 System.err.println("La rareza solo puede ser comun, raro, epico y legendario.");
-                this.nombre = "comun";
-                break;
+                this.rareza = "";
         }
     }
 
@@ -125,9 +115,13 @@ public abstract class Equipamiento {
                 valor_estadistica = this.estadisticas.get(estadistica);
                 break;
 
+            case "vida":
+                valor_estadistica = this.estadisticas.get(estadistica);
+                break;
+
             default:
                 System.err.println(
-                        "Estadistica no valida. Las estadisticas validas son: ataque, velocidad, magia, fe, armadura y resistencia_magica.");
+                        "Estadistica no valida. Las estadisticas validas son: ataque, velocidad, magia, fe, armadura, resistencia_magica y vida.");
                 break;
         }
         return valor_estadistica;

@@ -32,7 +32,6 @@ public abstract class Personaje {
     private int resistencia_magica;
     private boolean estado;
     private Arma arma;
-    private Arma arma_complementaria;
     private HashMap<String, Armadura> armadura;
     private ArrayList<Artefacto> artefactos;
 
@@ -51,7 +50,6 @@ public abstract class Personaje {
         this.resistencia_magica = 10;
         this.estado = true;
         this.arma = new Arma();
-        this.arma_complementaria = new Arma();
         this.armadura = new HashMap<>();
         this.armadura.put("yelmo", null);
         this.armadura.put("pechera", null);
@@ -80,7 +78,6 @@ public abstract class Personaje {
         this.resistencia_magica = 10;
         this.estado = true;
         this.arma = new Arma();
-        this.arma_complementaria = new Arma();
         this.armadura = new HashMap<>();
         this.armadura.put("yelmo", null);
         this.armadura.put("pechera", null);
@@ -102,7 +99,6 @@ public abstract class Personaje {
         this.resistencia_magica = 10;
         this.estado = true;
         setArma(arma);
-        this.arma_complementaria = new Arma();
         this.armadura = new HashMap<>();
         this.armadura.put("yelmo", null);
         this.armadura.put("pechera", null);
@@ -124,7 +120,6 @@ public abstract class Personaje {
         this.resistencia_magica = 10;
         this.estado = true;
         this.arma = new Arma();
-        this.arma_complementaria = new Arma();
         this.armadura = new HashMap<>();
         this.armadura.put("yelmo", null);
         this.armadura.put("pechera", null);
@@ -146,7 +141,6 @@ public abstract class Personaje {
         this.resistencia_magica = 10;
         this.estado = true;
         this.arma = new Arma();
-        this.arma_complementaria = new Arma();
         this.armadura = new HashMap<>();
         this.armadura.put("yelmo", null);
         this.armadura.put("pechera", null);
@@ -169,7 +163,6 @@ public abstract class Personaje {
         this.resistencia_magica = 10;
         this.estado = true;
         setArma(arma);
-        this.arma_complementaria = new Arma();
         this.armadura = new HashMap<>();
         this.armadura.put("yelmo", null);
         this.armadura.put("pechera", null);
@@ -191,7 +184,6 @@ public abstract class Personaje {
         this.resistencia_magica = 10;
         this.estado = true;
         this.arma = new Arma();
-        this.arma_complementaria = new Arma();
         this.armadura = new HashMap<>();
         this.armadura.put("yelmo", null);
         this.armadura.put("pechera", null);
@@ -214,7 +206,6 @@ public abstract class Personaje {
         this.resistencia_magica = 10;
         this.estado = true;
         setArma(arma);
-        this.arma_complementaria = new Arma();
         this.armadura = new HashMap<>();
         this.armadura.put("yelmo", null);
         this.armadura.put("pechera", null);
@@ -236,7 +227,6 @@ public abstract class Personaje {
         this.resistencia_magica = 10;
         this.estado = true;
         setArma(arma);
-        this.arma_complementaria = new Arma();
         this.armadura = new HashMap<>();
         this.armadura.put("yelmo", null);
         this.armadura.put("pechera", null);
@@ -575,10 +565,6 @@ public abstract class Personaje {
 
     public void setArma(Arma arma) {
         this.arma = new Arma(arma);
-    }
-
-    protected void setArmaComplementaria(Arma armaComplementaria){
-        this.arma_complementaria = new Arma(armaComplementaria);
     }
 
     public void setArtefacto(Artefacto artefacto){

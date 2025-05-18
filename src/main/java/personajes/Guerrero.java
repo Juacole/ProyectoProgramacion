@@ -21,6 +21,7 @@ import java.util.Random;
  */
 public class Guerrero extends Personaje{
     private boolean furia;
+    private Arma armaComplementaria;
 
     /**
      * Constructor por defecto que inicializa un main.java.personajes.Guerrero con los valores predeterminados
@@ -29,6 +30,7 @@ public class Guerrero extends Personaje{
     public Guerrero(){
         super();
         this.furia = false;
+        this.armaComplementaria = new Arma();
     }
 
     /**
@@ -41,46 +43,54 @@ public class Guerrero extends Personaje{
     public Guerrero(String nombre, String raza) {
         super(nombre, raza);
         this.furia = false;
+        this.armaComplementaria = new Arma();
     }
 
     public Guerrero(String nombre, String raza, Arma arma){
         super(nombre,raza);
         setArma(arma);
         this.furia = false;
+        this.armaComplementaria = new Arma();
     }
 
     public Guerrero(String nombre, String raza, Armadura equipamiento){
         super(nombre, raza);
         setArmadura(equipamiento);
         this.furia = false;
+        this.armaComplementaria = new Arma();
     }
 
     public Guerrero(String nombre, String raza, ArrayList<Artefacto> artefactos){
         super(nombre, raza, artefactos);
         this.furia = false;
+        this.armaComplementaria = new Arma();
     }
 
     public Guerrero(String nombre, String raza, Arma arma, Armadura equipamiento){
         super(nombre, raza, arma);
         setArmadura(equipamiento);
         this.furia = false;
+        this.armaComplementaria = new Arma();
     }
 
     public Guerrero(String nombre, String raza, Arma arma, ArrayList<Artefacto> artefactos){
         super(nombre, raza, arma, artefactos);
         this.furia = false;
+        this.armaComplementaria = new Arma();
     }
 
     public Guerrero(String nombre, String raza, Armadura equipamiento, ArrayList<Artefacto> artefactos){
         super(nombre, raza, artefactos);
         setArmadura(equipamiento);
         this.furia = false;
+        this.armaComplementaria = new Arma();
     }
 
     public Guerrero(String nombre, String raza, Arma arma, Armadura equipamiento, ArrayList<Artefacto> artefactos){
         super(nombre, raza, arma, artefactos);
         setArmadura(equipamiento);
         this.furia = false;
+        this.armaComplementaria = new Arma();
     }
 
     /**
@@ -91,6 +101,7 @@ public class Guerrero extends Personaje{
     public Guerrero(Guerrero copia){
         super();
         this.furia = copia.furia;
+        setArmaComplementaria(copia.getArmaComplementaria());
     }
 
     /**
@@ -139,6 +150,10 @@ public class Guerrero extends Personaje{
         return furia;
     }
 
+    public Arma getArmaComplementaria(){
+        return this.armaComplementaria;
+    }
+
     /**
      * Devuelve la cadena de texto Inactiva si el atributo furia es false, en caso contrario
      * devuelve Activa.
@@ -167,8 +182,8 @@ public class Guerrero extends Personaje{
     }
 
     public void setArmaComplementaria(Arma armaComplementaria){
-        if(!super.getArma().getEmpuñadura() && !armaComplementaria.getEmpuñadura()){
-            super.setArmaComplementaria(armaComplementaria);
+        if(!super.getArma().getEmpuniadura() && !armaComplementaria.getEmpuniadura()){
+            this.armaComplementaria = new Arma(armaComplementaria);
         }
     }
 

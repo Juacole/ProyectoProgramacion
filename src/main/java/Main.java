@@ -3,6 +3,7 @@ package main.java;
 import main.java.equipamiento.Arma;
 import main.java.equipamiento.Armadura;
 import main.java.personajes.Guerrero;
+import main.java.personajes.Ladron;
 import main.java.personajes.Mago;
 import main.java.personajes.Personaje;
 import main.java.sistema.Combate;
@@ -13,9 +14,12 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
+
+        final String path = "C:\\Users\\Hp\\Desktop\\DAM\\PROGRAMACION\\PRACTICAS\\ProyectoProgramacion\\Ficheros\\registro_combates\\";
         /*
         HashMap<String, Integer> estadisticas = new HashMap<>();
         estadisticas.put("ataque", 54);
@@ -66,9 +70,13 @@ public class Main {
 
         /*
         Combate combate = new Combate();
+
         System.out.println(combate.getArmas());
-        System.out.println(combate.getArmaduras());
-        System.out.println(combate.getArtefactos());
+
+
+        Guerrero guerrero = new Guerrero();
+        guerrero.setArmaComplementaria(combate.generarArma());
+        System.out.println(combate.getArmas());
 
          */
 
@@ -78,6 +86,9 @@ public class Main {
         ArrayList<String> armaduras = new ArrayList<>();
         ArrayList<String> artefactos = new ArrayList<>();
 
+         */
+
+        /*
         String[] ficheros = {"armas.csv","armadura.csv","artefactos.csv"};
         try {
             for(int i = 0; i < ficheros.length; i++){
@@ -100,7 +111,21 @@ public class Main {
         }catch (IOException ioe){
             throw new RuntimeException(ioe);
         }
+        Random random = new Random();
+        String[] arma = armas.get(random.nextInt(armas.size())).toLowerCase().split(",");
+        for(int i = 0; i < arma.length; i++){
+            System.out.println(arma[i]);
+        }
 
          */
+
+        Guerrero manolo = new Guerrero("Manolo el Grande", "Orco");
+        Ladron maicelo = new Ladron("Maicelo el Caprichoso", "Humano");
+
+        for(int i = 0; i < 5; i++){
+            manolo.subirNivel();
+            maicelo.subirNivel();
+        }
+        Combate.iniciarCombate(manolo,maicelo);
     }
 }

@@ -25,12 +25,13 @@ public class Artefacto extends Equipamiento {
     }
 
     public void setTipo(String tipo) {
-        if (tipo.toLowerCase().equals("anillo")) {
+        if (tipo.toLowerCase().trim().equals("anillo")) {
             this.tipo = tipo;
-        } else if (tipo.toLowerCase().equals("amuleto")) {
+        } else if (tipo.toLowerCase().trim().equals("amuleto")) {
             this.tipo = tipo;
         }  else {
-            System.err.println("El artefacto solo puede ser un anillo o amuleto.");
+            System.err.println("El artefacto solo puede ser un anillo o un amuleto.");
+            this.tipo = "";
         }
     }
 

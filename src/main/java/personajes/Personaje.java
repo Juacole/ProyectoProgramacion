@@ -128,9 +128,10 @@ public abstract class Personaje {
         this.armadura.put("grebas", null);
         this.armadura.put("botas", null);
         setArmadura(equipamiento);
+        this.artefactos = new ArrayList<>();
     }
 
-    public Personaje(String nombre, String raza, ArrayList<Artefacto> artefactos) {
+    public Personaje(String nombre, String raza, Artefacto artefacto) {
         setNombre(nombre);
         razaElegida(raza);
         this.nivel = 1;
@@ -148,7 +149,8 @@ public abstract class Personaje {
         this.armadura.put("guanteletes", null);
         this.armadura.put("grebas", null);
         this.armadura.put("botas", null);
-        setArtefactos(artefactos);
+        this.artefactos = new ArrayList<>();
+        setArtefacto(artefacto);
     }
 
 
@@ -171,9 +173,10 @@ public abstract class Personaje {
         this.armadura.put("grebas", null);
         this.armadura.put("botas", null);
         setArmadura(armadura);
+        this.artefactos = new ArrayList<>();
     }
 
-    public Personaje(String nombre, String raza, Armadura equipamiento, ArrayList<Artefacto> artefactos) {
+    public Personaje(String nombre, String raza, Armadura equipamiento, Artefacto artefacto) {
         setNombre(nombre);
         razaElegida(raza);
         this.nivel = 1;
@@ -192,10 +195,11 @@ public abstract class Personaje {
         this.armadura.put("grebas", null);
         this.armadura.put("botas", null);
         setArmadura(equipamiento);
-        setArtefactos(artefactos);
+        this.artefactos = new ArrayList<>();
+        setArtefacto(artefacto);
     }
 
-    public Personaje(String nombre, String raza, Arma arma, ArrayList<Artefacto> artefactos) {
+    public Personaje(String nombre, String raza, Arma arma, Artefacto artefacto) {
         setNombre(nombre);
         razaElegida(raza);
         this.nivel = 1;
@@ -213,10 +217,11 @@ public abstract class Personaje {
         this.armadura.put("guanteletes", null);
         this.armadura.put("grebas", null);
         this.armadura.put("botas", null);
-        setArtefactos(artefactos);
+        this.artefactos = new ArrayList<>();
+        setArtefacto(artefacto);
     }
 
-    public Personaje(String nombre, String raza, Arma arma, Armadura equipamiento, ArrayList<Artefacto> artefactos) {
+    public Personaje(String nombre, String raza, Arma arma, Armadura equipamiento, Artefacto artefacto) {
         setNombre(nombre);
         razaElegida(raza);
         this.nivel = 1;
@@ -235,7 +240,8 @@ public abstract class Personaje {
         this.armadura.put("grebas", null);
         this.armadura.put("botas", null);
         setArmadura(equipamiento);
-        setArtefactos(artefactos);
+        this.artefactos = new ArrayList<>();
+        setArtefacto(artefacto);
     }
 
     /**
@@ -254,8 +260,11 @@ public abstract class Personaje {
         setPuntos_armadura(copia.getPuntos_armadura());
         setResistencia_magica(copia.getResistencia_magica());
         setEstado(copia.isEstado());
+        this.arma = new Arma();
         setArma(copia.getArma());
+        this.armadura = new HashMap<>();
         setArmadura(copia.getArmadura());
+        this.artefactos = new ArrayList<>();
         setArtefactos(copia.getArtefactos());
     }
 
@@ -572,7 +581,6 @@ public abstract class Personaje {
     }
 
     public void setArtefactos(ArrayList<Artefacto> artefactos) {
-        int contador = 0;
         for(Artefacto artefacto : artefactos){
             if(tieneExactamenteUnAmuleto(artefactos)){
                 this.artefactos.add(artefacto);
@@ -634,30 +642,101 @@ public abstract class Personaje {
      * @return puntos de ataque del personaje.
      */
     public int luchar() {
-        return getPuntos_ataque();
+        return getPuntos_ataque() + danioArma() + danioArtefacto();
+    }
+
+    private int danioArma(){
+        int danioArma = 0;
+        if(getArma().getEstadistica().get("ataque") > 0){
+            danioArma = getArma().getEstadistica().get("ataque");
+        }
+        return danioArma;
+    }
+
+    private int danioArtefacto(){
+        int danioArtefacto = 0;
+        for(Artefacto art : getArtefactos()){
+            if(art.getEstadistica().get("ataque") > 0 && art.getEstadistica().get("ataque") != null){
+                danioArtefacto += art.getEstadistica().get("ataque");
+            }
+        }
+        return danioArtefacto;
     }
 
     /**
      * Realiza una accion de defensa basada en el tipo de ataque recibido.
      *
-     * @param tipoDefensa tipo de ataque recibido, 1 para fisico y 2 para magico.
-     * @param personaje   nombre del personaje que se defiende.
+     * @param danio daño que recibe el personaje al intentar defenderse.
      */
-    public void defender(int tipoDefensa, String personaje) {
-        switch (tipoDefensa) {
-            case 1:
-                this.puntos_vida -= (this.puntos_armadura - tipoDefensa);
-                break;
+    public void defender(int danio) {
+        int danioFinal = Math.max(danio - (proteccionArmadura() + armaduraArtefacto()), 0);
+        this.puntos_vida = Math.max(this.puntos_vida - danioFinal, 0);
+    }
 
-            case 2:
-                this.puntos_vida -= (this.resistencia_magica - tipoDefensa);
-                break;
-
-            default:
-                System.out.println(
-                        "Asegure de elegir entre los siguientes tipos de ataque: \n-1 para fisico \n-2 para magico");
-                break;
+    private int proteccionArmadura(){
+        int proteccion_total_armadura = 0;
+        for(String key : getArmadura().keySet()){
+            if(getArmadura().get(key) != null){
+                Armadura armadura = new Armadura(getArmadura().get(key));
+                proteccion_total_armadura += armadura.getEstadistica().get("armadura");
+            }
         }
+        return proteccion_total_armadura;
+    }
+
+    private int vidaArmadura(){
+        int vida_total_armadura = 0;
+        for(String key : getArmadura().keySet()){
+            if(getArmadura().get(key) != null){
+                Armadura armadura = new Armadura(getArmadura().get(key));
+                vida_total_armadura += armadura.getEstadistica().get("vida");
+            }
+        }
+        return vida_total_armadura;
+    }
+
+    private int proteccionMagicaArmadura(){
+        int proteccion_magica_total_armadura = 0;
+        for(String key : getArmadura().keySet()){
+            if(getArmadura().get(key) != null){
+                Armadura armadura = new Armadura(getArmadura().get(key));
+                proteccion_magica_total_armadura += armadura.getEstadistica().get("resistencia_magica");
+            }
+        }
+        return proteccion_magica_total_armadura;
+    }
+
+    private int armaduraArtefacto(){
+        int proteccion_total_artefacto = 0;
+        for(Artefacto art : getArtefactos()){
+           if(art != null){
+               Artefacto artefacto = new Artefacto(art);
+               proteccion_total_artefacto += artefacto.getEstadistica().get("armadura");
+           }
+        }
+        return proteccion_total_artefacto;
+    }
+
+    private int velocidadArtefacto(){
+        int velocidad_total_artefacto = 0;
+        for(Artefacto art : getArtefactos()){
+            if(art != null){
+                Artefacto artefacto = new Artefacto(art);
+                velocidad_total_artefacto += artefacto.getEstadistica().get("velocidad");
+            }
+        }
+        return velocidad_total_artefacto;
+    }
+
+    private int resistenciaMagicaArtefacto(){
+        int resistencia_magica_total_artefacto = 0;
+        for(Artefacto art : getArtefactos()){
+            if(art != null){
+                Artefacto artefacto = new Artefacto(art);
+                resistencia_magica_total_artefacto += artefacto.getEstadistica().get("resistencia_magica");
+            }
+        }
+        return resistencia_magica_total_artefacto;
     }
 
     /**

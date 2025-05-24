@@ -45,8 +45,8 @@ public class Paladin extends Creyente{
         setArmadura(equipamiento);
     }
 
-    public Paladin(String nombre, String raza, ArrayList<Artefacto> artefactos) {
-        super(nombre, raza, artefactos);
+    public Paladin(String nombre, String raza, Artefacto artefacto) {
+        super(nombre, raza, artefacto);
     }
 
     public Paladin(String nombre, String raza, Arma arma, Armadura equipamiento) {
@@ -55,18 +55,18 @@ public class Paladin extends Creyente{
         setArmadura(equipamiento);
     }
 
-    public Paladin(String nombre, String raza, Arma arma, ArrayList<Artefacto> artefactos) {
-        super(nombre, raza, artefactos);
+    public Paladin(String nombre, String raza, Arma arma, Artefacto artefacto) {
+        super(nombre, raza, artefacto);
         setArma(arma);
     }
 
-    public Paladin(String nombre, String raza, Armadura equipamiento, ArrayList<Artefacto> artefactos) {
-        super(nombre, raza, artefactos);
+    public Paladin(String nombre, String raza, Armadura equipamiento, Artefacto artefacto) {
+        super(nombre, raza, artefacto);
         setArmadura(equipamiento);
     }
 
-    public Paladin(String nombre, String raza, Arma arma, Armadura equipamiento, ArrayList<Artefacto> artefactos) {
-        super(nombre, raza, artefactos);
+    public Paladin(String nombre, String raza, Arma arma, Armadura equipamiento, Artefacto artefacto) {
+        super(nombre, raza, artefacto);
         setArma(arma);
         setArmadura(equipamiento);
     }

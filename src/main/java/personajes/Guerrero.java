@@ -60,8 +60,8 @@ public class Guerrero extends Personaje{
         this.armaComplementaria = new Arma();
     }
 
-    public Guerrero(String nombre, String raza, ArrayList<Artefacto> artefactos){
-        super(nombre, raza, artefactos);
+    public Guerrero(String nombre, String raza, Artefacto artefacto){
+        super(nombre, raza, artefacto);
         this.furia = false;
         this.armaComplementaria = new Arma();
     }
@@ -73,21 +73,21 @@ public class Guerrero extends Personaje{
         this.armaComplementaria = new Arma();
     }
 
-    public Guerrero(String nombre, String raza, Arma arma, ArrayList<Artefacto> artefactos){
-        super(nombre, raza, arma, artefactos);
+    public Guerrero(String nombre, String raza, Arma arma, Artefacto artefacto){
+        super(nombre, raza, arma, artefacto);
         this.furia = false;
         this.armaComplementaria = new Arma();
     }
 
-    public Guerrero(String nombre, String raza, Armadura equipamiento, ArrayList<Artefacto> artefactos){
-        super(nombre, raza, artefactos);
+    public Guerrero(String nombre, String raza, Armadura equipamiento, Artefacto artefacto){
+        super(nombre, raza, artefacto);
         setArmadura(equipamiento);
         this.furia = false;
         this.armaComplementaria = new Arma();
     }
 
-    public Guerrero(String nombre, String raza, Arma arma, Armadura equipamiento, ArrayList<Artefacto> artefactos){
-        super(nombre, raza, arma, artefactos);
+    public Guerrero(String nombre, String raza, Arma arma, Armadura equipamiento, Artefacto artefacto){
+        super(nombre, raza, arma, artefacto);
         setArmadura(equipamiento);
         this.furia = false;
         this.armaComplementaria = new Arma();

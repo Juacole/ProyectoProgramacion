@@ -41,8 +41,8 @@ public abstract class Creyente extends Personaje {
         this.fe = 10;
     }
 
-    public Creyente(String nombre, String raza, ArrayList<Artefacto> artefactos) {
-        super(nombre, raza, artefactos);
+    public Creyente(String nombre, String raza, Artefacto artefacto) {
+        super(nombre, raza, artefacto);
         this.fe = 10;
     }
 
@@ -51,18 +51,18 @@ public abstract class Creyente extends Personaje {
         this.fe = 10;
     }
 
-    public Creyente(String nombre, String raza, Arma arma, ArrayList<Artefacto> artefactos) {
-        super(nombre, raza, arma, artefactos);
+    public Creyente(String nombre, String raza, Arma arma, Artefacto artefacto) {
+        super(nombre, raza, arma, artefacto);
         this.fe = 10;
     }
 
-    public Creyente(String nombre, String raza, Armadura equipamiento, ArrayList<Artefacto> artefactos) {
-        super(nombre, raza, equipamiento, artefactos);
+    public Creyente(String nombre, String raza, Armadura equipamiento, Artefacto artefacto) {
+        super(nombre, raza, equipamiento, artefacto);
         this.fe = 10;
     }
 
-    public Creyente(String nombre, String raza, Arma arma, Armadura equipamiento, ArrayList<Artefacto> artefactos) {
-        super(nombre, raza, arma, equipamiento, artefactos);
+    public Creyente(String nombre, String raza, Arma arma, Armadura equipamiento, Artefacto artefacto) {
+        super(nombre, raza, arma, equipamiento, artefacto);
         this.fe = 10;
     }
 

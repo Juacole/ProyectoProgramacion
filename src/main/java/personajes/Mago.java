@@ -56,8 +56,8 @@ public class Mago extends Personaje{
         setPuntos_magia(puntos_magia);
     }
 
-    public Mago(String nombre, String raza, ArrayList<Artefacto> artefactos, int puntos_magia){
-        super(nombre, raza, artefactos);
+    public Mago(String nombre, String raza, Artefacto artefacto, int puntos_magia){
+        super(nombre, raza, artefacto);
         setPuntos_magia(puntos_magia);
     }
 
@@ -68,20 +68,20 @@ public class Mago extends Personaje{
         setPuntos_magia(puntos_magia);
     }
 
-    public Mago(String nombre, String raza, Arma arma, ArrayList<Artefacto> artefactos, int puntos_magia){
-        super(nombre, raza, arma, artefactos);
+    public Mago(String nombre, String raza, Arma arma, Artefacto artefacto, int puntos_magia){
+        super(nombre, raza, arma, artefacto);
         setArma(arma);
         setPuntos_magia(puntos_magia);
     }
 
-    public Mago(String nombre, String raza, Armadura equipamiento, ArrayList<Artefacto> artefactos, int puntos_magia){
-        super(nombre, raza, artefactos);
+    public Mago(String nombre, String raza, Armadura equipamiento, Artefacto artefacto, int puntos_magia){
+        super(nombre, raza, artefacto);
         setArmadura(equipamiento);
         setPuntos_magia(puntos_magia);
     }
 
-    public Mago(String nombre, String raza, Arma arma, Armadura equipamiento, ArrayList<Artefacto> artefactos, int puntos_magia){
-        super(nombre, raza, arma, artefactos);
+    public Mago(String nombre, String raza, Arma arma, Armadura equipamiento, Artefacto artefacto, int puntos_magia){
+        super(nombre, raza, arma, artefacto);
         setArma(arma);
         setArmadura(equipamiento);
         setPuntos_magia(puntos_magia);

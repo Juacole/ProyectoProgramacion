@@ -71,10 +71,6 @@ public final class Combate {
     }
 
     public static Arma generarArma(){
-        if (armas.isEmpty()) {
-            throw new IllegalStateException("No hay armas disponibles");
-        }
-
         Random random = new Random();
         int num_random = random.nextInt(armas.size());
         HashMap<String, Integer> estadisticas_totales = new HashMap<>();
@@ -99,10 +95,6 @@ public final class Combate {
     }
 
     private static Armadura generarArmadura(){
-        if (armaduras.isEmpty()) {
-            throw new IllegalStateException("No hay armaduras disponibles");
-        }
-
         Random random = new Random();
         HashMap<String, Integer> estadisticas_totales = new HashMap<>();
         int num_random = random.nextInt(armaduras.size());
@@ -129,10 +121,6 @@ public final class Combate {
     }
 
     private static Artefacto generarArtefacto(){
-        if (artefactos.isEmpty()) {
-            throw new IllegalStateException("No hay artefactos disponibles");
-        }
-
         Random random = new Random();
         HashMap<String, Integer> estadisticas_totales = new HashMap<>();
         int num_random = random.nextInt(artefactos.size());
@@ -162,15 +150,27 @@ public final class Combate {
         switch (eleccion) {
             case 0:
                 pepeGanador.setArma(generarArma());
-                System.out.println("El personaje " + pepeGanador.getNombre() + " ha sido recompensado con un arma por ganar su combate.");
+                System.out.println(
+                        "El personaje " +
+                                pepeGanador.getNombre() +
+                                " ha sido recompensado con un arma por ganar su combate."
+                );
                 break;
             case 1:
                 pepeGanador.setArmadura(generarArmadura());
-                System.out.println("El personaje " + pepeGanador.getNombre() + " ha sido recompensado con una pieza de armadura por ganar su combate.");
+                System.out.println(
+                        "El personaje " +
+                                pepeGanador.getNombre() +
+                                " ha sido recompensado con una pieza de armadura por ganar su combate."
+                );
                 break;
             case 2:
                 pepeGanador.setArtefacto(generarArtefacto());
-                System.out.println("El personaje " + pepeGanador.getNombre() + " ha sido recompensado con un artefacto por ganar su combate.");
+                System.out.println(
+                        "El personaje " +
+                                pepeGanador.getNombre() +
+                                " ha sido recompensado con un artefacto por ganar su combate."
+                );
                 break;
         }
     }
@@ -189,41 +189,40 @@ public final class Combate {
             do {
                 if (pepe1.getPuntos_velocidad() >= pepe2.getPuntos_velocidad() * 2) {
                     System.out.println(pepe1.getNombre() + " es increíblemente rápido y ataca dos veces seguidas");
-                    pepe2.setPuntos_vida(pepe2.getPuntos_vida() - (pepe1.luchar() * 2));
+                    pepe2.defender( pepe1.luchar() * 2);
                     System.out.println("---" + pepe1.getNombre() + " inflige un total de " + pepe1.luchar()*2 + " puntos de ataque---");
                     System.out.println(pepe2.getNombre() + " contraataca con todas sus fuerzas.");
-                    pepe1.setPuntos_vida(pepe1.getPuntos_vida() - pepe2.luchar());
+                    pepe1.defender(pepe2.luchar());
                     System.out.println("---" + pepe2.getNombre() + " inflige un total de " + pepe2.luchar() + " puntos de ataque---");
 
                 } else if (pepe2.getPuntos_velocidad() >= pepe1.getPuntos_velocidad() * 2) {
                     System.out.println(pepe2.getNombre() + " aprovecha su agilidad y ataca dos veces seguidas");
-                    pepe1.setPuntos_vida(pepe1.getPuntos_vida() - (pepe2.luchar() * 2));
+                    pepe1.defender(pepe2.luchar() * 2);
                     System.out.println("---" + pepe2.getNombre() + " inflige un total de " + pepe2.luchar()*2 + " puntos de ataque---");
                     System.out.println(pepe1.getNombre() + " responde con un feroz contraataque.");
-                    pepe2.setPuntos_vida(pepe2.getPuntos_vida() - pepe1.luchar());
+                    pepe2.defender(pepe1.luchar());
                     System.out.println("---" + pepe1.getNombre() + " inflige un total de " + pepe1.luchar() + " puntos de ataque---");
 
                 } else if (pepe1.getPuntos_velocidad() > pepe2.getPuntos_velocidad()) {
                     System.out.println(pepe1.getNombre() + " es más rápido y ataca primero!");
-                    pepe2.setPuntos_vida(pepe2.getPuntos_vida() - pepe1.luchar());
+                    pepe2.defender(pepe1.luchar());
                     System.out.println("---" + pepe1.getNombre() + " inflige un total de " + pepe1.luchar() + " puntos de ataque---");
                     System.out.println(pepe1.getNombre() + " golpea a " + pepe2.getNombre() + " con precisión, pero " + pepe2.getNombre() + " responde con un fuerte golpe.");
-                    pepe1.setPuntos_vida(pepe1.getPuntos_vida() - pepe2.luchar());
+                    pepe1.defender(pepe2.luchar());
                     System.out.println("---" + pepe2.getNombre() + " inflige un total de " + pepe2.luchar() + " puntos de ataque---");
 
                 } else {
                     System.out.println(pepe2.getNombre() + " es más rápido y ataca primero!");
-                    pepe1.setPuntos_vida(pepe1.getPuntos_vida() - pepe2.luchar());
+                    pepe1.defender(pepe2.luchar());
                     System.out.println("---" + pepe2.getNombre() + " inflige un total de " + pepe2.luchar() + " puntos de ataque---");
                     System.out.println(pepe2.getNombre() + " ataca sin dudarlo, pero " + pepe1.getNombre() + " contraataca con furia.");
-                    pepe2.setPuntos_vida(pepe2.getPuntos_vida() - pepe1.luchar());
+                    pepe2.defender(pepe1.luchar());
                     System.out.println("---" + pepe1.getNombre() + " inflige un total de " + pepe1.luchar() + " puntos de ataque---");
                 }
                 System.out.println("\nVida de " + pepe1.getNombre() + ": " + pepe1.getPuntos_vida());
                 System.out.println("Vida de " + pepe2.getNombre() + ": " + pepe2.getPuntos_vida() + "\n");
 
             } while (pepe1.getPuntos_vida() > 0 && pepe2.getPuntos_vida() > 0);
-
             recuperarEquipamientos();
             generarArma();
             generarArmadura();
@@ -240,7 +239,167 @@ public final class Combate {
         }
     }
 
-    public static void presentacionCombate(Personaje pepe1, Personaje pepe2){
+    public static void combateGrupo(ArrayList<Personaje> grupo1, ArrayList<Personaje> grupo2) {
+        int totalRecompensas1 = grupo1.size();
+        int totalRecompensas2 = grupo2.size();
+
+        ArrayList<Personaje> grupo1Ordenado = new ArrayList<>(ordenarPorNivel(grupo1));
+        ArrayList<Personaje> grupo2Ordenado = new ArrayList<>(ordenarPorNivel(grupo2));
+
+        int i = 0;
+        int j = 0;
+
+        System.out.println("=== COMIENZA EL COMBATE ===");
+        System.out.println("Equipo 1 (" + grupo1.size() + " miembros) vs Equipo 2 (" + grupo2.size() + " miembros)");
+        System.out.println("---------------------------");
+
+        while (i < grupo1Ordenado.size() && j < grupo2Ordenado.size()) {
+            Personaje p1 = grupo1Ordenado.get(i);
+            Personaje p2 = grupo2Ordenado.get(j);
+
+            boolean p1Valido = grupo1.contains(p1);
+            boolean p2Valido = grupo2.contains(p2);
+
+            if (!p1Valido) {
+                i++;
+            }
+            else if (!p2Valido) {
+                j++;
+            }
+            else {
+                System.out.println("\nNUEVO COMBATE:");
+                System.out.println(p1.getNombre() + " (Nivel " + p1.getNivel() + ") vs " +
+                        p2.getNombre() + " (Nivel " + p2.getNivel() + ")");
+
+                if (p1.getPuntos_vida() > 0 && p2.getPuntos_vida() > 0) {
+                    System.out.println("Vida inicial: " + p1.getNombre() + " (" + p1.getPuntos_vida() + " HP) - " +
+                            p2.getNombre() + " (" + p2.getPuntos_vida() + " HP)");
+
+                    boolean combateEnCurso = true;
+                    int round = 1;
+
+                    while (combateEnCurso) {
+                        System.out.println("\nRound " + round + ":");
+
+                        p2.defender(p1.luchar());
+                        System.out.println(p1.getNombre() + " ataca a " + p2.getNombre() +
+                                " causando daño. Vida restante: " + p2.getPuntos_vida() + " HP");
+
+                        if (p2.getPuntos_vida() <= 0) {
+                            System.out.println("\n¡" + p2.getNombre() + " ha sido derrotado!");
+                            grupo2.remove(p2);
+                            combateEnCurso = false;
+                            j++;
+                        }
+                        else {
+                            p1.defender(p2.luchar());
+                            System.out.println(p2.getNombre() + " contraataca a " + p1.getNombre() +
+                                    " causando daño. Vida restante: " + p1.getPuntos_vida() + " HP");
+
+                            if (p1.getPuntos_vida() <= 0) {
+                                System.out.println("\n¡" + p1.getNombre() + " ha sido derrotado!");
+                                grupo1.remove(p1);
+                                combateEnCurso = false;
+                                i++;
+                            }
+                        }
+                        round++;
+                    }
+                }
+                else {
+                    System.out.println("¡Uno de los combatientes ya está derrotado! Combate cancelado.");
+                    if (p1.getPuntos_vida() <= 0) {
+                        grupo1.remove(p1);
+                        i++;
+                    }
+                    if (p2.getPuntos_vida() <= 0) {
+                        grupo2.remove(p2);
+                        j++;
+                    }
+                }
+
+                System.out.println("\nEstado actual:");
+                System.out.println("Equipo 1: " + grupo1.size() + " miembros restantes");
+                System.out.println("Equipo 2: " + grupo2.size() + " miembros restantes");
+                System.out.println("---------------------------");
+            }
+        }
+        System.out.println("\n=== RESULTADO FINAL ===");
+        if (grupo1.isEmpty() && grupo2.isEmpty()) {
+            System.out.println("¡Empate! Todos los combatientes han caído");
+        }
+        else if (grupo1.isEmpty()) {
+            System.out.println("¡El Equipo 2 es el vencedor!");
+            repartirRecompensasGrupo(grupo2, totalRecompensas1);
+        }
+        else {
+            System.out.println("¡El Equipo 1 es el vencedor!");
+            repartirRecompensasGrupo(grupo1, totalRecompensas2);
+        }
+    }
+
+    private static void repartirRecompensasGrupo(ArrayList<Personaje> grupoGanador, int cantidadRecompensas) {
+        recuperarEquipamientos();
+        System.out.println("\n=== REPARTO DE RECOMPENSAS ===");
+        System.out.println("El grupo ganador recibirá " + cantidadRecompensas + " piezas de equipamiento.");
+
+        ArrayList<Equipamiento> recompensas = new ArrayList<>();
+        Random random = new Random();
+
+        for (int i = 0; i < cantidadRecompensas; i++) {
+            int tipo = random.nextInt(3);
+
+            switch (tipo) {
+                case 0:
+                    recompensas.add(generarArma());
+                    break;
+                case 1:
+                    recompensas.add(generarArmadura());
+                    break;
+                case 2:
+                    recompensas.add(generarArtefacto());
+                    break;
+            }
+        }
+
+        for (Equipamiento recompensa : recompensas) {
+            int indice = random.nextInt(grupoGanador.size());
+            Personaje ganador = grupoGanador.get(indice);
+
+            //Segui el modelo de diablo, si el objeto te queda, bien, si no te queda pues mala suerte
+            if (recompensa instanceof Arma) {
+                ganador.setArma((Arma) recompensa);
+                System.out.println(ganador.getNombre() + " ha recibido el arma: " + recompensa.getNombre());
+            } else if (recompensa instanceof Armadura) {
+                ganador.setArmadura((Armadura) recompensa);
+                System.out.println(ganador.getNombre() + " ha recibido la armadura: " + recompensa.getNombre());
+            } else if (recompensa instanceof Artefacto) {
+                ganador.setArtefacto((Artefacto) recompensa);
+                System.out.println(ganador.getNombre() + " ha recibido el artefacto: " + recompensa.getNombre());
+            }
+        }
+
+        System.out.println("FIN DEL REPARTO\n");
+    }
+
+    private static ArrayList<Personaje> ordenarPorNivel(ArrayList<Personaje> grupo){
+        ArrayList<Personaje> listaOrdenada = new ArrayList<>(grupo);
+        Personaje temp;
+
+        for (int i = 0; i < grupo.size() - 1; i++) {
+            for (int j = 0; j < grupo.size() - i - 1; j++) {
+                if (listaOrdenada.get(j).getNivel() < listaOrdenada.get(j + 1).getNivel()) {
+                    temp = listaOrdenada.get(j);
+                    listaOrdenada.set(j, listaOrdenada.get(j + 1));
+                    listaOrdenada.set(j + 1, temp);
+                }
+            }
+        }
+
+        return listaOrdenada;
+    }
+
+    private static void presentacionCombate(Personaje pepe1, Personaje pepe2){
         System.out.println("\nEn un mundo donde solo los más fuertes sobreviven...");
         System.out.println("Dos guerreros se encuentran en un campo de batalla marcado por antiguas luchas.");
         System.out.println(pepe1.getNombre() + ", un valeroso " + pepe1.getRaza() + ", afila su arma mientras observa a su oponente.");

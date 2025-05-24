@@ -57,8 +57,8 @@ public class Cazador extends Personaje{
         this.companieroAnimal = new CompanieroAnimal(nombreCompaniero, razaAnimal);
     }
 
-    public Cazador(String nombre, String raza, ArrayList<Artefacto> artefactos, String nombreCompaniero, String razaAnimal) {
-        super(nombre, raza, artefactos);
+    public Cazador(String nombre, String raza, Artefacto artefacto, String nombreCompaniero, String razaAnimal) {
+        super(nombre, raza, artefacto);
         this.companieroAnimal = new CompanieroAnimal(nombreCompaniero, razaAnimal);
     }
 
@@ -69,20 +69,20 @@ public class Cazador extends Personaje{
         this.companieroAnimal = new CompanieroAnimal(nombreCompaniero, razaAnimal);
     }
 
-    public Cazador(String nombre, String raza, Arma arma, ArrayList<Artefacto> artefactos, String nombreCompaniero, String razaAnimal) {
-        super(nombre, raza, artefactos);
+    public Cazador(String nombre, String raza, Arma arma, Artefacto artefacto, String nombreCompaniero, String razaAnimal) {
+        super(nombre, raza, artefacto);
         setArma(arma);
         this.companieroAnimal = new CompanieroAnimal(nombreCompaniero, razaAnimal);
     }
 
-    public Cazador(String nombre, String raza, Armadura equipamiento, ArrayList<Artefacto> artefactos, String nombreCompaniero, String razaAnimal) {
-        super(nombre, raza, artefactos);
+    public Cazador(String nombre, String raza, Armadura equipamiento, Artefacto artefacto, String nombreCompaniero, String razaAnimal) {
+        super(nombre, raza, artefacto);
         setArmadura(equipamiento);
         this.companieroAnimal = new CompanieroAnimal(nombreCompaniero, razaAnimal);
     }
 
-    public Cazador(String nombre, String raza, Arma arma, Armadura equipamiento, ArrayList<Artefacto> artefactos, String nombreCompaniero, String razaAnimal) {
-        super(nombre, raza, artefactos);
+    public Cazador(String nombre, String raza, Arma arma, Armadura equipamiento, Artefacto artefacto, String nombreCompaniero, String razaAnimal) {
+        super(nombre, raza, artefacto);
         setArma(arma);
         setArmadura(equipamiento);
         this.companieroAnimal = new CompanieroAnimal(nombreCompaniero, razaAnimal);
